@@ -11,6 +11,9 @@
   </head>
 
   <body>
+  <%= render "shared/dropdown_menu" %>
+<body data-controller="dropdown" data-action="click@window->dropdown#close">
+
     <%= yield %>
   </body>
 </html>

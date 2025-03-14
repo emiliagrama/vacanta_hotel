@@ -1,0 +1,16 @@
+<!-- Menu Button -->
+<button data-action="click->dropdown#toggle" class="menu-btn">
+  <div></div>
+  <div></div>
+  <div></div>
+</button>
+
+<!-- Menu -->
+<div data-dropdown-target="menu" class="dropdown-content">
+  <%= link_to "Home", root_path %><br>
+  <%= link_to "Pachete și Oferte", pachete_si_oferte_path %><br>
+  <%= link_to "Tratamente și Facilități", tratamente_si_facilitati_path %><br>
+  <%= link_to "Restaurant, Conferințe, Terasă", restaurant_conferinte_si_terasa_path %><br>
+  <%= link_to "Timp Liber", timp_liber_path %><br>
+  <%= link_to "Contact", contact_path %>
+</div>
