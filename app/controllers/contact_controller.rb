@@ -1,4 +1,35 @@
 class ContactController < ApplicationController
-  def index
+  def new
+    @contact = Contact.new
+  end
+
+  def create
+    @contact = Contact.new(contact_params)
+    if @contact.save
+      # Optionally send an email to the hotel:
+      ContactMailer.with(contact: @contact).new_inquiry.deliver_now
+
+      # Redirect or render a thank-you page
+      redirect_to contact_thank_you_path, notice: "Mesaj trimis cu succes!"
+    else
+      # Show the form again with error messages
+      render :new
+    end
+  end
+
+  def thank_you
+    # a simple thank-you action
+  end
+
+  private
+
+  def contact_params
+    params.require(:contact).permit(
+      :name, :phone, :email,
+      :number_of_adults, :number_of_kids,
+      :check_in_date, :check_out_date,
+      :package, :preference_for_confirmation,
+      :message, :newsletter
+    )
   end
 end

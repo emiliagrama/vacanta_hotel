@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  phone: MyString
+  email: MyString
+  number_of_adults: 1
+  number_of_kids: 1
+  check_in_date: 2025-03-20
+  check_out_date: 2025-03-20
+  package: MyString
+  preference_for_confirmation: MyString
+  message: MyText
+  newsletter: false
+
+two:
+  name: MyString
+  phone: MyString
+  email: MyString
+  number_of_adults: 1
+  number_of_kids: 1
+  check_in_date: 2025-03-20
+  check_out_date: 2025-03-20
+  package: MyString
+  preference_for_confirmation: MyString
+  message: MyText
+  newsletter: false

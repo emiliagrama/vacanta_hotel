@@ -1,86 +1,76 @@
-/* Styling for the menu button */
-.menu-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 45px;
-  height: 45px;
-  background-color: #8B0000; /* Dark red */
-  border: none;
+/* The navbar container */
+.navbar {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  background: #8B0000; /* Dark red */
+  padding: 10px 20px;
+}
+
+/* Logo text */
+.logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* The horizontal links on desktop */
+.nav-links {
+  display: flex;        /* row layout */
+  list-style: none;
+  gap: 20px;            /* spacing between links */
+  margin: 0;
+  padding: 0;
+}
+
+/* Link styles */
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+/* The hamburger button (hidden on desktop) */
+.menu-btn {
+  display: none;        /* only show on mobile */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
   cursor: pointer;
-  border-radius: 7px;
-  transition: background 0.3s ease-in-out;
 }
 
-.menu-btn:hover {
-  background-color: #a50000; /* Slightly lighter red on hover */
-}
-
-/* The three white lines */
 .menu-btn div {
-  width: 90%;
+  width: 30px;
   height: 4px;
   background-color: white;
-  border-radius: 3px;
-  transition: 0.3s;
-  margin: 5px 0;
-}
-/* Menu styles */
-.dropdown-content {
-  position: fixed;
-  top: 0;
-  right: -260px; /* Hidden off-screen by default */
-  width: 250px;
-  height: 100vh;
-  background-color: #8B0000; /* Dark red */
-  transition: right 0.3s ease-in-out;
-
-  padding: 20px;
-  pointer-events: auto; /* normal for the main menu */
-  box-sizing: border-box;
-
-
-  /* Extra style tweaks for a nicer look */
-
-  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.3); /* Subtle 3D effect */
+  border-radius: 2px;
 }
 
-.dropdown-content::before {
-  /* Invisible strip at the top that passes clicks through */
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;           /* The height you want to be clickable outside */
-  pointer-events: none;   /* This area won't capture clicks */
-}
+/* ========== MOBILE STYLES ========== */
+@media (max-width: 768px) {
+  /* Hide the horizontal menu by default */
+  .nav-links {
+    display: none;        /* hidden unless .active is added */
+    position: absolute;
+    top: 60px;            /* just below the navbar */
+    right: 20px;
+    background: #8B0000;
+    padding: 15px;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
 
+  /* Show the hamburger button on mobile */
+  .menu-btn {
+    display: flex;
+  }
 
-
-
-
-/* Style links inside the dropdown */
-.dropdown-content a {
-  display: block;
-  color: #ffffff;      /* White text */
-  text-decoration: none;
-  margin-bottom: 10px; /* Space between links */
-  font-size: 16px;     /* Adjust as desired */
-  font-family: Arial, sans-serif;
-  padding: 20px;
-}
-
-.dropdown-content a:hover {
-  color: #ffc400f8;      /* Gold on hover */
-}
-
-
-/* When the menu is active */
-.dropdown-content.active {
-  right: 0;
+  /* If .active is toggled, show the menu */
+  .nav-links.active {
+    display: flex;
+  }
 }

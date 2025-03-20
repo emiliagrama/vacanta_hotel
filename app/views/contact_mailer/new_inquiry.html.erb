@@ -1,0 +1,11 @@
+<p>Nume: <%= @contact.name %></p>
+<p>Telefon: <%= @contact.phone %></p>
+<p>Email: <%= @contact.email.presence || "N/A" %></p>
+<p>Numar Adulti: <%= @contact.number_of_adults %></p>
+<p>Numar Copii: <%= @contact.number_of_kids %></p>
+<p>Check-In: <%= @contact.check_in_date %></p>
+<p>Check-Out: <%= @contact.check_out_date %></p>
+<p>Pachet: <%= @contact.package %></p>
+<p>Confirmare prin: <%= @contact.preference_for_confirmation %></p>
+<p>Mesaj: <%= @contact.message.presence || "N/A" %></p>
+<p>Newsletter: <%= @contact.newsletter ? "DA" : "NU" %></p>

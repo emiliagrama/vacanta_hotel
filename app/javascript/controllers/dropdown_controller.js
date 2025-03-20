@@ -8,6 +8,7 @@ export default class extends Controller {
   }
 
   toggle() {
+    event.stopPropagation();
     this.menuTarget.classList.toggle("active");
   }
 
