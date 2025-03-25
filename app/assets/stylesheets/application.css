@@ -1,4 +1,20 @@
+@import "https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css";
+
+
+/* Example: Override the header background color */
+.flatpickr-calendar .flatpickr-months {
+  background-color: #8B0000; /* dark red */
+}
+
+/* Example: Change day number font */
+.flatpickr-day {
+  font-family: Arial, sans-serif;
+}
+
+
+
 /* The navbar container */
+
 .navbar {
   display: flex;
   align-items: center;

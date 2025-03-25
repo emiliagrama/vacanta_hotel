@@ -7,89 +7,94 @@ export default class extends Controller {
   connect() {
     console.log("📅 Date Picker Controller Connected!")
 
-    this.checkInCalendar = flatpickr(this.checkInTarget, {
+    const options = {
       dateFormat: "Y-m-d",
       disableMobile: true,
-      onChange: this.handleCheckInChange.bind(this),
-    })
+      minDate: "today",
+    }
 
-    this.checkOutCalendar = flatpickr(this.checkOutTarget, {
-      dateFormat: "Y-m-d",
-      disableMobile: true,
-    })
+    this.checkInCalendar = flatpickr(this.checkInTarget, options)
+    this.checkOutCalendar = flatpickr(this.checkOutTarget, options)
   }
 
   updateDatePicker() {
     const value = this.packageTarget.value
-    console.log("📦 Selected Package: ", value)
+    console.log("📦 Selected Package:", value)
 
-    // Reset calendars
     this.checkInCalendar.clear()
     this.checkOutCalendar.clear()
-    this.checkInCalendar.set("enable", [])
-    this.checkOutCalendar.set("enable", [])
 
-    if (value.includes("Mini-Vacanță de weekend")) {
-      console.log("🎯 Weekend package selected")
+    const mondayFilter = (date) => date.getDay() === 1
+    const weekendFilter = (date) => [5, 6, 0].includes(date.getDay()) // Fri/Sat/Sun
 
-      const weekendFilter = (date) => {
-        const day = date.getDay()
-        return day === 5 || day === 6 || day === 0  // Friday, Saturday, Sunday
-      }
 
-      this.checkInCalendar.set("enable", [weekendFilter])
-      this.checkOutCalendar.set("enable", [weekendFilter])
+    if (value.includes("chibzuit")) {
+      console.log("🧠 Chibzuit: only Mondays, +5 nights")
 
+      this.checkInCalendar.set("enable", [mondayFilter])
       this.checkInCalendar.set("onChange", (selectedDates) => {
         const checkIn = selectedDates[0]
         if (checkIn) {
           const checkOut = new Date(checkIn)
-          checkOut.setDate(checkOut.getDate() + 2) // Weekend = 2-night stay
+          checkOut.setDate(checkOut.getDate() + 5)
           this.checkOutCalendar.setDate(checkOut, true)
+          console.log("✅ Auto-filled chibzuit checkout:", checkOut.toISOString().slice(0, 10))
         }
       })
 
-    } else if (value.includes("Vacanță cu tratament chibzuit")) {
-      console.log("🧠 Monday only check-in + 5 day checkout");
-      const mondayFilter = (date) => date.getDay() === 1;
-      this.checkInCalendar.set("enable", [mondayFilter]);
-      this.checkOutCalendar.set("enable", []);
+    } else if (value.includes("cinstit")) {
+      console.log("💼 Cinstit: only Mondays, +10 nights")
 
-      this.checkInCalendar.config.onChange = (selectedDates) => {
-        const checkInDate = selectedDates[0];
-        if (checkInDate) {
-          const checkOutDate = new Date(checkInDate);
-          checkOutDate.setDate(checkOutDate.getDate() + 5);
-          this.checkOutCalendar.setDate(checkOutDate, true);
+      this.checkInCalendar.set("enable", [mondayFilter])
+      this.checkInCalendar.set("onChange", (selectedDates) => {
+        const checkIn = selectedDates[0]
+        if (checkIn) {
+          const checkOut = new Date(checkIn)
+          checkOut.setDate(checkOut.getDate() + 10)
+          this.checkOutCalendar.setDate(checkOut, true)
+          console.log("✅ Auto-filled cinstit checkout:", checkOut.toISOString().slice(0, 10))
         }
-      };
+      })
 
-    } else if (value.includes("Vacanță cu tratament cinstit")) {
-      console.log("📅 Monday only check-in + 10 day checkout");
-      const mondayFilter = (date) => date.getDay() === 1;
-      this.checkInCalendar.set("enable", [mondayFilter]);
-      this.checkOutCalendar.set("enable", []);
+    } else if (value.includes("weekend")) {
+      console.log("🍹 Weekend: only Fri/Sat/Sun, +2 nights")
 
-      this.checkInCalendar.config.onChange = (selectedDates) => {
-        const checkInDate = selectedDates[0];
-        if (checkInDate) {
-          const checkOutDate = new Date(checkInDate);
-          checkOutDate.setDate(checkOutDate.getDate() + 10);
-          this.checkOutCalendar.setDate(checkOutDate, true);
+      const weekendFilter = (date) => [5, 6, 0].includes(date.getDay()) // Fri, Sat, Sun
+      this.checkInCalendar.set("enable", [weekendFilter])
+      this.checkInCalendar.set("onChange", (selectedDates) => {
+        const checkIn = selectedDates[0]
+        if (checkIn) {
+          const checkOut = new Date(checkIn)
+          checkOut.setDate(checkOut.getDate() + 2)
+          this.checkOutCalendar.setDate(checkOut, true)
+          console.log("✅ Auto-filled weekend checkout:", checkOut.toISOString().slice(0, 10))
         }
-      };
+      })
 
+    } else if (value.includes("vrei tu")) {
+      console.log("🌈 No restrictions (vacanța așa cum vrei tu)")
 
+      // Destroy and fully reset both calendars
+      this.checkInCalendar.destroy()
+      this.checkOutCalendar.destroy()
 
-    } else if (value.includes("Vacanța, așa cum vrei tu")) {
-      console.log("🎉 All dates allowed");
-      this.checkInCalendar.set("enable", undefined);  // allow all
-      this.checkOutCalendar.set("enable", undefined); // allow all
+      const options = {
+        dateFormat: "Y-m-d",
+        disableMobile: true,
+        minDate: "today"
+      }
+
+      // Recreate clean calendars with no filters
+      this.checkInCalendar = flatpickr(this.checkInTarget, {
+        ...options,
+        onChange: () => {} // clean callback
+      })
+
+      this.checkOutCalendar = flatpickr(this.checkOutTarget, {
+        ...options
+      })
     }
 
-  }
 
-  handleCheckInChange(selectedDates) {
-    // Placeholder — overwritten depending on selected package
   }
 }

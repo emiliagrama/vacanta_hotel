@@ -1,6 +1,6 @@
 <h1>Formular Contact</h1>
 
-<%= form_with model: @contact, url: contact_path, method: :post do |f| %>
+<%= form_with model: @contact, url: contact_path, method: :post, data: { turbo: false } do |f| %>
   <!-- Nume (Required) -->
   <div>
     <%= f.label :name, "Nume" %>
@@ -32,23 +32,22 @@
   </div>
 
 <!-- Tip de pachet (Required) -->
-  <div>
-    <%= f.label :package, "Tip Pachet" %>
-    <%= f.select :package, ["Vacanța cu Tratament Chibzuit", "Vacanța cu Tratament Cinstit", "Mini-Vacanța de Weekend", "Vacanța, așa cum vrei tu"],
-                 { prompt: "Alege un pachet" },
-                 required: true %>
-  </div>
+<div data-controller="date-picker">
+  <%= f.label :package, "Tip Pachet" %>
+  <%= f.select :package,
+    ["Vacanță cu tratament chibzuit", "Vacanță cu tratament cinstit", "Mini-Vacanță de weekend", "Vacanța, așa cum vrei tu"],
+    { prompt: "Alege un pachet" },
+    { data: { action: "change->date-picker#updateDatePicker", date_picker_target: "package" } } %>
 
-  <!-- Date Check-In / Check-Out (Required) -->
-  <div>
-    <%= f.label :check_in_date, "Data Check-In" %>
-    <%= f.date_field :check_in_date, required: true %>
-  </div>
+  <%= f.label :check_in_date, "Data Check-In" %>
+  <%= f.text_field :check_in_date, data: { date_picker_target: "checkIn" } %>
 
-  <div>
-    <%= f.label :check_out_date, "Data Check-Out" %>
-    <%= f.date_field :check_out_date, required: true %>
-  </div>
+  <%= f.label :check_out_date, "Data Check-Out" %>
+  <%= f.text_field :check_out_date, data: { date_picker_target: "checkOut" } %>
+</div>
+
+
+
 
   <!-- Preferinta pentru confirmare (Required) -->
   <div>
