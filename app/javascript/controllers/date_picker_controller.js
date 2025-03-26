@@ -19,6 +19,8 @@ export default class extends Controller {
 
   updateDatePicker() {
     const value = this.packageTarget.value
+    this.checkOutTarget.readOnly = true // Lock it by default
+    this.checkOutCalendar.set("clickOpens", false)
     console.log("📦 Selected Package:", value)
 
     this.checkInCalendar.clear()
@@ -38,6 +40,8 @@ export default class extends Controller {
           const checkOut = new Date(checkIn)
           checkOut.setDate(checkOut.getDate() + 5)
           this.checkOutCalendar.setDate(checkOut, true)
+          this.checkOutTarget.readOnly = true
+          this.checkOutCalendar.set("clickOpens", false)
           console.log("✅ Auto-filled chibzuit checkout:", checkOut.toISOString().slice(0, 10))
         }
       })
@@ -52,6 +56,8 @@ export default class extends Controller {
           const checkOut = new Date(checkIn)
           checkOut.setDate(checkOut.getDate() + 10)
           this.checkOutCalendar.setDate(checkOut, true)
+          this.checkOutTarget.readOnly = true
+          this.checkOutCalendar.set("clickOpens", false)
           console.log("✅ Auto-filled cinstit checkout:", checkOut.toISOString().slice(0, 10))
         }
       })
@@ -59,7 +65,7 @@ export default class extends Controller {
     } else if (value.includes("weekend")) {
       console.log("🍹 Weekend: only Fri/Sat/Sun, +2 nights")
 
-      const weekendFilter = (date) => [5, 6, 0].includes(date.getDay()) // Fri, Sat, Sun
+      const weekendFilter = (date) => [5].includes(date.getDay()) // Fri
       this.checkInCalendar.set("enable", [weekendFilter])
       this.checkInCalendar.set("onChange", (selectedDates) => {
         const checkIn = selectedDates[0]
@@ -67,14 +73,19 @@ export default class extends Controller {
           const checkOut = new Date(checkIn)
           checkOut.setDate(checkOut.getDate() + 2)
           this.checkOutCalendar.setDate(checkOut, true)
+          this.checkOutTarget.readOnly = true
+          this.checkOutCalendar.set("clickOpens", false)
           console.log("✅ Auto-filled weekend checkout:", checkOut.toISOString().slice(0, 10))
+
         }
       })
 
     } else if (value.includes("vrei tu")) {
       console.log("🌈 No restrictions (vacanța așa cum vrei tu)")
 
-      // Destroy and fully reset both calendars
+      this.checkOutTarget.readOnly = false // allow manual input
+      this.checkOutCalendar.set("clickOpens", true)
+
       this.checkInCalendar.destroy()
       this.checkOutCalendar.destroy()
 
@@ -84,10 +95,16 @@ export default class extends Controller {
         minDate: "today"
       }
 
-      // Recreate clean calendars with no filters
       this.checkInCalendar = flatpickr(this.checkInTarget, {
         ...options,
-        onChange: () => {} // clean callback
+        onChange: (selectedDates) => {
+          const checkIn = selectedDates[0]
+          if (checkIn) {
+            const nextDay = new Date(checkIn)
+            nextDay.setDate(checkIn.getDate() + 1)
+            this.checkOutCalendar.set("minDate", nextDay)
+          }
+        }
       })
 
       this.checkOutCalendar = flatpickr(this.checkOutTarget, {

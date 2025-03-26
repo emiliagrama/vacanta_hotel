@@ -43,10 +43,8 @@
   <%= f.text_field :check_in_date, data: { date_picker_target: "checkIn" } %>
 
   <%= f.label :check_out_date, "Data Check-Out" %>
-  <%= f.text_field :check_out_date, data: { date_picker_target: "checkOut" } %>
+<%= f.text_field :check_out_date, data: { date_picker_target: "checkOut" }, id: "checkout-field" %>
 </div>
-
-
 
 
   <!-- Preferinta pentru confirmare (Required) -->

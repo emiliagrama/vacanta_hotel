@@ -89,4 +89,14 @@
   .nav-links.active {
     display: flex;
   }
+
+  input[readonly] {
+    background-color: #eeeeee83;
+    cursor: not-allowed;
+  }
+
+
+
+
+
 }
