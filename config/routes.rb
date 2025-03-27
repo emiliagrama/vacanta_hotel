@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'newsletters/create'
   get 'despre/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -19,4 +20,5 @@ Rails.application.routes.draw do
   get "contact",          to: "contact#new",     as: :contact
   post "contact",         to: "contact#create"
   get "contact/thank_you",to: "contact#thank_you", as: :contact_thank_you
+  resources :newsletters, only: [:create]
 end

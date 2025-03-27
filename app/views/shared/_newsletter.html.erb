@@ -1,0 +1,12 @@
+<div data-controller="newsletter">
+  <%= form_with url: newsletters_path, method: :post, data: { controller: "newsletter" }, html: { id: "newsletter-form" } do |f| %>
+    <div id="newsletter-fields">
+      <%= f.email_field :email, placeholder: "Adresa ta de email", required: true, class: "newsletter-input" %>
+      <%= f.submit "Ține-mă la curent", class: "newsletter-button" %>
+    </div>
+  <% end %>
+
+  <p data-newsletter-target="successMessage" class="hidden" style="color: green; margin-top: 10px;">
+    ✅ Mesaj transmis! Vei primi vești bune, fără spam.
+  </p>
+</div>
