@@ -11,10 +11,7 @@
   font-family: Arial, sans-serif;
 }
 
-
-
 /* The navbar container */
-
 .navbar {
   display: flex;
   align-items: center;
@@ -65,6 +62,135 @@
   border-radius: 2px;
 }
 
+/* ===== FORM WRAPPER ===== */
+form {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  font-family: Arial, sans-serif;
+}
+
+/* ===== FORM GROUPS ===== */
+form div {
+  margin-bottom: 1.5rem;
+}
+select {
+  appearance: none; /* removes native arrow in some browsers */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.6rem;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+/* Remove the default blue border on focus */
+select:focus {
+  outline: none;
+  border-color: #800000;
+  box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.2); /* subtle red glow */
+}
+
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* ===== INPUTS ===== */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.2s ease;
+  font-family: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #8B0000;
+  outline: none;
+}
+
+/* ===== CHECKBOX ===== */
+input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+/* ===== READ-ONLY FIELDS ===== */
+input[readonly] {
+  background-color: #eeeeee83;
+  cursor: not-allowed;
+}
+
+/* ===== SUBMIT BUTTON ===== */
+input[type="submit"]
+ {
+  background-color: #8B0000;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover
+ {
+  background-color: #660000;
+}
+
+.flatpickr-calendar {
+  font-family: Arial, sans-serif;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.flatpickr-months {
+  background-color: #8B0000;
+  color: white;
+  font-weight: bold;
+}
+
+.flatpickr-weekdays {
+  background-color: #f7f7f7;
+  color: #555;
+}
+
+.flatpickr-day.today {
+  border-color: #8B0000;
+  color: #8B0000;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+  background-color: #8B0000;
+  color: white;
+  border: none;
+}
+
+.flatpickr-day:hover {
+  background: #ccc;
+}
+
 /* ========== MOBILE STYLES ========== */
 @media (max-width: 768px) {
   /* Hide the horizontal menu by default */
@@ -94,9 +220,5 @@
     background-color: #eeeeee83;
     cursor: not-allowed;
   }
-
-
-
-
 
 }

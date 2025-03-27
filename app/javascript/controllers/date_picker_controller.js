@@ -65,7 +65,7 @@ export default class extends Controller {
     } else if (value.includes("weekend")) {
       console.log("🍹 Weekend: only Fri/Sat/Sun, +2 nights")
 
-      const weekendFilter = (date) => [5].includes(date.getDay()) // Fri
+      const weekendFilter = (date) => [5, 6].includes(date.getDay()) // Fri, Sat
       this.checkInCalendar.set("enable", [weekendFilter])
       this.checkInCalendar.set("onChange", (selectedDates) => {
         const checkIn = selectedDates[0]
