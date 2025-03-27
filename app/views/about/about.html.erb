@@ -1,2 +1,117 @@
-<h1>HOTEL VACANTA</h1>
-<p>Find me in app/views/about/about.html.erb</p>
+<!-- HERO SLIDER -->
+<section class="hero-slider">
+  <div class="slide">
+    <img src="/assets/hero-hotel.jpg" alt="Hotel Vacanța">
+    <div class="slide-content">
+      <h2>Vacanța ta începe aici</h2>
+      <p>Locul unde relaxarea vine natural. Dă startul vacanței tale acum.</p>
+      <a href="<%= contact_path %>" class="hero-btn">Rezervă-ți vacanța</a>
+    </div>
+  </div>
+
+  <div class="slide">
+    <img src="/assets/geoagiu-bai.jpg" alt="Stațiunea Geoagiu-Băi">
+    <div class="slide-content">
+      <h2>Geoagiu-Băi: natură, istorie și sănătate</h2>
+      <p>Izvoarele termale de aici au fost apreciate de romani, nobili și călători...</p>
+      <a href="<%= despre_path %>" class="hero-btn">Citește povestea</a>
+    </div>
+  </div>
+
+  <div class="slide">
+    <img src="/assets/camera-hotel.jpg" alt="Cameră hotel">
+    <div class="slide-content">
+      <h2>Confort autentic, pachete speciale</h2>
+      <p>Confort fără compromisuri, relaxare fără griji. Alege pachetul perfect.</p>
+      <a href="<%= pachete_si_oferte_path %>" class="hero-btn">Alege oferta perfectă</a>
+    </div>
+  </div>
+
+  <div class="slide">
+    <img src="/assets/sala-evenimente.jpg" alt="Sala de evenimente">
+    <div class="slide-content">
+      <h2>Evenimente reușite</h2>
+      <p>Conferințe, team-buildinguri sau petreceri. Tu te bucuri, noi ne ocupăm.</p>
+      <a href="<%= restaurant_conferinte_si_terasa_path %>" class="hero-btn">Descoperă facilitățile</a>
+    </div>
+  </div>
+
+  <div class="slide">
+    <img src="/assets/baza-tratament.jpg" alt="Tratament balnear">
+    <div class="slide-content">
+      <h2>Redescoperă ce înseamnă să te simți bine</h2>
+      <p>Refacere, relaxare, tratamente balneare certificate.</p>
+      <a href="<%= tratamente_si_facilitati_path %>" class="hero-btn">Vezi procedurile</a>
+    </div>
+  </div>
+
+  <div class="slide">
+    <img src="/assets/cascada-geoagiu.jpg" alt="Cascada Geoagiu">
+    <div class="slide-content">
+      <h2>Descoperă, explorează, trăiește!</h2>
+      <p>Nu doar odihnă, ci și aventură. Natură spectaculoasă, la un pas.</p>
+      <a href="<%= timp_liber_path %>" class="hero-btn">Vezi atracțiile din zonă</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO SECTION -->
+<section class="intro">
+  <div class="intro-content">
+    <h3>În centrul stațiunii Geoagiu-Băi</h3>
+    <p>Unde aerul e proaspăt, apa termală naturală și liniștea te așteaptă...</p>
+  </div>
+</section>
+
+<!-- CAROUSEL BENEFITS -->
+<section class="carousel-benefits">
+  <ul>
+    <li>✅ Izvoare termale – Relaxare autentică și beneficii reale</li>
+    <li>✅ Aer curat – Somn odihnitor, minte limpede</li>
+    <li>✅ Camere primitoare – Tot ce ai nevoie pentru o ședere fără griji</li>
+    <li>✅ Mâncare bună, ca la mama acasă</li>
+  </ul>
+</section>
+
+<!-- HIGHLIGHTED OFFERS -->
+<section class="highlighted-offers">
+  <div class="offer">
+    <h3>Vacanța cu Tratament Chibzuit</h3>
+    <ul>
+      <li>5 nopți de cazare</li>
+      <li>Loc în cameră dublă</li>
+      <li>Pensiune completă</li>
+      <li>4 tratamente / zi</li>
+      <li>Acces bazin</li>
+      <li>Preț: 1500 lei</li>
+    </ul>
+   <a href="<%= contact_path %>" class="hero-btn">Rezervă vacanța</a>
+  </div>
+
+  <div class="offer">
+    <h3>Mini-Vacanța de Weekend</h3>
+    <ul>
+      <li>2 nopți de cazare</li>
+      <li>Cameră dublă</li>
+      <li>Demi-pensiune</li>
+      <li>Acces bazin</li>
+      <li>Preț: 800 lei</li>
+    </ul>
+    <a href="<%= contact_path %>" class="hero-btn">Rezervă mini-vacanța</a>
+  </div>
+</section>
+
+<!-- OFFERS CTA -->
+<div class="centered">
+  <a href="<%= pachete_si_oferte_path %>" class="hero-btn">Descoperă toate ofertele</a>
+</div>
+
+<!-- NEWSLETTER SECTION -->
+<section class="newsletter">
+  <h3>Rămâi cu gândul la Vacanța!</h3>
+  <p>Fii primul care află despre oferte și pachete speciale. Fără spam, doar vești bune!</p>
+  <form>
+    <input type="email" placeholder="Emailul tău">
+    <button type="submit">Ține-mă la curent</button>
+  </form>
+</section>
