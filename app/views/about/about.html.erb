@@ -1,80 +1,108 @@
 <!-- HERO SLIDER -->
-<section class="hero-slider">
-  <div class="slide">
-    <img src="/assets/hero-hotel.jpg" alt="Hotel Vacanța">
-    <div class="slide-content">
-      <h2>Vacanța ta începe aici</h2>
-      <p>Locul unde relaxarea vine natural. Dă startul vacanței tale acum.</p>
-      <a href="<%= contact_path %>" class="hero-btn">Rezervă-ți vacanța</a>
+<section id="heroCarousel" class="carousel slide hero-slider" data-bs-ride="carousel">
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/assets/hero-hotel.jpg.png" class="d-block" alt="Hotel Vacanța">
+      <div class="slide-content">
+        <h2>Vacanța ta începe aici</h2>
+        <p>Locul unde relaxarea vine natural. Dă startul vacanței tale acum.</p>
+        <%= link_to "Rezervă-ți vacanța", contact_path, class: "btn btn-light" %>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="/assets/geoagiu-bai.jpg.png" class="d-block" alt="Stațiunea Geoagiu-Băi">
+      <div class="slide-content">
+        <h2>Geoagiu-Băi: natură, istorie și sănătate</h2>
+        <p>Izvoarele termale de aici au fost apreciate de romani...</p>
+        <%= link_to "Citește povestea", despre_path, class: "btn btn-light" %>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="/assets/camera-hotel.jpg.png" class="d-block" alt="Camera hotel">
+      <div class="slide-content">
+        <h2>Confort autentic, pachete speciale</h2>
+        <p>Confort fără compromisuri, relaxare fără griji.</p>
+        <%= link_to "Alege oferta perfectă", pachete_si_oferte_path, class: "btn btn-light" %>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="/assets/sala-evenimente.jpg.png" class="d-block" alt="Sala de evenimente">
+      <div class="slide-content">
+        <h2>Evenimente reușite</h2>
+        <p>Conferințe, team-buildinguri sau petreceri.</p>
+        <%= link_to "Descoperă facilitățile", restaurant_conferinte_si_terasa_path, class: "btn btn-light" %>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="/assets/baza-tratament.jpg.png" class="d-block" alt="Tratament balnear">
+      <div class="slide-content">
+        <h2>Redescoperă ce înseamnă să te simți bine</h2>
+        <p>Refacere, relaxare, tratamente balneare certificate.</p>
+        <%= link_to "Vezi procedurile", tratamente_si_facilitati_path, class: "btn btn-light" %>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="/assets/cascada-geoagiu.jpg.png" class="d-block" alt="Cascada Geoagiu">
+      <div class="slide-content">
+        <h2>Descoperă, explorează, trăiește!</h2>
+        <p>Nu doar odihnă, ci și aventură. Natură spectaculoasă.</p>
+        <%= link_to "Vezi atracțiile din zonă", timp_liber_path, class: "btn btn-light" %>
+      </div>
     </div>
   </div>
 
-  <div class="slide">
-    <img src="/assets/geoagiu-bai.jpg" alt="Stațiunea Geoagiu-Băi">
-    <div class="slide-content">
-      <h2>Geoagiu-Băi: natură, istorie și sănătate</h2>
-      <p>Izvoarele termale de aici au fost apreciate de romani, nobili și călători...</p>
-      <a href="<%= despre_path %>" class="hero-btn">Citește povestea</a>
-    </div>
-  </div>
-
-  <div class="slide">
-    <img src="/assets/camera-hotel.jpg" alt="Cameră hotel">
-    <div class="slide-content">
-      <h2>Confort autentic, pachete speciale</h2>
-      <p>Confort fără compromisuri, relaxare fără griji. Alege pachetul perfect.</p>
-      <a href="<%= pachete_si_oferte_path %>" class="hero-btn">Alege oferta perfectă</a>
-    </div>
-  </div>
-
-  <div class="slide">
-    <img src="/assets/sala-evenimente.jpg" alt="Sala de evenimente">
-    <div class="slide-content">
-      <h2>Evenimente reușite</h2>
-      <p>Conferințe, team-buildinguri sau petreceri. Tu te bucuri, noi ne ocupăm.</p>
-      <a href="<%= restaurant_conferinte_si_terasa_path %>" class="hero-btn">Descoperă facilitățile</a>
-    </div>
-  </div>
-
-  <div class="slide">
-    <img src="/assets/baza-tratament.jpg" alt="Tratament balnear">
-    <div class="slide-content">
-      <h2>Redescoperă ce înseamnă să te simți bine</h2>
-      <p>Refacere, relaxare, tratamente balneare certificate.</p>
-      <a href="<%= tratamente_si_facilitati_path %>" class="hero-btn">Vezi procedurile</a>
-    </div>
-  </div>
-
-  <div class="slide">
-    <img src="/assets/cascada-geoagiu.jpg" alt="Cascada Geoagiu">
-    <div class="slide-content">
-      <h2>Descoperă, explorează, trăiește!</h2>
-      <p>Nu doar odihnă, ci și aventură. Natură spectaculoasă, la un pas.</p>
-      <a href="<%= timp_liber_path %>" class="hero-btn">Vezi atracțiile din zonă</a>
-    </div>
-  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
 </section>
 
 <!-- INTRO SECTION -->
-<section class="intro">
+<section class="intro container py-5">
   <div class="intro-content">
     <h3>În centrul stațiunii Geoagiu-Băi</h3>
-    <p>Unde aerul e proaspăt, apa termală naturală și liniștea te așteaptă...</p>
+    <p>Unde aerul e proaspăt, apa termală e naturală și poți avea parte de liniște, găsești Hotel Vacanța.
+       Dacă vrei să te odihnești, să te pui pe picioare sau pur și simplu să iei o pauză fără complicații, aici ai parte de tot ce ai nevoie.
+   </p>
   </div>
 </section>
 
 <!-- CAROUSEL BENEFITS -->
-<section class="carousel-benefits">
-  <ul>
-    <li>✅ Izvoare termale – Relaxare autentică și beneficii reale</li>
-    <li>✅ Aer curat – Somn odihnitor, minte limpede</li>
-    <li>✅ Camere primitoare – Tot ce ai nevoie pentru o ședere fără griji</li>
-    <li>✅ Mâncare bună, ca la mama acasă</li>
-  </ul>
-</section>
+<div data-controller="carousel" class="carousel-wrapper position-relative">
+  <button data-carousel-target="left"
+          data-action="click->carousel#scrollLeft"
+          class="btn btn-light position-absolute start-0 top-50 translate-middle-y d-none d-md-block">
+    ←
+  </button>
+
+  <section class="carousel-benefits d-flex overflow-auto gap-3 p-3" data-carousel-target="container">
+    <div class="bg-light p-3 rounded">✅ Izvoare termale – Relaxare autentică și beneficii reale</div>
+    <div class="bg-light p-3 rounded">✅ Aer curat – Somn odihnitor, minte limpede</div>
+    <div class="bg-light p-3 rounded">✅ Camere primitoare – Tot ce ai nevoie</div>
+    <div class="bg-light p-3 rounded">✅ Mâncare bună – Ca la mama acasă</div>
+  </section>
+
+  <button data-carousel-target="right"
+          data-action="click->carousel#scrollRight"
+          class="btn btn-light position-absolute end-0 top-50 translate-middle-y d-none d-md-block">
+    →
+  </button>
+</div>
+
+
+
+
 
 <!-- HIGHLIGHTED OFFERS -->
-<section class="highlighted-offers">
+<section class="highlighted-offers container py-5">
   <div class="offer">
     <h3>Vacanța cu Tratament Chibzuit</h3>
     <ul>
@@ -85,10 +113,10 @@
       <li>Acces bazin</li>
       <li>Preț: 1500 lei</li>
     </ul>
-   <a href="<%= contact_path %>" class="hero-btn">Rezervă vacanța</a>
+    <%= link_to "Rezervă vacanța", contact_path, class: "btn btn-primary" %>
   </div>
 
-  <div class="offer">
+  <div class="offer mt-4">
     <h3>Mini-Vacanța de Weekend</h3>
     <ul>
       <li>2 nopți de cazare</li>
@@ -97,15 +125,14 @@
       <li>Acces bazin</li>
       <li>Preț: 800 lei</li>
     </ul>
-    <a href="<%= contact_path %>" class="hero-btn">Rezervă mini-vacanța</a>
+    <%= link_to "Rezervă mini-vacanța", contact_path, class: "btn btn-primary" %>
   </div>
 </section>
 
 <!-- OFFERS CTA -->
-<div class="centered">
-  <a href="<%= pachete_si_oferte_path %>" class="hero-btn">Descoperă toate ofertele</a>
+<div class="centered text-center py-4">
+  <%= link_to "Descoperă toate ofertele", pachete_si_oferte_path, class: "btn btn-outline-dark" %>
 </div>
 
-
-
+<!-- NEWSLETTER SECTION -->
 <%= render "shared/newsletter" %>
