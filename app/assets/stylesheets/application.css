@@ -12,22 +12,36 @@
 }
 
 /* The navbar container */
-.navbar {
+/* Sticky Navbar */
+nav.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: #8B0000;
   padding: 10px 40px;
 
+  /* Floating effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
 }
 
-/* Logo text */
+/* Reset body margins */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Logo styling */
 .logo {
   color: white;
   font-size: 1.5rem;
   font-weight: bold;
   padding-left: 10px;
 }
+
 
 /* The horizontal links on desktop */
 .nav-links {
@@ -193,6 +207,85 @@ input[type="submit"]:hover
   background: #ccc;
 }
 
+/* DESPRE page */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #fffef7;
+}
+
+.despre-hero {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  padding: 4rem 2rem;
+  text-align: center;
+
+}
+
+
+.despre-hero h2 {
+  font-size: 2.4rem;
+  color: #1e3a8a;
+  margin-top: 1rem;
+}
+
+.despre-hero .subtitle {
+  color: #6b7280;
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.floating-images {
+  font-style: italic;
+  color: #6b21a8;
+  margin-top: 2rem;
+}
+
+.despre-section {
+  padding: 3rem 2rem;
+  border-bottom: 2px dotted #ccc;
+  background-color: #f9fafb;
+}
+
+.despre-section h3 {
+  font-size: 1.6rem;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.despre-section i {
+  color: #8b0000;
+  margin-right: 0.5rem;
+}
+
+.despre-section ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.btn-outline-dark {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #1f2937;
+  color: #1f2937;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+  margin-top: 1rem;
+}
+
+.btn-outline-dark:hover {
+  background: #1f2937;
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
 /* CAROUSEL */
 .carousel-wrapper {
   position: relative;
@@ -293,6 +386,8 @@ input[type="submit"]:hover
 .carousel-control-next {
   z-index: 101;
 }
+
+/* === DESPRE PAGE CUSTOM STYLES === */
 
 
 /* ========== MOBILE STYLES ========== */
