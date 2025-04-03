@@ -1,18 +1,15 @@
 @import "https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css";
 
-
-/* Example: Override the header background color */
-.flatpickr-calendar .flatpickr-months {
-  background-color: #8B0000; /* dark red */
+/* ==== GENERAL RESETS ==== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #fffef7;
 }
 
-/* Example: Change day number font */
-.flatpickr-day {
-  font-family: Arial, sans-serif;
-}
-
-/* The navbar container */
-/* Sticky Navbar */
+/* ==== NAVIGATION BAR ==== */
 nav.navbar {
   position: sticky;
   top: 0;
@@ -22,19 +19,10 @@ nav.navbar {
   justify-content: space-between;
   background: #8B0000;
   padding: 10px 40px;
-
-  /* Floating effect */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.3s ease;
 }
 
-/* Reset body margins */
-body {
-  margin: 0;
-  padding: 0;
-}
-
-/* Logo styling */
 .logo {
   color: white;
   font-size: 1.5rem;
@@ -42,8 +30,6 @@ body {
   padding-left: 10px;
 }
 
-
-/* The horizontal links on desktop */
 .nav-links {
   display: flex;
   list-style: none;
@@ -52,16 +38,14 @@ body {
   padding: 0;
 }
 
-/* Link styles */
 .nav-links li a {
   color: white;
   text-decoration: none;
   font-size: 1rem;
 }
 
-/* The hamburger button (hidden on desktop) */
 .menu-btn {
-  display: none;        /* only show on mobile */
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
@@ -78,7 +62,7 @@ body {
   border-radius: 2px;
 }
 
-/* ===== FORM WRAPPER ===== */
+/* ==== FORM ELEMENTS ==== */
 form {
   max-width: 700px;
   margin: 3rem auto;
@@ -86,32 +70,11 @@ form {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  font-family: Arial, sans-serif;
 }
 
-/* ===== FORM GROUPS ===== */
 form div {
   margin-bottom: 1.5rem;
 }
-select {
-  appearance: none; /* removes native arrow in some browsers */
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 0.6rem;
-  font-size: 1rem;
-  font-family: Arial, sans-serif;
-  color: #333;
-  transition: all 0.3s ease;
-}
-
-/* Remove the default blue border on focus */
-select:focus {
-  outline: none;
-  border-color: #800000;
-  box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.2); /* subtle red glow */
-}
-
 
 label {
   font-weight: bold;
@@ -120,11 +83,7 @@ label {
   color: #333;
 }
 
-/* ===== INPUTS ===== */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="number"],
+input,
 textarea,
 select {
   width: 100%;
@@ -132,8 +91,14 @@ select {
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
-  transition: border-color 0.2s ease;
   font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+select {
+  appearance: none;
+  background-color: #fff;
+  color: #333;
 }
 
 input:focus,
@@ -141,22 +106,19 @@ textarea:focus,
 select:focus {
   border-color: #8B0000;
   outline: none;
+  box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.2);
 }
 
-/* ===== CHECKBOX ===== */
 input[type="checkbox"] {
   margin-right: 0.5rem;
 }
 
-/* ===== READ-ONLY FIELDS ===== */
 input[readonly] {
   background-color: #eeeeee83;
   cursor: not-allowed;
 }
 
-/* ===== SUBMIT BUTTON ===== */
-input[type="submit"]
- {
+input[type="submit"] {
   background-color: #8B0000;
   color: white;
   padding: 0.75rem 1.5rem;
@@ -167,11 +129,11 @@ input[type="submit"]
   transition: background-color 0.3s ease;
 }
 
-input[type="submit"]:hover
- {
+input[type="submit"]:hover {
   background-color: #660000;
 }
 
+/* ==== FLATPICKR CALENDAR ==== */
 .flatpickr-calendar {
   font-family: Arial, sans-serif;
   border-radius: 12px;
@@ -207,22 +169,225 @@ input[type="submit"]:hover
   background: #ccc;
 }
 
-/* DESPRE page */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
+/* ==== HOMEPAGE GALLERY ==== */
+.homepage-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 3rem 2rem;
   background-color: #fffef7;
 }
 
+.gallery-text {
+  flex: 1 1 40%;
+  max-width: 500px;
+}
+
+.gallery-text h2 {
+  font-size: 2rem;
+  color: #1e3a8a;
+  margin-bottom: 1.5rem;
+}
+
+.gallery-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gallery-benefits li {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #333;
+}
+
+.gallery-benefits i {
+  color: #22c55e;
+  font-size: 1.2rem;
+}
+
+.gallery-grid {
+  flex: 1 1 55%;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 700px; /* ✅ Limit width on large screens */
+}
+
+.gallery-img {
+  width: 100%;
+  max-height: 300px; /* ✅ Limit height */
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+
+.gallery-img:hover {
+  filter: brightness(75%);
+  transform: scale(1.02);
+}
+
+.gallery-img.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  background: rgba(29, 28, 28, 0.712);
+  z-index: 2000;
+  margin: 0;
+  filter: none !important;
+  transform: none !important;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 0;
+  flex-direction: column;
+}
+
+
+.lightbox.hidden {
+  display: none;
+}
+
+#lightbox-image {
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  max-width: none;
+  max-height: none;
+}
+
+
+.close-lightbox {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2.5rem;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0 1rem;
+}
+.fullscreen-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: white;
+  background: transparent;
+  border: none;
+  z-index: 2002;
+  cursor: pointer;
+  padding: 0.5rem;
+  user-select: none;
+}
+
+.gallery-arrow.left {
+  left: 30px;
+}
+
+.gallery-arrow.right {
+  right: 30px;
+}
+
+.arrow.prev {
+  left: 10px;
+}
+.arrow.next {
+  right: 10px;
+}
+.nav-arrow {
+  position: fixed;
+  top: 50%;
+  font-size: 3rem;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 2001;
+  transform: translateY(-50%);
+  user-select: none;
+}
+
+.left-arrow {
+  left: 20px;
+}
+
+.right-arrow {
+  right: 20px;
+}
+
+.nav-arrow:hover {
+  color: #ccc;
+}
+
+
+/* ==== FULLSCREEN CLOSE BUTTON ==== */
+.close-btn {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  font-size: 2.5rem;
+  color: white;
+  background: transparent;
+  border: none;
+  z-index: 2001;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #b4adad;
+}
+
+/* ==== DESPRE PAGE ==== */
 .despre-hero {
   background: linear-gradient(135deg, #fef3c7, #fde68a);
   padding: 4rem 2rem;
   text-align: center;
-
 }
-
 
 .despre-hero h2 {
   font-size: 2.4rem;
@@ -285,57 +450,21 @@ body {
   text-align: center;
 }
 
-
-/* CAROUSEL */
-.carousel-wrapper {
-  position: relative;
-}
-
-.scroll-left {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  z-index: 2;
-  background: rgba(255, 255, 255, 0.7);
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 0.5rem;
-}
-
-.scroll-right {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  z-index: 2;
-  background: rgba(255, 255, 255, 0.7);
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 0.5rem;
-}
-
-.carousel-benefits {
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
+/* ==== HIGHLIGHTED OFFERS ==== */
 .highlighted-offers {
   display: flex;
-  gap: 2rem; /* space between offers */
-  justify-content: center; /* center the group */
-  flex-wrap: wrap; /* allow wrapping on smaller screens */
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .offer {
-  flex: 1 1 300px; /* grow, shrink, base width */
+  flex: 1 1 300px;
   max-width: 400px;
 }
 
 
-/* HERO SLIDER */
+/* ==== HERO SLIDER (legacy section) ==== */
 .hero-slider {
   height: 60vh;
   max-height: 500px;
@@ -344,11 +473,10 @@ body {
   margin-bottom: 3rem;
 }
 
-/* Adjustments for very large screens */
 @media (min-width: 1400px) {
   .hero-slider {
-    height: 65vh; /* slightly smaller height */
-    max-height: 600px; /* more reasonable max-height */
+    height: 65vh;
+    max-height: 600px;
   }
 }
 
@@ -357,6 +485,19 @@ body {
   height: 100%;
   position: relative;
 }
+
+.slide-content {
+  pointer-events: none;
+}
+.slide-inner {
+  pointer-events: auto; /* 👈 make only text & buttons clickable */
+}
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 200;
+  pointer-events: auto;
+}
+
 
 .hero-slider .carousel-item img {
   object-fit: cover;
@@ -369,68 +510,112 @@ body {
 
 .slide-content {
   position: absolute;
-  bottom: 10%;
-  left: 5%;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 100;
   color: white;
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 0.5rem;
+  padding: 2.5rem 2.5rem;                /* 💥 more breathing space */
+  background-color: rgba(0, 0, 0, 0.35);
+  border-radius: 0.75rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  max-width: 90%;
+  gap: 1.25rem;
+  max-width: 1000px;                    /* 💥 slightly wider */
+  width: 95%;
+  text-align: center;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-  z-index: 101;
+.slide-content h2 {
+  font-size: 2rem;                     /* 💥 larger heading */
+  line-height: 1.3;
 }
 
-/* === DESPRE PAGE CUSTOM STYLES === */
+.slide-content p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.slide-content .btn {
+  font-size: 1rem;
+  padding: 0.7rem 1.5rem;
+  width: auto;
+  align-self: center;
+}
 
 
-/* ========== MOBILE STYLES ========== */
 
-  /* Hide the horizontal menu by default */
-  @media (max-width: 768px) {
-
-    .navbar {
-      padding-left: 15px !important;
-    }
-
-    .menu-btn {
-      display: flex;
-      margin-right: 30px;
-    }
-
-    .nav-links {
-      display: none;
-      position: absolute;
-      top: 60px;
-      right: 20px;
-      background: #8B0000;
-      padding: 15px;
-      flex-direction: column;
-      gap: 10px;
-      box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .nav-links.active {
-      display: flex;
-    }
-
-    input[readonly] {
-      background-color: #eeeeee83;
-      cursor: not-allowed;
-    }
-
-    .slide-content {
-      bottom: 5%;
-      left: 5%;
-      width: 90%;
-      padding: 1rem;
-      gap: 0.75rem;
-      box-sizing: border-box;
-    }
+@media (max-width: 768px) {
+  .slide-content {
+    top: 68%;
+    padding: 1.5rem 1rem;
+    max-width: 98%;
   }
+
+  .slide-content h2 {
+    font-size: 1.4rem;
+  }
+
+  .slide-content p {
+    font-size: 1rem;
+  }
+
+  .slide-content .btn {
+    width: 100%;
+  }
+}
+@media (pointer: coarse) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: none !important;
+  }
+}
+
+
+
+
+/* ==== RESPONSIVE STYLES ==== */
+@media (max-width: 768px) {
+  .homepage-gallery {
+    flex-direction: column;
+  }
+
+  .gallery-text,
+  .gallery-grid {
+    flex: 1 1 100%;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar {
+    padding-left: 15px !important;
+  }
+
+  .menu-btn {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #8B0000;
+    padding: 15px;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  input[readonly] {
+    background-color: #eeeeee83;
+    cursor: not-allowed;
+  }
+}

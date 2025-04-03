@@ -1,5 +1,6 @@
 <!-- HERO SLIDER -->
-<section id="heroCarousel" class="carousel slide hero-slider" data-bs-ride="carousel">
+<section id="heroCarousel" class="carousel slide hero-slider" data-bs-ride="carousel" data-bs-touch="true">
+
 
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -75,64 +76,91 @@
   </div>
 </section>
 
-<!-- CAROUSEL BENEFITS -->
-<div data-controller="carousel" class="carousel-wrapper position-relative">
-  <button data-carousel-target="left"
-          data-action="click->carousel#scrollLeft"
-          class="btn btn-light position-absolute start-0 top-50 translate-middle-y d-none d-md-block">
-    ←
-  </button>
+<!-- IMAGE GALLERY SECTION -->
+<section class="homepage-gallery" data-controller="gallery">
+  <div class="container d-flex flex-column flex-md-row align-items-start gap-4">
 
-  <section class="carousel-benefits d-flex overflow-auto gap-3 p-3" data-carousel-target="container">
-    <div class="bg-light p-3 rounded">✅ Izvoare termale – Relaxare autentică și beneficii reale</div>
-    <div class="bg-light p-3 rounded">✅ Aer curat – Somn odihnitor, minte limpede</div>
-    <div class="bg-light p-3 rounded">✅ Camere primitoare – Tot ce ai nevoie</div>
-    <div class="bg-light p-3 rounded">✅ Mâncare bună – Ca la mama acasă</div>
-  </section>
+    <div class="gallery-text">
+      <h2>Descoperă Hotel Vacanța</h2>
+      <ul class="gallery-benefits">
+        <li><i class="fa-solid fa-check"></i> Izvoare termale – Relaxare autentică și beneficii reale pentru sănătate</li>
+        <li><i class="fa-solid fa-check"></i> Aer curat, încărcat cu ioni negativi – Somn odihnitor, minte limpede</li>
+        <li><i class="fa-solid fa-check"></i> Camere primitoare – Tot ce ai nevoie pentru o ședere fără griji</li>
+        <li><i class="fa-solid fa-check"></i> Mâncare bună, ca la mama acasă – Preparată cu grijă, servită cu drag</li>
+      </ul>
+    </div>
 
-  <button data-carousel-target="right"
-          data-action="click->carousel#scrollRight"
-          class="btn btn-light position-absolute end-0 top-50 translate-middle-y d-none d-md-block">
-    →
-  </button>
+   <div class="gallery-grid">
+  <img src="/assets/hero-hotel.jpg.png" alt="Hotel Exterior"
+       class="gallery-img" data-index="0" data-aos="zoom-in" data-aos-delay="100" />
+
+  <img src="/assets/geoagiu-bai.jpg.png" alt="Piscină"
+       class="gallery-img" data-index="1" data-aos="zoom-in" data-aos-delay="100" />
+
+  <img src="/assets/camera-hotel.jpg.png" alt="Interior Cameră"
+       class="gallery-img" data-index="2" data-aos="zoom-in" data-aos-delay="100" />
+
+  <img src="/assets/gallery4.jpg" alt="Peisaj"
+       class="gallery-img" data-index="3" data-aos="zoom-in" data-aos-delay="100" />
 </div>
 
-
+  </div>
+</section>
 
 
 
 <!-- HIGHLIGHTED OFFERS -->
 <section class="highlighted-offers container py-5">
-  <div class="offer">
-    <h3>Vacanța cu Tratament Chibzuit</h3>
-    <ul>
-      <li>5 nopți de cazare</li>
-      <li>Loc în cameră dublă</li>
-      <li>Pensiune completă</li>
-      <li>4 tratamente / zi</li>
-      <li>Acces bazin</li>
-      <li>Preț: 1500 lei</li>
-    </ul>
-    <%= link_to "Rezervă vacanța", contact_path, class: "btn btn-outline-dark" %>
-  </div>
+  <div class="row align-items-stretch g-4">
 
-  <div class="offer mt-4">
-    <h3>Mini-Vacanța de Weekend</h3>
-    <ul>
-      <li>2 nopți de cazare</li>
-      <li>Cameră dublă</li>
-      <li>Demi-pensiune</li>
-      <li>Acces bazin</li>
-      <li>Preț: 800 lei</li>
-    </ul>
-    <%= link_to "Rezervă mini-vacanța", contact_path, class: "btn btn-outline-dark" %>
+    <div class="col-md-6">
+      <div class="offer-card h-100 p-4 border rounded">
+        <h3>Vacanța cu Tratament Chibzuit</h3>
+        <ul>
+          <li>5 nopți de cazare</li>
+          <li>Loc în cameră dublă</li>
+          <li>Pensiune completă</li>
+          <li>4 tratamente / zi</li>
+          <li>Acces bazin</li>
+          <li>Preț: 1500 lei</li>
+        </ul>
+        <div class="mt-auto">
+          <%= link_to "Rezervă vacanța", contact_path, class: "btn btn-outline-dark" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="offer-card h-100 p-4 border rounded">
+        <h3>Mini-Vacanța de Weekend</h3>
+        <ul>
+          <li>2 nopți de cazare</li>
+          <li>Cameră dublă</li>
+          <li>Demi-pensiune</li>
+          <li>Acces bazin</li>
+          <li>Preț: 800 lei</li>
+        </ul>
+        <div class="mt-auto">
+          <%= link_to "Rezervă mini-vacanța", contact_path, class: "btn btn-outline-dark" %>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
+
 
 <!-- OFFERS CTA -->
 <div class="centered text-center py-4">
   <%= link_to "Descoperă toate ofertele", pachete_si_oferte_path, class: "btn btn-outline-dark" %>
 </div>
+
+<section class="intro container py-5">
+<div class="intro-content">
+<h5>Fie că vii pentru odihnă, tratament sau doar ca să iei o pauză de la agitație, te primim cu ce avem mai bun: liniște, apă termală și un loc unde poți să te relaxezi așa cum vrei.
+</h5>
+</div>
+</section>
 
 <!-- NEWSLETTER SECTION -->
 <section class="intro container py-5">
