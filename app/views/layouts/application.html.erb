@@ -47,7 +47,7 @@
     <body data-controller="dropdown" data-action="click@window->dropdown#close">
 
     <%= yield %>
-
+<script>
     document.addEventListener("DOMContentLoaded", function () {
       const carousel = document.querySelector("#heroCarousel"); // or your offers carousel ID
       if (carousel) {
@@ -70,7 +70,7 @@
         });
       }
     });
-
+</script>
 
   </body>
 </html>
