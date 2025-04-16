@@ -9,6 +9,28 @@ export default class extends Controller {
       img.addEventListener("click", () => this.openFullscreen(index))
     })
   }
+  handleTouchStart(e) {
+    this.startX = e.touches[0].clientX
+  }
+
+  handleTouchMove(e) {
+    if (!this.startX) return
+    const diffX = this.startX - e.touches[0].clientX
+
+    // Sensitivity threshold
+    if (Math.abs(diffX) > 50) {
+      if (diffX > 0) {
+        // Swipe left → next
+        this.showNext(this.currentOverlay)
+      } else {
+        // Swipe right → prev
+        this.showPrev(this.currentOverlay)
+      }
+
+      this.startX = null // reset
+    }
+  }
+
 
   openFullscreen(index) {
     this.currentIndex = index
@@ -60,7 +82,14 @@ export default class extends Controller {
     })
     overlay.appendChild(next)
 
-    document.body.appendChild(overlay)
+    // Save overlay reference to use in swipe functions
+this.currentOverlay = overlay
+
+// Add touch listeners for swipe
+overlay.addEventListener("touchstart", this.handleTouchStart.bind(this), { passive: true })
+overlay.addEventListener("touchmove", this.handleTouchMove.bind(this), { passive: true })
+
+document.body.appendChild(overlay)
   }
 
   showPrev(overlay) {

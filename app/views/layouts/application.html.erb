@@ -48,6 +48,29 @@
 
     <%= yield %>
 
+    document.addEventListener("DOMContentLoaded", function () {
+      const carousel = document.querySelector("#heroCarousel"); // or your offers carousel ID
+      if (carousel) {
+        const bsCarousel = new bootstrap.Carousel(carousel);
+
+        let startX = 0;
+
+        carousel.addEventListener("touchstart", (e) => {
+          startX = e.touches[0].clientX;
+        });
+
+        carousel.addEventListener("touchend", (e) => {
+          let endX = e.changedTouches[0].clientX;
+
+          if (startX - endX > 50) {
+            bsCarousel.next();
+          } else if (endX - startX > 50) {
+            bsCarousel.prev();
+          }
+        });
+      }
+    });
+
 
   </body>
 </html>

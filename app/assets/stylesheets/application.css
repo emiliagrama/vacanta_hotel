@@ -1,4 +1,6 @@
 @import "https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css";
+
+
 /*cookies*/
 .cookie-banner {
   position: fixed;
@@ -59,24 +61,14 @@ nav.navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #8B0000; /* Dark red with 70% opacity */
+  background: white; /* Dark red with 70% opacity */
   padding: 10px 40px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);  /* Optional: subtle shadow for better visibility */
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
-/* Transparent navbar when scrolled */
-nav.navbar.scrolled {
-  background: rgba(169, 169, 169, 0.315);  /* Transparent red background */
-}
-
-/* Increase specificity */
-.navbar.scrolled .nav-links li a,
-.navbar.scrolled .logo a {
-  color: rgb(53, 53, 56) !important;  /* Force color change */
-}
-
-.navbar .logo a {
-  color: white !important;
+.navbar .logo img {
+  max-height: 45px;
+  object-fit: contain;
 }
 
 /* Reset body margins */
@@ -84,15 +76,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
-/* Logo styling */
-.logo {
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding-left: 10px;
-}
-
 
 /* The horizontal links on desktop */
 .nav-links {
@@ -105,7 +88,7 @@ body {
 
 /* Link styles */
 .nav-links li a {
-  color: white;
+  color: rgb(216, 1, 0);
   text-decoration: none;
   font-size: 1rem;
 }
@@ -367,12 +350,72 @@ input[type="submit"]:hover
   width: 100vw;
   height: 100vh;
   object-fit: contain;
-  background: rgba(99, 96, 96, 0.644);
+  background: rgba(58, 57, 57, 0.644);
   z-index: 2000;
   margin: 0;
   filter: none !important; /* Prevent hover filter from applying */
   transform: none !important;
 }
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 10, 10, 0.945);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fullscreen {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: white;
+
+  border-radius: 30%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.gallery-arrow.left {
+  left: 2rem;
+}
+
+.gallery-arrow.right {
+  right: 2rem;
+}
+/* Hide arrows on screens smaller than 768px */
+@media (max-width: 767px) {
+  .gallery-arrow {
+    display: none !important;
+  }
+}
+
 
 /* === Close Button for Fullscreen Image === */
 .close-btn {
@@ -454,8 +497,8 @@ body {
 }
 
 .despre-hero {
-  background: linear-gradient(135deg, #fef3c7, #fde68a);
-  padding: 4rem 2rem;
+
+  padding: 2rem 2rem;
   text-align: center;
 
 }
@@ -530,8 +573,28 @@ body {
 }
 
 .offer {
-  flex: 1 1 300px; /* grow, shrink, base width */
+  flex: 1 1 200px; /* grow, shrink, base width */
   max-width: 400px;
+}
+.floating-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.floating-gallery img {
+  max-width: 250px;
+  width: 250px;
+  height: 250px;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.floating-gallery img:hover {
+  transform: scale(1.05);
 }
 
 
@@ -547,8 +610,8 @@ body {
 /* Adjustments for very large screens */
 @media (min-width: 1400px) {
   .hero-slider {
-    height: 65vh; /* slightly smaller height */
-    max-height: 600px; /* more reasonable max-height */
+    height: 85vh; /* slightly smaller height */
+    max-height: 800px; /* more reasonable max-height */
   }
 }
 
@@ -565,6 +628,11 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+}
+@media (max-width: 768px) {
+  .carousel-item img {
+    height: 300px;
+  }
 }
 
 .slide-content {
@@ -611,20 +679,23 @@ body {
 .carousel-control-next {
   z-index: 101;
 }
+.active-link {
+  color: gray !important;
+}
+
 
 /* ==== OFFERS PAGE ==== */
 
 /* Hero Section */
 .offers-hero {
-  background: linear-gradient(135deg, #fefce8, #fde68a);
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
   text-align: center;
 }
 
 .offers-hero h2 {
   font-size: 2.5rem;
   color: #1e3a8a;
-  margin-bottom: 1rem;
+
 }
 
 .offers-hero .subtitle {
@@ -637,14 +708,14 @@ body {
 /* Carousel */
 .offers-slider {
   margin: 3rem auto;
-  max-width: 1000px;
+  max-width: 1100px;
   position: relative;
 }
 
 .offers-slider img {
   border-radius: 12px;
   object-fit: cover;
-  max-height: 500px;
+  max-height: 700px;
 }
 
 .carousel-control-prev,
