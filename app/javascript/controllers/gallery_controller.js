@@ -65,7 +65,7 @@ export default class extends Controller {
     // Left arrow
     const prev = document.createElement("div")
     prev.classList.add("gallery-arrow", "left")
-    prev.innerHTML = "❮"
+    prev.innerHTML ="‹";
     prev.addEventListener("click", (e) => {
       e.stopPropagation()
       this.showPrev(overlay)
@@ -75,7 +75,7 @@ export default class extends Controller {
     // Right arrow
     const next = document.createElement("div")
     next.classList.add("gallery-arrow", "right")
-    next.innerHTML = "❯"
+    next.innerHTML ="›";
     next.addEventListener("click", (e) => {
       e.stopPropagation()
       this.showNext(overlay)
