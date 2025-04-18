@@ -68,12 +68,17 @@
 <!-- INTRO SECTION -->
 <section class="intro container py-5">
   <div class="intro-content">
-    <h3>În centrul stațiunii Geoagiu-Băi</h3>
+    <h1 data-aos="fade-right" data-aos-duration="1000" data-aos-easing="ease-in-out">În centrul stațiunii Geoagiu-Băi</h1>
     <p>Unde aerul e proaspăt, apa termală e naturală și poți avea parte de liniște, găsești Hotel Vacanța.
        Dacă vrei să te odihnești, să te pui pe picioare sau pur și simplu să iei o pauză fără complicații, aici ai parte de tot ce ai nevoie.
    </p>
   </div>
 </section>
+<a href="#highlighted-offers" class="scroll-down" data-turbo="false">
+  <i class="fas fa-chevron-down"></i>
+</a>
+
+
 
 <!-- IMAGE GALLERY SECTION -->
 <section class="homepage-gallery" data-controller="gallery">
@@ -82,10 +87,10 @@
     <div class="gallery-text">
       <h2>Descoperă Hotel Vacanța</h2>
       <ul class="gallery-benefits">
-        <li><i class="fa-solid fa-check check-icon"></i> Izvoare termale – Relaxare autentică și beneficii reale pentru sănătate</li>
-        <li><i class="fa-solid fa-check"></i> Aer curat, încărcat cu ioni negativi – Somn odihnitor, minte limpede</li>
-        <li><i class="fa-solid fa-check"></i> Camere primitoare – Tot ce ai nevoie pentru o ședere fără griji</li>
-        <li><i class="fa-solid fa-check"></i> Mâncare bună, ca la mama acasă – Preparată cu grijă, servită cu drag</li>
+        <li><i class="fa-solid fa-check check-icon"></i> <p>Izvoare termale – Relaxare autentică și beneficii reale pentru sănătate</p></li>
+        <li><i class="fa-solid fa-check"></i><p> Aer curat, încărcat cu ioni negativi – Somn odihnitor, minte limpede</p></li>
+        <li><i class="fa-solid fa-check"></i><p> Camere primitoare – Tot ce ai nevoie pentru o ședere fără griji</p></li>
+        <li><i class="fa-solid fa-check"></i><p>Mâncare bună, ca la mama acasă – Preparată cu grijă, servită cu drag</p></li>
       </ul>
     </div>
 
@@ -107,8 +112,9 @@
 </section>
 
 
+
 <!-- HIGHLIGHTED OFFERS -->
-<section class="highlighted-offers container py-5">
+<section id="highlighted-offers"class="highlighted-offers  py-5">
   <div class="row align-items-stretch g-4">
 
     <div class="col-md-6">
@@ -123,7 +129,7 @@
           <li>Preț: 1500 lei</li>
         </ul>
         <div class="mt-auto">
-          <%= link_to "Rezervă vacanța", contact_path, class: "btn btn-outline-dark" %>
+          <%= link_to "Rezervă vacanța", contact_path, class: "btn btn-golden" %>
         </div>
       </div>
     </div>
@@ -139,24 +145,23 @@
           <li>Preț: 800 lei</li>
         </ul>
         <div class="mt-auto">
-          <%= link_to "Rezervă mini-vacanța", contact_path, class: "btn btn-outline-dark" %>
+          <%= link_to "Rezervă mini-vacanța", contact_path, class: "btn btn-golden" %>
         </div>
       </div>
     </div>
-
+<!-- OFFERS CTA -->
+<div class="centered text-center py-4">
+  <%= link_to "Descoperă toate ofertele", pachete_si_oferte_path, class: "btn btn-golden" %>
+</div>
   </div>
 </section>
 
 
-<!-- OFFERS CTA -->
-<div class="centered text-center py-4">
-  <%= link_to "Descoperă toate ofertele", pachete_si_oferte_path, class: "btn btn-outline-dark" %>
-</div>
+
 
 <section class="intro container py-5">
 <div class="intro-content">
-<h5>Fie că vii pentru odihnă, tratament sau doar ca să iei o pauză de la agitație, te primim cu ce avem mai bun: liniște, apă termală și un loc unde poți să te relaxezi așa cum vrei.
-</h5>
+<h5>Fie că vii pentru odihnă, tratament sau doar ca să iei o pauză de la agitație, te primim cu ce avem mai bun: liniște, apă termală și un loc unde poți să te relaxezi așa cum vrei.</h5>
 </div>
 </section>
 
