@@ -1,4 +1,4 @@
-<div data-controller="newsletter" data-aos="zoom-in"data-aos-delay="200">
+<div data-controller="newsletter" data-aos="zoom-in"data-aos-delay="200" >
   <%= form_with url: newsletters_path, method: :post, data: { controller: "newsletter" }, html: { id: "newsletter-fields" } do |f| %>
     <div class="newsletter-fields">
       <%= f.email_field :email, placeholder: "Adresa ta de email", required: true, class: "newsletter-input" %>

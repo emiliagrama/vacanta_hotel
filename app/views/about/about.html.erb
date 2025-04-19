@@ -1,62 +1,69 @@
-<!-- HERO SLIDER -->
 <section id="heroCarousel" class="carousel slide hero-slider" data-bs-ride="carousel" data-bs-touch="true">
-
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="/assets/hero-hotel.jpg" class="d-block" alt="Hotel Vacanța">
-      <div class="slide-content">
-        <h2>Vacanța ta începe aici</h2>
-        <p>Locul unde relaxarea vine natural. Dă startul vacanței tale acum.</p>
-        <%= link_to "Rezervă-ți vacanța", contact_path, class: "btn btn-light" %>
-      </div>
-    </div>
 
-    <div class="carousel-item">
-      <img src="/assets/geoagiu-bai.png" class="d-block" alt="Stațiunea Geoagiu-Băi">
-      <div class="slide-content">
-        <h2>Geoagiu-Băi: natură, istorie și sănătate</h2>
-        <p>Izvoarele termale de aici au fost apreciate de mii de ani...</p>
-        <%= link_to "Citește povestea", despre_path, class: "btn btn-light" %>
-      </div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="/assets/camera-hotel.JPG" class="d-block" alt="Camera hotel">
-      <div class="slide-content">
-        <h2>Confort autentic, pachete speciale</h2>
-        <p>Alege pachetul perfect și bucură-te de sejurul tău la Hotel Vacanța.</p>
-        <%= link_to "Alege oferta perfectă", pachete_si_oferte_path, class: "btn btn-light" %>
-      </div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="/assets/sala-evenimente.JPG" class="d-block" alt="Sala de evenimente">
-      <div class="slide-content">
-        <h2>Locul potrivit pentru evenimente reușite</h2>
-        <p>Conferințe, team-buildinguri, sau poate o petrecere?</p>
-        <%= link_to "Descoperă facilitățile", restaurant_conferinte_si_terasa_path, class: "btn btn-light" %>
-      </div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="/assets/baza-tratament.JPG" class="d-block" alt="Tratament balnear">
-      <div class="slide-content">
-        <h2>Redescoperă ce înseamnă să te simți bine</h2>
-        <p>Refacere, recuperare, relaxare – toate sub același acoperiș.</p>
-        <%= link_to "Vezi procedurile", tratamente_si_facilitati_path, class: "btn btn-light" %>
-      </div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="/assets/cascada-geoagiu.jpg.png" class="d-block" alt="Cascada Geoagiu">
-      <div class="slide-content">
-        <h2>Descoperă, explorează, trăiește!</h2>
-        <p>Nu doar odihnă, ci și aventură! Descoperă Cascada Clocota, Cetățile Dacice și o natură spectaculoasă.</p>
-        <%= link_to "Vezi atracțiile din zonă", timp_liber_path, class: "btn btn-light" %>
-      </div>
+    <div class="carousel-inner">
+  <!-- Slide 1 -->
+  <div class="carousel-item active">
+    <img src="/assets/hero-hotel.jpg" class="d-block" alt="Hotel Vacanța">
+    <div class="slide-content">
+      <h2 class="carousel-animate">Vacanța ta începe aici</h2>
+      <p class="carousel-animate delay-1">Locul unde relaxarea vine natural. Dă startul vacanței tale acum.</p>
+      <%= link_to "Rezervă-ți vacanța", contact_path, class: "btn-light-hero carousel-animate delay-2" %>
     </div>
   </div>
 
+  <!-- Slide 2 -->
+  <div class="carousel-item">
+    <img src="/assets/geoagiu-bai.png" class="d-block" alt="Stațiunea Geoagiu-Băi">
+    <div class="slide-content">
+      <h2 class="carousel-animate">Geoagiu-Băi: natură, istorie și sănătate</h2>
+      <p class="carousel-animate delay-1">Izvoarele termale de aici au fost apreciate de mii de ani...</p>
+      <%= link_to "Citește povestea", despre_path, class: "btn-light-hero carousel-animate delay-2" %>
+    </div>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="carousel-item">
+    <img src="/assets/camera-hotel.JPG" class="d-block" alt="Camera hotel">
+    <div class="slide-content">
+      <h2 class="carousel-animate">Confort autentic, pachete speciale</h2>
+      <p class="carousel-animate delay-1">Alege pachetul perfect și bucură-te de sejurul tău la Hotel Vacanța.</p>
+      <%= link_to "Alege oferta perfectă", pachete_si_oferte_path, class: "btn-light-hero carousel-animate delay-2" %>
+    </div>
+  </div>
+
+  <!-- Slide 4 -->
+  <div class="carousel-item">
+    <img src="/assets/sala-evenimente.JPG" class="d-block" alt="Sala de evenimente">
+    <div class="slide-content">
+      <h2 class="carousel-animate">Locul potrivit pentru evenimente reușite</h2>
+      <p class="carousel-animate delay-1">Conferințe, team-buildinguri, sau poate o petrecere?</p>
+      <%= link_to "Descoperă facilitățile", restaurant_conferinte_si_terasa_path, class: "btn-light-hero carousel-animate delay-2" %>
+    </div>
+  </div>
+
+  <!-- Slide 5 -->
+  <div class="carousel-item">
+    <img src="/assets/baza-tratament.JPG" class="d-block" alt="Tratament balnear">
+    <div class="slide-content">
+      <h2 class="carousel-animate">Redescoperă ce înseamnă să te simți bine</h2>
+      <p class="carousel-animate delay-1">Refacere, recuperare, relaxare – toate sub același acoperiș.</p>
+      <%= link_to "Vezi procedurile", tratamente_si_facilitati_path, class: "btn-light-hero carousel-animate delay-2" %>
+    </div>
+  </div>
+
+  <!-- Slide 6 -->
+  <div class="carousel-item">
+    <img src="/assets/cascada-geoagiu.jpg.png" class="d-block" alt="Cascada Geoagiu">
+    <div class="slide-content">
+      <h2 class="carousel-animate">Descoperă, explorează, trăiește!</h2>
+      <p class="carousel-animate delay-1">Nu doar odihnă, ci și aventură! Descoperă Cascada Clocota, Cetățile Dacice și o natură spectaculoasă.</p>
+      <%= link_to "Vezi atracțiile din zonă", timp_liber_path, class: "btn-light-hero carousel-animate delay-2" %>
+    </div>
+  </div>
+</div>
+
+  <!-- Carousel Controls -->
   <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
     <span class="carousel-control-prev-icon"></span>
   </button>
@@ -70,15 +77,15 @@
   <div class="intro-content">
     <h1 data-aos="fade-right" data-aos-duration="1000" data-aos-easing="ease-in-out">În centrul stațiunii Geoagiu-Băi</h1>
     <p>Unde aerul e proaspăt, apa termală e naturală și poți avea parte de liniște, găsești Hotel Vacanța.
-       Dacă vrei să te odihnești, să te pui pe picioare sau pur și simplu să iei o pauză fără complicații, aici ai parte de tot ce ai nevoie.
-   </p>
+      Dacă vrei să te odihnești, să te pui pe picioare sau pur și simplu să iei o pauză fără complicații, aici ai parte de tot ce ai nevoie.
+    </p>
   </div>
 </section>
+
+<!-- Scroll Down Arrow -->
 <a href="#highlighted-offers" class="scroll-down" data-turbo="false">
   <i class="fas fa-chevron-down"></i>
 </a>
-
-
 
 <!-- IMAGE GALLERY SECTION -->
 <section class="homepage-gallery" data-controller="gallery">
@@ -111,13 +118,11 @@
   </div>
 </section>
 
-
-
 <!-- HIGHLIGHTED OFFERS -->
 <section id="highlighted-offers"class="highlighted-offers  py-5">
   <div class="row align-items-stretch g-4">
 
-    <div class="col-md-6">
+    <div class="col-md-6"data-aos="fade-right" data-aos-duration="1500" data-aos-easing="ease-in-out">
       <div class="offer-card h-100 p-4 border rounded">
         <h3>Vacanța cu Tratament Chibzuit</h3>
         <ul>
@@ -134,7 +139,7 @@
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6" data-aos="fade-left" data-aos-duration="1500" data-aos-easing="ease-in-out">
       <div class="offer-card h-100 p-4 border rounded">
         <h3>Mini-Vacanța de Weekend</h3>
         <ul>
@@ -149,15 +154,13 @@
         </div>
       </div>
     </div>
+    
 <!-- OFFERS CTA -->
 <div class="centered text-center py-4">
   <%= link_to "Descoperă toate ofertele", pachete_si_oferte_path, class: "btn btn-golden" %>
 </div>
   </div>
 </section>
-
-
-
 
 <section class="intro container py-5">
 <div class="intro-content">
