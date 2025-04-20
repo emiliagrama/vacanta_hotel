@@ -9,6 +9,7 @@ export default class extends Controller {
       img.addEventListener("click", () => this.openFullscreen(index))
     })
   }
+
   handleTouchStart(e) {
     this.startX = e.touches[0].clientX
   }
@@ -17,20 +18,16 @@ export default class extends Controller {
     if (!this.startX) return
     const diffX = this.startX - e.touches[0].clientX
 
-    // Sensitivity threshold
     if (Math.abs(diffX) > 50) {
       if (diffX > 0) {
-        // Swipe left → next
         this.showNext(this.currentOverlay)
       } else {
-        // Swipe right → prev
         this.showPrev(this.currentOverlay)
       }
 
-      this.startX = null // reset
+      this.startX = null
     }
   }
-
 
   openFullscreen(index) {
     this.currentIndex = index
@@ -38,11 +35,8 @@ export default class extends Controller {
     const overlay = document.createElement("div")
     overlay.classList.add("fullscreen-overlay")
 
-    // Clone the image
     const img = this.images[index].cloneNode(true)
     img.classList.add("fullscreen")
-
-    // 💥 Force correct dimensions/styles
     img.removeAttribute("width")
     img.removeAttribute("height")
     img.style.width = "100vw"
@@ -55,41 +49,46 @@ export default class extends Controller {
 
     overlay.appendChild(img)
 
-    // Close button
     const closeBtn = document.createElement("button")
     closeBtn.innerHTML = "×"
     closeBtn.classList.add("close-btn")
-    closeBtn.addEventListener("click", () => overlay.remove())
+    closeBtn.addEventListener("click", () => this.closeFullscreen(overlay))
     overlay.appendChild(closeBtn)
 
-    // Left arrow
     const prev = document.createElement("div")
     prev.classList.add("gallery-arrow", "left")
-    prev.innerHTML ="‹";
+    prev.innerHTML = "‹"
     prev.addEventListener("click", (e) => {
       e.stopPropagation()
       this.showPrev(overlay)
     })
     overlay.appendChild(prev)
 
-    // Right arrow
     const next = document.createElement("div")
     next.classList.add("gallery-arrow", "right")
-    next.innerHTML ="›";
+    next.innerHTML = "›"
     next.addEventListener("click", (e) => {
       e.stopPropagation()
       this.showNext(overlay)
     })
     overlay.appendChild(next)
 
-    // Save overlay reference to use in swipe functions
-this.currentOverlay = overlay
+    // Add swipe
+    overlay.addEventListener("touchstart", this.handleTouchStart.bind(this), { passive: true })
+    overlay.addEventListener("touchmove", this.handleTouchMove.bind(this), { passive: true })
 
-// Add touch listeners for swipe
-overlay.addEventListener("touchstart", this.handleTouchStart.bind(this), { passive: true })
-overlay.addEventListener("touchmove", this.handleTouchMove.bind(this), { passive: true })
+    document.body.appendChild(overlay)
+    this.currentOverlay = overlay
 
-document.body.appendChild(overlay)
+    // 🔒 LOCK SCROLL
+    document.body.classList.add("no-scroll")
+  }
+
+  closeFullscreen(overlay) {
+    overlay.remove()
+
+    // 🔓 UNLOCK SCROLL
+    document.body.classList.remove("no-scroll")
   }
 
   showPrev(overlay) {

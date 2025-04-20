@@ -13,6 +13,7 @@ export default class extends Controller {
   }
 
   close(event) {
+    if (!this.hasMenuTarget) return;
     if (!this.element.contains(event.target)) {
       this.menuTarget.classList.remove("active");
     }

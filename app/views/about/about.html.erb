@@ -1,4 +1,4 @@
-<section id="heroCarousel" class="carousel slide hero-slider" data-bs-ride="carousel" data-bs-touch="true">
+<section id="heroCarousel" class="carousel slide hero-slider" data-bs-ride="carousel" data-bs-touch="true"data-bs-touch="true" data-bs-interval="3000">
   <div class="carousel-inner">
 
     <div class="carousel-inner">
@@ -88,35 +88,31 @@
 </a>
 
 <!-- IMAGE GALLERY SECTION -->
-<section class="homepage-gallery" data-controller="gallery">
+<section class="homepage-gallery py-5" data-controller="gallery">
   <div class="container d-flex flex-column flex-md-row align-items-start gap-4">
 
-    <div class="gallery-text">
-      <h2>Descoperă Hotel Vacanța</h2>
-      <ul class="gallery-benefits">
-        <li><i class="fa-solid fa-check check-icon"></i> <p>Izvoare termale – Relaxare autentică și beneficii reale pentru sănătate</p></li>
-        <li><i class="fa-solid fa-check"></i><p> Aer curat, încărcat cu ioni negativi – Somn odihnitor, minte limpede</p></li>
-        <li><i class="fa-solid fa-check"></i><p> Camere primitoare – Tot ce ai nevoie pentru o ședere fără griji</p></li>
-        <li><i class="fa-solid fa-check"></i><p>Mâncare bună, ca la mama acasă – Preparată cu grijă, servită cu drag</p></li>
+    <!-- Text Side -->
+    <div class="gallery-text col-md-6">
+      <h2 class="gallery-title">Descoperă Hotel Vacanța</h2>
+      <ul class="gallery-benefits list-unstyled">
+        <li><i class="fa-solid fa-check check-icon"></i><p> Izvoare termale – Relaxare autentică și beneficii reale pentru sănătate</p></li>
+        <li><i class="fa-solid fa-check check-icon"></i><p> Camere primitoare – Tot ce ai nevoie pentru o ședere fără griji</p></li>
+        <li><i class="fa-solid fa-check check-icon"></i><p>Aer curat, încărcat cu ioni negativi – Somn odihnitor, minte limpede</p></li>
+        <li><i class="fa-solid fa-check check-icon"></i><p> Mâncare bună, ca la mama acasă – Preparată cu grijă, servită cu drag</p></li>
       </ul>
     </div>
 
-    <div class="gallery-grid">
-      <img src="/assets/geoagiu-bai.png" alt="Piscină"
-          class="gallery-img" data-index="1" data-aos="zoom-in" data-aos-delay="100" />
-
-      <img src="/assets/minte-limpede.JPG" alt="Minte Limpede"
-          class="gallery-img" data-index="0" data-aos="zoom-in" data-aos-delay="100" />
-
-      <img src="/assets/camera-hotel-fl.JPG" alt="Interior Cameră"
-            class="gallery-img" data-index="2" data-aos="zoom-in" data-aos-delay="100" />
-
-      <img src="/assets/gust-autentic 5.JPG" alt="Mancare"
-        class="gallery-img" data-index="3" data-aos="zoom-in" data-aos-delay="100" />
+    <!-- Image Grid -->
+    <div class="gallery-grid col-md-6 d-grid gap-3">
+      <img src="/assets/geoagiu-bai.png" alt="Băi" class="gallery-img" data-index="1" data-aos="zoom-in" />
+      <img src="/assets/camera-hotel-fl.JPG" alt="Cameră hotel" class="gallery-img" data-index="2" data-aos="zoom-in" />
+      <img src="/assets/minte-limpede.JPG" alt="Priveliște" class="gallery-img" data-index="0" data-aos="zoom-in" />
+      <img src="/assets/gust-autentic 5.JPG" alt="Mâncare" class="gallery-img" data-index="3" data-aos="zoom-in" />
     </div>
 
   </div>
 </section>
+
 
 <!-- HIGHLIGHTED OFFERS -->
 <section id="highlighted-offers"class="highlighted-offers  py-5">
@@ -154,7 +150,7 @@
         </div>
       </div>
     </div>
-    
+
 <!-- OFFERS CTA -->
 <div class="centered text-center py-4">
   <%= link_to "Descoperă toate ofertele", pachete_si_oferte_path, class: "btn btn-golden" %>
