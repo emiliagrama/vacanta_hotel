@@ -20,13 +20,13 @@
 
   <!-- Numar de Adulti (Required) -->
   <div>
-    <%= f.label :number_of_adults, "Numar de Adulti" %>
+    <%= f.label :number_of_adults, "Număr de Adulți" %>
     <%= f.number_field :number_of_adults, min: 1, required: true %>
   </div>
 
   <!-- Numar de Copii (Required) -->
   <div>
-    <%= f.label :number_of_kids, "Numar de Copii" %>
+    <%= f.label :number_of_kids, "Număr de Copii" %>
     <%= f.number_field :number_of_kids, min: 0, required: true %>
   </div>
 
@@ -34,7 +34,7 @@
 <div data-controller="date-picker">
   <%= f.label :package, "Tip Pachet" %>
   <%= f.select :package,
-    ["Vacanță cu tratament chibzuit", "Vacanță cu tratament cinstit", "Mini-Vacanță de weekend", "Vacanța, așa cum vrei tu"],
+    ["Vacanță cu tratament chibzuit", "Vacanță cu tratament pe săturate", "Mini-Vacanță de weekend", "Vacanța, așa cum vrei tu"],
     { prompt: "Alege un pachet" },
     { data: { action: "change->date-picker#updateDatePicker", date_picker_target: "package" } } %>
 

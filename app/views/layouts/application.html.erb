@@ -20,9 +20,9 @@
   <body data-controller="dropdown" data-action="click@window->dropdown#close">
     <div id="cookie-banner" class="cookie-banner">
       <div class="cookie-banner-content">
-        <p>We use cookies to improve your experience. By using our website, you agree to our use of cookies.</p>
-        <button id="accept-cookies">Accept</button>
-        <button id="decline-cookies">Decline</button>
+        <p>Folosim cookie-uri pentru a-ți îmbunătăți experiența. Prin utilizarea site-ului nostru, ești de acord cu folosirea cookie-urilor.</p>
+        <button id="accept-cookies">Aceptă</button>
+        <button id="decline-cookies">Refuză</button>
       </div>
     </div>
 
@@ -35,15 +35,14 @@
           <h4>Contact</h4>
           <ul>
             <li><i class="fas fa-phone"></i> +40254 249 111</li>
-            <li><i class="fas fa-envelope"></i> contact@hotelvacanta.ro</li>
-            <li><i class="fas fa-map-marker-alt"></i> Geoagiu-Băi, România</li>
+            <li><i class="fas fa-envelope"></i> receptie@hotelvacanta.ro</li>
+            <li><i class="fas fa-map-marker-alt"></i> Str. Vilelor, nr. 5, Geoagiu-Băi, Jud. Hunedoare, România</li>
           </ul>
         </div>
         <div class="footer-social">
           <h4>Urmărește-ne</h4>
           <div class="social-icons">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
       </div>
@@ -155,4 +154,56 @@
 
     </script>
   </body>
+ <script>
+  document.addEventListener("turbo:load", () => {
+    const images = document.querySelectorAll(".float-pic");
+    const fullscreen = document.getElementById("fullscreen-carousel");
+    const carouselImage = document.getElementById("carousel-image");
+    const closeBtn = document.querySelector(".close-carousel");
+    const prev = document.querySelector(".prev");
+    const next = document.querySelector(".next");
+
+    if (!fullscreen || !carouselImage || !closeBtn || !prev || !next || images.length === 0) return;
+
+    let currentIndex = 0;
+    const gallery = Array.from(images).map(img => img.src);
+
+    const showImage = (index) => {
+      carouselImage.src = gallery[index];
+    };
+
+    images.forEach((img, index) => {
+      img.style.cursor = "zoom-in";
+      img.addEventListener("click", () => {
+        currentIndex = index;
+        showImage(currentIndex);
+        fullscreen.classList.remove("hidden");
+      });
+    });
+
+    closeBtn.addEventListener("click", () => fullscreen.classList.add("hidden"));
+    prev.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
+      showImage(currentIndex);
+    });
+    next.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % gallery.length;
+      showImage(currentIndex);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (fullscreen.classList.contains("hidden")) return;
+      if (e.key === "Escape") fullscreen.classList.add("hidden");
+      if (e.key === "ArrowLeft") prev.click();
+      if (e.key === "ArrowRight") next.click();
+    });
+  });
+
+  document.addEventListener("turbo:before-cache", () => {
+    const fullscreen = document.getElementById("fullscreen-carousel");
+    if (fullscreen) fullscreen.classList.add("hidden");
+  });
+</script>
+
+
 </html>
