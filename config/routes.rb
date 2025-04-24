@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'hidden_pages/termeni_si_conditii'
+  get 'hidden_pages/politica_confidentialitate'
+  get 'hidden_pages/politica_cookies'
   get 'newsletters/create'
   get 'despre/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -21,4 +24,8 @@ Rails.application.routes.draw do
   post "contact",         to: "contact#create"
   get "contact/thank_you",to: "contact#thank_you", as: :contact_thank_you
   resources :newsletters, only: [:create]
+
+  get 'termeni_si_conditii', to: 'hidden_pages#termeni_si_conditii'
+  get 'politica_confidentialitate', to: 'hidden_pages#politica_confidentialitate'
+  get 'politica_cookies', to: 'hidden_pages#politica_cookies'
 end

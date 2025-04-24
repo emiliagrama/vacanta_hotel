@@ -34,7 +34,6 @@ function setUserStatus(status) {
     setCookie("user_status", status, 365);
     console.log("User status set to:", status);
   } else if (status === "client" && current !== "client") {
-    // Only upgrade from curious to client
     setCookie("user_status", "client", 365);
     console.log("User upgraded to client.");
   } else {
@@ -42,29 +41,29 @@ function setUserStatus(status) {
   }
 }
 
+function onBookRoom() {
+  setUserStatus("client");
+}
+
 // --------------------
-// 3. Cookie banner logic
+// 3. Cookie Banner + GA loader
 // --------------------
 window.addEventListener("load", function () {
-  console.log("Window loaded, checking user status cookie...");
-
   const banner = document.getElementById("cookie-banner");
   const acceptBtn = document.getElementById("accept-cookies");
   const declineBtn = document.getElementById("decline-cookies");
 
-  if (!getCookie("user_status")) {
+  if (!getCookie("user_status") && banner) {
     banner.classList.add("visible");
   }
 
   if (acceptBtn) {
     acceptBtn.addEventListener("click", function () {
-      const current = getCookie("user_status");
-
-      if (current !== "client") {
-        setUserStatus("curious"); // Only set curious if not already client
+      if (getCookie("user_status") !== "client") {
+        setUserStatus("curious");
       }
-
       banner.classList.remove("visible");
+      loadGoogleAnalytics();
     });
   }
 
@@ -73,11 +72,50 @@ window.addEventListener("load", function () {
       banner.classList.remove("visible");
     });
   }
+
+  if (["curious", "client"].includes(getCookie("user_status"))) {
+    loadGoogleAnalytics();
+  }
 });
 
 // --------------------
-// 4. Call when user books
+// 4. Google Analytics
 // --------------------
-function onBookRoom() {
-  setUserStatus("client");
+function loadGoogleAnalytics() {
+  if (window.gtag) return;
+
+  const gaScript = document.createElement("script");
+  gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"; // Replace with your real GA ID
+  gaScript.async = true;
+  document.head.appendChild(gaScript);
+
+  gaScript.onload = function () {
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    window.gtag = gtag;
+
+    gtag("js", new Date());
+    gtag("config", "G-XXXXXXXXXX", {
+      anonymize_ip: true
+    });
+
+    gtag("event", "cookie_consent", {
+      event_category: "Consent",
+      event_label: getCookie("user_status")
+    });
+  };
 }
+
+// --------------------
+// 5. Upgrade on Thank You page
+// --------------------
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.location.pathname.includes("/thank_you")) {
+    if (getCookie("user_status") !== "client") {
+      setCookie("user_status", "client", 365);
+      console.log("✅ Cookie updated to client on thank_you page");
+    } else {
+      console.log("ℹ️ Already marked as client");
+    }
+  }
+});

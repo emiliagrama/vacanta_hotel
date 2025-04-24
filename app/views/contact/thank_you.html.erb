@@ -1,14 +1,2 @@
 <h2>Mulțumim!</h2>
 <p>Mesajul a fost trimis cu succes. Vă vom contacta în cel mult 48 de ore.</p>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Check current cookie value
-    if (getCookie("user_status") !== "client") {
-      setCookie("user_status", "client", 365);
-      console.log("✅ Cookie updated to client on thank_you page");
-    } else {
-      console.log("ℹ️ Already marked as client");
-    }
-  });
-</script>
-<%= javascript_include_tag "cookies" %>
