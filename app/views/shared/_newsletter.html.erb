@@ -1,13 +1,13 @@
-<div data-controller="newsletter" data-aos="zoom-in"data-aos-delay="200" >
-  <%= form_with url: newsletters_path, method: :post, data: { controller: "newsletter" }, html: { id: "newsletter-fields" } do |f| %>
+<div id="homepage-newsletter" data-controller="newsletter" data-action="submit->newsletter#submit" data-aos="zoom-in" data-aos-delay="200">
+  <%= form_with url: newsletters_path, method: :post, data: { controller: "newsletter" } do |f| %>
     <div class="newsletter-fields">
-      <%= f.email_field :email, placeholder: "Adresa ta de email", required: true, class: "newsletter-input" %>
-      <%= f.submit "Ține-mă la curent", class: "newsletter-button" %>
-    </div>
+  <%= f.email_field :email, placeholder: "Adresa ta de email", required: true, class: "newsletter-input", data: { newsletter_target: "emailField" } %>
+  <%= f.submit "Ține-mă la curent", class: "newsletter-button", data: { newsletter_target: "submitButton" } %>
+</div>
   <% end %>
 
-  <% if flash[:notice] %>
-  <p style="color: black; margin-top: 10px;"><%= flash[:notice] %></p>
-  <% end %>
-
+  <!-- Hidden success message -->
+  <div data-newsletter-target="successMessage" class="hidden thank-you-message">
+    Mulțumim pentru abonare!
+  </div>
 </div>

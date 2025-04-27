@@ -217,6 +217,32 @@
       }, { threshold: 0.2 });
       sections.forEach((section) => observer.observe(section));
     });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const homepageNewsletter = document.getElementById("homepage-newsletter");
+  const contactNewsletter = document.getElementById("contact-newsletter");
+
+  function hasSubscribed() {
+    return document.cookie.split(";").some(c => c.trim().startsWith("subscribed_to_newsletter=true"));
+  }
+
+  if (hasSubscribed()) {
+    if (homepageNewsletter) {
+      const form = homepageNewsletter.querySelector("form");
+      if (form) form.style.display = "none";
+      const success = homepageNewsletter.querySelector("[data-newsletter-target='successMessage']");
+      if (success) success.classList.remove("hidden");
+    }
+
+    if (contactNewsletter) {
+      const checkbox = contactNewsletter.querySelector("input[type='checkbox']");
+      const label = contactNewsletter.querySelector("label[for='newsletter']");
+      if (checkbox) checkbox.disabled = true;
+      if (label) label.textContent = "Ești deja abonat la newsletter.";
+    }
+  }
+});
+
   </script>
 
 </body>

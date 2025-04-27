@@ -128,6 +128,12 @@ body {
   color: rgb(238, 29, 35);
   text-decoration: none;
   font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+.nav-links li a:hover {
+  transform: scale(1.2);
 }
 /* The hamburger button (hidden on desktop) */
 .menu-btn {
@@ -601,6 +607,15 @@ input[type="submit"],
   .hero-slider {
     height: 85vh;
     max-height: 800px;
+  }
+  .nav-links li a {
+    padding-right: 2rem;
+    letter-spacing: 1.5px; /* subtle wider look */
+    font-size: 1.1rem;
+  }
+  .btn-navbar {
+    letter-spacing: 1.5px;
+    font-size: 1.1rem;
   }
 }
 .hero-slider .carousel-inner,
@@ -1126,6 +1141,9 @@ img, .card, .gallery-img, .form, .btn {
   vertical-align: middle;
 }
 .btn-navbar:hover {
-  background-color: white;
-  color: black !important;
+  background-color: rgb(220, 20, 20);
+  color: white !important;
+  transform: translateY(-2px); /* lift effect */
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 }
+
