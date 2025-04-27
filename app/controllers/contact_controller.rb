@@ -9,7 +9,12 @@ class ContactController < ApplicationController
       # Optionally send an email to the hotel:
       ContactMailer.with(contact: @contact).new_inquiry.deliver_now
 
-      # Redirect or render a thank-you page
+      # Set cookie if user opted for newsletter
+      if @contact.newsletter
+        cookies[:subscribed_to_newsletter] = { value: "true", path: "/", expires: 1.year.from_now }
+      end
+
+      # Redirect to thank-you page
       redirect_to contact_thank_you_path, notice: "Mesaj trimis cu succes!"
     else
       # Show the form again with error messages
