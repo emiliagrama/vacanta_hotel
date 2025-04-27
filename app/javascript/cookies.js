@@ -98,7 +98,12 @@ function loadGoogleAnalytics() {
     gtag("config", "G-XXXXXXXXXX", {
       anonymize_ip: true
     });
-
+// Set custom user property
+    gtag('set', {
+      user_properties: {
+        user_status: getCookie("user_status")
+      }
+    });
     gtag("event", "cookie_consent", {
       event_category: "Consent",
       event_label: getCookie("user_status")

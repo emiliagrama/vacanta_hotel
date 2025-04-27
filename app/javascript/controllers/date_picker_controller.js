@@ -46,8 +46,8 @@ export default class extends Controller {
         }
       })
 
-    } else if (value.includes("cinstit")) {
-      console.log("💼 Cinstit: only Mondays, +10 nights")
+    } else if (value.includes("săturate")) {
+      console.log("💼 Săturate: only Mondays, +10 nights")
 
       this.checkInCalendar.set("enable", [mondayFilter])
       this.checkInCalendar.set("onChange", (selectedDates) => {
@@ -58,7 +58,7 @@ export default class extends Controller {
           this.checkOutCalendar.setDate(checkOut, true)
           this.checkOutTarget.readOnly = true
           this.checkOutCalendar.set("clickOpens", false)
-          console.log("✅ Auto-filled cinstit checkout:", checkOut.toISOString().slice(0, 10))
+          console.log("✅ Auto-filled săturate checkout:", checkOut.toISOString().slice(0, 10))
         }
       })
 

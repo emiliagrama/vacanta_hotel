@@ -1,81 +1,80 @@
+<%= form_with model: @contact, url: contact_path, method: :post, data: { turbo: false }, html: { class: "contact-form" } do |f| %>
 
-<%= form_with model: @contact, url: contact_path, method: :post, data: { turbo: false } do |f| %>
   <!-- Nume (Required) -->
-  <div>
+  <div class="form-group">
     <%= f.label :name, "Nume" %>
-    <%= f.text_field :name, required: true %>
+    <%= f.text_field :name, required: true, autocomplete: "name", class: "form-control" %>
   </div>
 
   <!-- Telefon (Required) -->
-  <div>
+  <div class="form-group">
     <%= f.label :phone, "Telefon" %>
-    <%= f.telephone_field :phone, required: true %>
+    <%= f.telephone_field :phone, required: true, autocomplete: "tel", class: "form-control" %>
   </div>
 
   <!-- Email (Optional) -->
-  <div>
+  <div class="form-group">
     <%= f.label :email, "Email" %>
-    <%= f.email_field :email %>
+    <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
   </div>
 
-  <!-- Numar de Adulti (Required) -->
-  <div>
+  <!-- Număr Adulți -->
+  <div class="form-group">
     <%= f.label :number_of_adults, "Număr de Adulți" %>
-    <%= f.number_field :number_of_adults, min: 1, required: true %>
+    <%= f.number_field :number_of_adults, min: 1, required: true, inputmode: "numeric", class: "form-control" %>
   </div>
 
-  <!-- Numar de Copii (Required) -->
-  <div>
+  <!-- Număr Copii -->
+  <div class="form-group">
     <%= f.label :number_of_kids, "Număr de Copii" %>
-    <%= f.number_field :number_of_kids, min: 0, required: true %>
+    <%= f.number_field :number_of_kids, min: 0, required: true, inputmode: "numeric", class: "form-control" %>
   </div>
 
-<!-- Tip de pachet (Required) -->
-<div data-controller="date-picker">
-  <%= f.label :package, "Tip Pachet" %>
-  <%= f.select :package,
-    ["Vacanță cu tratament chibzuit", "Vacanță cu tratament pe săturate", "Mini-Vacanță de weekend", "Vacanța, așa cum vrei tu"],
-    { prompt: "Alege un pachet" },
-    { data: { action: "change->date-picker#updateDatePicker", date_picker_target: "package" } } %>
+  <!-- Pachet + Check-in/Check-out -->
+  <div class="form-group" data-controller="date-picker">
+    <%= f.label :package, "Tip Pachet" %>
+    <%= f.select :package,
+      ["Vacanță cu tratament chibzuit", "Vacanță cu tratament pe săturate", "Mini-Vacanță de weekend", "Vacanța, așa cum vrei tu"],
+      { prompt: "Alege un pachet" },
+      { data: { action: "change->date-picker#updateDatePicker", date_picker_target: "package" }, class: "form-control" } %>
 
-  <%= f.label :check_in_date, "Data Check-In" %>
-  <%= f.text_field :check_in_date, data: { date_picker_target: "checkIn" } %>
+    <%= f.label :check_in_date, "Data Check-In" %>
+    <%= f.text_field :check_in_date, autocomplete: "off", data: { date_picker_target: "checkIn" }, class: "form-control" %>
 
-  <%= f.label :check_out_date, "Data Check-Out" %>
-<%= f.text_field :check_out_date, data: { date_picker_target: "checkOut" }, id: "checkout-field" %>
-</div>
+    <%= f.label :check_out_date, "Data Check-Out" %>
+    <%= f.text_field :check_out_date, autocomplete: "off", data: { date_picker_target: "checkOut" }, id: "checkout-field", class: "form-control" %>
+  </div>
 
-
-  <!-- Preferinta pentru confirmare (Required) -->
-  <div>
+  <!-- Confirmare -->
+  <div class="form-group">
     <%= f.label :preference_for_confirmation, "Preferință Confirmare" %>
     <%= f.select :preference_for_confirmation, ["Telefon", "Email"],
                  { prompt: "Alege confirmare" },
-                 required: true %>
+                 required: true,
+                 class: "form-control" %>
   </div>
 
-  <!-- Mesaj / Observații (Optional) -->
-  <div>
+  <!-- Mesaj -->
+  <div class="form-group">
     <%= f.label :message, "Mesaj / Observații" %>
-    <%= f.text_area :message, rows: 5 %>
+    <%= f.text_area :message, rows: 5, class: "form-control" %>
   </div>
 
-  <!-- Newsletter (Checkbox) -->
-  <div>
+  <!-- Newsletter Checkbox -->
+  <div class="form-group newsletter-checkbox">
     <%= f.check_box :newsletter %>
     <%= f.label :newsletter, "Doresc oferte / Newsletter" %>
   </div>
 
-  <%= f.submit "Trimite" %>
+  <%= f.submit "Trimite", class: "btn btn-primary w-100" %>
+
 <% end %>
 
-<!-- Show validation errors, if any -->
+<!-- Show errors if needed -->
 <% if @contact.errors.any? %>
-  <ul>
+  <ul class="error-messages">
     <% @contact.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
   </ul>
 <% end %>
-
-</body>
