@@ -30,6 +30,14 @@ export default class extends Controller {
           this.successMessageTarget.classList.remove("hidden");
         }
         document.cookie = "subscribed_to_newsletter=true; path=/; max-age=31536000";
+        // Send event to Google Analytics
+        if (typeof gtag === 'function') {
+          gtag('event', 'newsletter_signup', {
+            event_category: 'engagement',
+            event_label: 'homepage_form'
+          });
+        }
+
       } else {
         alert(data.error || "A apărut o eroare. Încearcă din nou.");
       }

@@ -46,7 +46,7 @@ function onBookRoom() {
 }
 
 // --------------------
-// 3. Cookie Banner + GA loader
+// 3. Cookie Banner + optional GA event
 // --------------------
 window.addEventListener("load", function () {
   const banner = document.getElementById("cookie-banner");
@@ -62,10 +62,23 @@ window.addEventListener("load", function () {
       if (getCookie("user_status") !== "client") {
         setUserStatus("curious");
       }
+
       banner.classList.remove("visible");
-      loadGoogleAnalytics();
+
+      // Ensure we read the updated cookie value
+      const visitorType = getCookie("user_status");
+
+      // Optional GA event for cookie acceptance
+      if (typeof gtag === "function") {
+        console.log("📡 Sending GA event: cookie_consent with label:", visitorType);
+        gtag("event", "cookie_consent", {
+          event_category: "Consent",
+          event_label: visitorType
+        });
+      }
     });
   }
+
 
   if (declineBtn) {
     declineBtn.addEventListener("click", function () {
@@ -73,46 +86,11 @@ window.addEventListener("load", function () {
     });
   }
 
-  if (["curious", "client"].includes(getCookie("user_status"))) {
-    loadGoogleAnalytics();
-  }
+  // ✅ GA is now loaded globally — no need to call or load it here anymore
 });
 
 // --------------------
-// 4. Google Analytics
-// --------------------
-function loadGoogleAnalytics() {
-  if (window.gtag) return;
-
-  const gaScript = document.createElement("script");
-  gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"; // Replace with your real GA ID
-  gaScript.async = true;
-  document.head.appendChild(gaScript);
-
-  gaScript.onload = function () {
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    window.gtag = gtag;
-
-    gtag("js", new Date());
-    gtag("config", "G-XXXXXXXXXX", {
-      anonymize_ip: true
-    });
-// Set custom user property
-    gtag('set', {
-      user_properties: {
-        user_status: getCookie("user_status")
-      }
-    });
-    gtag("event", "cookie_consent", {
-      event_category: "Consent",
-      event_label: getCookie("user_status")
-    });
-  };
-}
-
-// --------------------
-// 5. Upgrade on Thank You page
+// 4. Upgrade on Thank You page
 // --------------------
 document.addEventListener("DOMContentLoaded", function () {
   if (window.location.pathname.includes("/thank_you")) {
