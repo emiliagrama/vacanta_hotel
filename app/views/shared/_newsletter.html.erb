@@ -1,13 +1,72 @@
 <div id="homepage-newsletter" data-controller="newsletter" data-action="submit->newsletter#submit" data-aos="zoom-in" data-aos-delay="200">
-  <%= form_with url: newsletters_path, method: :post, data: { controller: "newsletter" } do |f| %>
+  <%= form_with url: newsletters_path, method: :post, data: { controller: "newsletter", turbo: false } do |f| %>
     <div class="newsletter-fields">
+   <%= f.text_field :name, placeholder: "Prenumele tău", required: true, class: "newsletter-input", data: { newsletter_target: "nameField" } %>
   <%= f.email_field :email, placeholder: "Adresa ta de email", required: true, class: "newsletter-input", data: { newsletter_target: "emailField" } %>
   <%= f.submit "Ține-mă la curent", class: "newsletter-button", data: { newsletter_target: "submitButton" } %>
 </div>
   <% end %>
-
   <!-- Hidden success message -->
   <div data-newsletter-target="successMessage" class="hidden thank-you-message">
     Mulțumim pentru abonare!
   </div>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const contactForm = document.getElementById("contact-form");
+    const nameInput = form.querySelector("[data-newsletter-target='nameField']");
+    const name = nameInput ? nameInput.value.trim() : "";
+
+    const newsletterCheckbox = document.getElementById("contact_newsletter");
+
+    contactForm.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const emailInput = contactForm.querySelector("input[name='email']");
+      const email = emailInput ? emailInput.value.trim() : "";
+      const subscribeToNewsletter = newsletterCheckbox?.checked;
+
+      if (subscribeToNewsletter) {
+        if (!email || !email.includes('@')) {
+          alert("Te rugăm să introduci o adresă de email validă.");
+          return;
+        }
+
+        try {
+          const response = await fetch('/newsletters', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, name: name })
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            alert("✅ Te-ai abonat la newsletter!");
+
+            // Optional GA event
+            if (typeof gtag === 'function') {
+              gtag('event', 'newsletter_signup', {
+                event_category: 'engagement',
+                event_label: 'contact_form'
+              });
+            }
+
+            // Set cookie
+            document.cookie = "subscribed_to_newsletter=true; path=/; max-age=31536000";
+          } else {
+            alert(data.error || "❌ Eroare la abonare. Încearcă din nou.");
+            return; // Don't submit if subscribe fails
+          }
+        } catch (error) {
+          console.error("Newsletter error:", error);
+          alert("❌ Eroare de rețea.");
+          return;
+        }
+      }
+
+      // ✅ Proceed with form submission after newsletter check
+      contactForm.submit();
+    });
+  });
+</script>

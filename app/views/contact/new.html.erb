@@ -1,4 +1,4 @@
-<%= form_with model: @contact, url: contact_path, method: :post, data: { turbo: false } do |f| %>
+<%= form_with model: @contact, url: contact_path, method: :post, data: { turbo: false }, html: { id: "contact-form" } do |f| %>
   <!-- Nume (Required) -->
   <div>
     <%= f.label :name, "Nume" %>
@@ -75,3 +75,63 @@
     <% end %>
   </ul>
 <% end %>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const contactForm = document.getElementById("contact-form");
+    const newsletterCheckbox = document.getElementById("contact_newsletter");
+
+    contactForm.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const emailInput = contactForm.querySelector("input[name='contact[email]']");
+      const email = emailInput?.value?.trim() || "";
+      const subscribeToNewsletter = newsletterCheckbox?.checked;
+
+      // If checkbox is ticked, attempt Mailchimp subscription first
+      if (subscribeToNewsletter) {
+        if (!email || !email.includes('@')) {
+          alert("Te rugăm să introduci o adresă de email validă.");
+          return;
+        }
+
+        try {
+          const response = await fetch('/newsletters', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email })
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            // ✅ Success: Set cookie and proceed
+            document.cookie = "subscribed_to_newsletter=true; path=/; max-age=31536000";
+
+            if (typeof gtag === 'function') {
+              gtag('event', 'newsletter_signup', {
+                event_category: 'engagement',
+                event_label: 'contact_form'
+              });
+            }
+
+            contactForm.submit(); // ✅ Non-blocking continue
+            return;
+
+          } else {
+            alert(data.error || "❌ Eroare la abonare. Încearcă din nou.");
+            return; // Stop submission on error
+          }
+
+        } catch (error) {
+          console.error("Newsletter error:", error);
+          alert("❌ Eroare de rețea.");
+          return;
+        }
+      }
+
+      // ✅ Submit immediately if not subscribing
+      contactForm.submit();
+    });
+  });
+</script>
+

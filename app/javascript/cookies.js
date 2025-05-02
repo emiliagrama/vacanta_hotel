@@ -53,7 +53,7 @@ window.addEventListener("load", function () {
   const acceptBtn = document.getElementById("accept-cookies");
   const declineBtn = document.getElementById("decline-cookies");
 
-  if (!getCookie("user_status") && banner) {
+  if (!getCookie("user_status") && banner) { // Show if no 'user_status' cookie is set
     banner.classList.add("visible");
   }
 
@@ -65,12 +65,10 @@ window.addEventListener("load", function () {
 
       banner.classList.remove("visible");
 
-      // Ensure we read the updated cookie value
       const visitorType = getCookie("user_status");
 
       // Optional GA event for cookie acceptance
       if (typeof gtag === "function") {
-        console.log("📡 Sending GA event: cookie_consent with label:", visitorType);
         gtag("event", "cookie_consent", {
           event_category: "Consent",
           event_label: visitorType
@@ -79,16 +77,12 @@ window.addEventListener("load", function () {
     });
   }
 
-
   if (declineBtn) {
     declineBtn.addEventListener("click", function () {
       banner.classList.remove("visible");
     });
   }
-
-  // ✅ GA is now loaded globally — no need to call or load it here anymore
 });
-
 // --------------------
 // 4. Upgrade on Thank You page
 // --------------------

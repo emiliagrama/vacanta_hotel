@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import flatpickr from "flatpickr"
-
+import { Romanian } from "flatpickr/ro"
 export default class extends Controller {
   static targets = ["package", "checkIn", "checkOut"]
 
@@ -8,9 +8,10 @@ export default class extends Controller {
     console.log("📅 Date Picker Controller Connected!")
 
     const options = {
-      dateFormat: "Y-m-d",
+      dateFormat: "d.m.Y",        // Day.Month.Year
       disableMobile: true,
       minDate: "today",
+      locale: Romanian
     }
 
     this.checkInCalendar = flatpickr(this.checkInTarget, options)
@@ -19,86 +20,62 @@ export default class extends Controller {
 
   updateDatePicker() {
     const value = this.packageTarget.value
-    this.checkOutTarget.readOnly = true // Lock it by default
+    this.checkOutTarget.readOnly = true
     this.checkOutCalendar.set("clickOpens", false)
-    console.log("📦 Selected Package:", value)
 
     this.checkInCalendar.clear()
     this.checkOutCalendar.clear()
 
-    const mondayFilter = (date) => date.getDay() === 1
-    const weekendFilter = (date) => [5, 6, 0].includes(date.getDay()) // Fri/Sat/Sun
+    const mondayFilter = date => date.getDay() === 1
+    const weekendFilter = date => [5, 6].includes(date.getDay())
 
+    const commonOptions = {
+      dateFormat: "d.m.Y",
+      disableMobile: true,
+      minDate: "today",
+      locale: { firstDayOfWeek: 1 }
+    }
 
     if (value.includes("chibzuit")) {
-      console.log("🧠 Chibzuit: only Mondays, +5 nights")
-
       this.checkInCalendar.set("enable", [mondayFilter])
-      this.checkInCalendar.set("onChange", (selectedDates) => {
-        const checkIn = selectedDates[0]
+      this.checkInCalendar.set("onChange", ([checkIn]) => {
         if (checkIn) {
           const checkOut = new Date(checkIn)
           checkOut.setDate(checkOut.getDate() + 5)
           this.checkOutCalendar.setDate(checkOut, true)
-          this.checkOutTarget.readOnly = true
-          this.checkOutCalendar.set("clickOpens", false)
-          console.log("✅ Auto-filled chibzuit checkout:", checkOut.toISOString().slice(0, 10))
         }
       })
 
     } else if (value.includes("săturate")) {
-      console.log("💼 Săturate: only Mondays, +10 nights")
-
       this.checkInCalendar.set("enable", [mondayFilter])
-      this.checkInCalendar.set("onChange", (selectedDates) => {
-        const checkIn = selectedDates[0]
+      this.checkInCalendar.set("onChange", ([checkIn]) => {
         if (checkIn) {
           const checkOut = new Date(checkIn)
           checkOut.setDate(checkOut.getDate() + 10)
           this.checkOutCalendar.setDate(checkOut, true)
-          this.checkOutTarget.readOnly = true
-          this.checkOutCalendar.set("clickOpens", false)
-          console.log("✅ Auto-filled săturate checkout:", checkOut.toISOString().slice(0, 10))
         }
       })
 
     } else if (value.includes("weekend")) {
-      console.log("🍹 Weekend: only Fri/Sat/Sun, +2 nights")
-
-      const weekendFilter = (date) => [5, 6].includes(date.getDay()) // Fri, Sat
       this.checkInCalendar.set("enable", [weekendFilter])
-      this.checkInCalendar.set("onChange", (selectedDates) => {
-        const checkIn = selectedDates[0]
+      this.checkInCalendar.set("onChange", ([checkIn]) => {
         if (checkIn) {
           const checkOut = new Date(checkIn)
           checkOut.setDate(checkOut.getDate() + 2)
           this.checkOutCalendar.setDate(checkOut, true)
-          this.checkOutTarget.readOnly = true
-          this.checkOutCalendar.set("clickOpens", false)
-          console.log("✅ Auto-filled weekend checkout:", checkOut.toISOString().slice(0, 10))
-
         }
       })
 
     } else if (value.includes("vrei tu")) {
-      console.log("🌈 No restrictions (vacanța așa cum vrei tu)")
-
-      this.checkOutTarget.readOnly = false // allow manual input
+      this.checkOutTarget.readOnly = false
       this.checkOutCalendar.set("clickOpens", true)
 
       this.checkInCalendar.destroy()
       this.checkOutCalendar.destroy()
 
-      const options = {
-        dateFormat: "Y-m-d",
-        disableMobile: true,
-        minDate: "today"
-      }
-
       this.checkInCalendar = flatpickr(this.checkInTarget, {
-        ...options,
-        onChange: (selectedDates) => {
-          const checkIn = selectedDates[0]
+        ...commonOptions,
+        onChange: ([checkIn]) => {
           if (checkIn) {
             const nextDay = new Date(checkIn)
             nextDay.setDate(checkIn.getDate() + 1)
@@ -107,11 +84,7 @@ export default class extends Controller {
         }
       })
 
-      this.checkOutCalendar = flatpickr(this.checkOutTarget, {
-        ...options
-      })
+      this.checkOutCalendar = flatpickr(this.checkOutTarget, commonOptions)
     }
-
-
   }
 }
