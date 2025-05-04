@@ -44,7 +44,6 @@
         <ul>
           <li><i class="fas fa-phone"></i> +40254 249 111</li>
           <li><i class="fas fa-envelope"></i> <a href="mailto:receptie@hotelvacanta.ro">receptie@hotelvacanta.ro</a></li>
-          <li><i class="fas fa-envelope"></i> <a href="mailto:office@hotelvacanta.ro">office@hotelvacanta.ro</a></li>
           <li><i class="fas fa-map-marker-alt"></i> Str. Vilelor, nr. 5, Geoagiu-Băi, Jud. Hunedoara, România</li>
         </ul>
       </div>
@@ -134,16 +133,23 @@
 
       // Re-init carousels
       document.querySelectorAll(".carousel").forEach((carousel) => {
-        const instance = bootstrap.Carousel.getInstance(carousel);
-        if (instance) instance.dispose();
+  if (!(carousel instanceof Element)) return;
 
-        new bootstrap.Carousel(carousel, {
-          interval: 5000,
-          ride: "carousel",
-          pause: false,
-          touch: true,
-        });
-      });
+  try {
+    const instance = bootstrap.Carousel.getInstance(carousel);
+    if (instance) instance.dispose();
+
+    new bootstrap.Carousel(carousel, {
+      interval: 5000,
+      ride: "carousel",
+      pause: false,
+      touch: true,
+    });
+  } catch (e) {
+    console.warn("❗ Carousel init failed:", carousel, e);
+  }
+});
+
 
       // Hero Carousel Swipe Support
       const heroCarousel = document.querySelector("#heroCarousel");
@@ -254,6 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
 
   </script>
 

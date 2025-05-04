@@ -23,7 +23,7 @@ require 'digest/md5'
         email_address: email,
         status: 'subscribed',
         merge_fields: {
-          FNAME: 'Emilia' # Default or fixed value, required by your list
+          FNAME: 'first_name' # Default or fixed value, required by your list
         }
       }.to_json
     end

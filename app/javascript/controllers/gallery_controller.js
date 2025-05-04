@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   connect() {
+    console.log("📸 Gallery controller connected")
     this.images = this.element.querySelectorAll(".gallery-img")
     this.currentIndex = 0
 

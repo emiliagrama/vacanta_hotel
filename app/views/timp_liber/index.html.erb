@@ -6,173 +6,189 @@
   <title>Timp Liber - Hotel Vacanța</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      font-family: var(--body-font, 'Inter', sans-serif);
-      background: #fdfcf7;
-      margin: 0;
-      padding: 0;
-    }
+   /* Timp Liber */
+body {
+  font-family: var(--body-font, 'Inter', sans-serif);
+  background: #fdfcf7;
+  margin: 0;
+  padding: 0;
+}
 
-    .timp-liber-hero {
-      text-align: center;
-      padding: 3rem 1rem;
-    }
+.timp-liber-hero {
+  text-align: center;
+  padding: 3rem 1rem;
+}
 
-    .timp-liber-hero h2 {
-      font-family: var(--title-font, 'Bitter', serif);
-      font-size: clamp(2rem, 5vw, 2.8rem);
-      font-weight: 700;
-      color: rgb(238, 29, 35);
-      margin-bottom: 1rem;
-      text-align: center;
-      margin-bottom: 1rem;
-    }
+.timp-liber-hero h2 {
+  font-family: var(--title-font, 'Bitter', serif);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: rgb(238, 29, 35);
+  margin-bottom: 1rem;
+}
 
-    .timp-liber-hero .subtitle {
-      color: #6b7280;
-      font-size: 1.2rem;
-      font-style: italic;
-      margin-bottom: 1.5rem;
-    }
+.timp-liber-hero .subtitle {
+  color: #6b7280;
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
 
-    .timp-liber-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 1rem 3rem;
-    }
+.timp-liber-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
 
-    .timp-liber-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 2rem;
-      padding: 2rem 2rem;
-      background-color: rgb(255, 250, 241);
-    }
+/* Timp Liber Gallery */
+.timp-liber-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem 2rem;
+  background-color: rgb(255, 250, 241);
+}
 
-    /* === LEFT TEXT SIDE === */
-    .timp-liber-text {
-      flex: 1 1 45%;
-      min-width: 300px;
-    }
+.timp-liber-text {
+  flex: 1 1 45%;
+  min-width: 300px;
+}
 
-    .timp-liber-text h3 {
-      font-size: 1.8rem;
-      color: #1b1919;
-      margin-bottom: 1.5rem;
-      font-family: "Bitter", serif;
-    }
+.timp-liber-text h3 {
+  font-size: 1.8rem;
+  color: #1b1919;
+  margin-bottom: 1.5rem;
+  font-family: "Bitter", serif;
+}
 
-    .timp-liber-text p {
-      font-size: 1rem;
-      color: #4a4a4a;
-    }
+.timp-liber-text p {
+  font-size: 1rem;
+  color: #4a4a4a;
+}
 
-    /* === RIGHT IMAGE SIDE === */
-    .timp-liber-img {
-      flex: 1 1 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.timp-liber-img {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .timp-liber-img img {
-      width: 100%;
-      height: 350px;
-      object-fit: cover;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: filter 0.3s ease, transform 0.3s ease;
-    }
+.timp-liber-img img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px; /* Same as in offers slider */
+  cursor: pointer;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
 
-    .timp-liber-img img:hover {
-      filter: brightness(85%);
-      transform: scale(1.02);
-    }
+.timp-liber-img img:hover {
+  filter: brightness(85%);
+  transform: scale(1.01); /* Same as in offers slider */
+}
 
-    /* === FULLSCREEN GALLERY === */
-    .fullscreen-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+/* Fullscreen Overlay */
+#fullscreen-carousel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.98);
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
 
-    .gallery-img.fullscreen {
-      max-width: 90vw;
-      max-height: 90vh;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      margin: 0 auto;
-      box-shadow: 0 0 20px rgba(126, 123, 123, 0.7);
-      border-radius: 10px;
-    }
+#fullscreen-carousel img {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(126, 123, 123, 0.7);
+  border-radius: 10px;
+}
+@media (max-width: 768px) {
+  #fullscreen-carousel img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: cover;  /* This will ensure the image covers the entire area on mobile */
+  }
+}
 
-    .fullscreen-overlay.hidden {
-      display: none;
-    }
+#fullscreen-carousel .carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10000;
+}
 
-    .fullscreen-overlay .close-carousel,
-    .fullscreen-overlay .prev,
-    .fullscreen-overlay .next {
-      position: absolute;
-      color: white;
-      font-size: 2rem;
-      cursor: pointer;
-      padding: 0.5rem;
-      border-radius: 5px;
-      z-index: 10000;
-    }
+#fullscreen-carousel .prev,
+#fullscreen-carousel .next {
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
 
-    .fullscreen-overlay .close-carousel {
-      top: 1rem;
-      right: 1rem;
-    }
+  border-radius: 50%;
+}
 
-    .fullscreen-overlay .prev {
-      top: 50%;
-      left: 2rem;
-      transform: translateY(-50%);
-    }
+#fullscreen-carousel .close-carousel {
+ position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 2rem;
+  color: white;
+  background: none;
+  border: none;
+  z-index: 10001;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  transition: color 0.3s ease;
+}
+#fullscreen-carousel .carousel-controls .prev,
+#fullscreen-carousel .carousel-controls .next {
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
 
-    .fullscreen-overlay .next {
-      top: 50%;
-      right: 2rem;
-      transform: translateY(-50%);
-    }
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10000;
+}
 
-    /* === Arrow Buttons === */
-    .gallery-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 3rem;
-      color: white;
-      width: 50px;
-      height: 50px;
-      line-height: 50px;
-      text-align: center;
-      cursor: pointer;
-      z-index: 10000;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 50%;
-      transition: background 0.3s;
-    }
+#fullscreen-carousel .carousel-controls .prev {
+  left: 2rem; /* Add some space from the left */
+}
 
-    .gallery-arrow.left {
-      left: 1rem;
-    }
+#fullscreen-carousel .carousel-controls .next {
+  right: 2rem; /* Add some space from the right */
+}
 
-    .gallery-arrow.right {
-      right: 1rem;
-    }
+/* Carousel Control */
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 10;
+  filter: invert(1);
+}
+
+.carousel-inner {
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  height: 100%;
+}
+
   </style>
 </head>
 <body>
@@ -181,154 +197,156 @@
     <p class="subtitle">Descoperă atracțiile din împrejurimi</p>
   </section>
 
-  <div class="timp-liber-container">
-    <div class="timp-liber-gallery">
-      <div class="timp-liber-text">
-        <h3><i class="fas fa-water"></i> Cascada Clocota (Geoagiu-Băi)</h3>
-        <p>Situlată chiar în stațiunea Geoagiu-Băi, Cascada Clocota este o minunăție naturală unde apele termale se revarsă într-un spectacol deosebit. Sunetul apei și peisajul înconjurător oferă un loc perfect pentru relaxare și fotografii memorabile.​</p>
-      </div>
-      <div class="timp-liber-img">
-        <img src="assets/geoagiu bai 3.JPG" alt="Attraction Image" class="gallery-img" data-index="1"/>
-      </div>
+<div class="timp-liber-container">
+  <div class="timp-liber-gallery">
+    <div class="timp-liber-text">
+      <h3><i class="fas fa-water"></i> Cascada Clocota (Geoagiu-Băi)</h3>
+      <p>Situlată chiar în stațiunea Geoagiu-Băi, Cascada Clocota este o minunăție naturală unde apele termale se revarsă într-un spectacol deosebit. Sunetul apei și peisajul înconjurător oferă un loc perfect pentru relaxare și fotografii memorabile.​</p>
     </div>
-
-    <div class="timp-liber-gallery">
-      <div class="timp-liber-text">
-        <h3><i class="fas fa-bath"></i> Termele Romane Germisara (Geoagiu-Băi)</h3>
-        <p>Aceste băi termale, cunoscute și sub numele de Termae Dodonae, datează din perioada romană și evidențiază tradiția balneară a zonei. Vizitatorii pot explora ruinele și pot înțelege importanța acestor băi în antichitate.​</p>
-      </div>
-      <div class="timp-liber-img">
-        <img src="path/to/image2.jpg" alt="Attraction Image" class="gallery-img" data-index="2"/>
-      </div>
+    <div class="timp-liber-img">
+      <img src="assets/geoagiu bai 3.JPG" alt="Attraction Image" class="gallery-img" data-index="1"/>
     </div>
+  </div>
 
-    <div class="timp-liber-gallery">
-      <div class="timp-liber-text">
-        <h3><i class="fas fa-mountain-sun"></i> Grota Haiducilor (Geoagiu-Băi)</h3>
-        <p>La o scurtă plimbare de centrul stațiunii, această peșteră ascunde legende despre haiduci și comori ascunse. Este un loc ideal pentru aventurieri și iubitori de povești locale.​</p>
-      </div>
-      <div class="timp-liber-img">
-        <img src="path/to/image3.jpg" alt="Attraction Image" class="gallery-img" data-index="3"/>
-      </div>
+  <div class="timp-liber-gallery">
+    <div class="timp-liber-text">
+      <h3><i class="fas fa-bath"></i> Termele Romane Germisara (Geoagiu-Băi)</h3>
+      <p>Aceste băi termale, cunoscute și sub numele de Termae Dodonae, datează din perioada romană și evidențiază tradiția balneară a zonei. Vizitatorii pot explora ruinele și pot înțelege importanța acestor băi în antichitate.​</p>
     </div>
-
-    <div class="timp-liber-gallery">
-      <div class="timp-liber-text">
-        <h3><i class="fas fa-church"></i> Biserica Rotondă (Geoagiu)</h3>
-        <p>O biserică unică prin forma sa circulară, datând din secolul al XI-lea. Este considerată una dintre cele mai vechi biserici de acest tip din România și oferă o perspectivă asupra arhitecturii medievale.​</p>
-      </div>
-      <div class="timp-liber-img">
-        <img src="path/to/image4.jpg" alt="Attraction Image" class="gallery-img" data-index="4"/>
-      </div>
+    <div class="timp-liber-img">
+      <img src="/assets/geoagiu_termal_pool.jpg" alt="Attraction Image" class="gallery-img" data-index="2"/>
     </div>
+  </div>
 
-    <div class="timp-liber-gallery">
-      <div class="timp-liber-text">
-        <h3><i class="fas fa-tree"></i> I Giardini di Zoe (Banpotoc)</h3>
-        <p>Situlată în satul Banpotoc, această grădină impresionantă este creația lui Giovanni Salvatelli, un italian pasionat de peisagistică. Inspirată de grădinile renascentiste italiene, I Giardini di Zoe oferă alei elegante, fântâni arteziene și o varietate de plante ornamentale, creând un colț de paradis în inima Transilvaniei.​</p>
-      </div>
-      <div class="timp-liber-img">
-        <img src="assets/gradini di zoe 3.JPG" alt="Attraction Image" class="gallery-img" data-index="5"/>
-      </div>
+  <div class="timp-liber-gallery">
+    <div class="timp-liber-text">
+      <h3><i class="fas fa-mountain-sun"></i> Grota Haiducilor (Geoagiu-Băi)</h3>
+      <p>La o scurtă plimbare de centrul stațiunii, această peșteră ascunde legende despre haiduci și comori ascunse. Este un loc ideal pentru aventurieri și iubitori de povești locale.​</p>
     </div>
-
-    <div class="timp-liber-gallery">
-      <div class="timp-liber-text">
-        <h3><i class="fas fa-landmark"></i> Cetatea Devei</h3>
-        <p>Dominând orașul Deva de pe un deal vulcanic, Cetatea Devei este o fortificație medievală cu o istorie tumultoasă. Accesibilă printr-o telecabină modernă, cetatea oferă priveliști panoramice asupra împrejurimilor și găzduiește evenimente culturale pe tot parcursul anului.​</p>
-      </div>
-      <div class="timp-liber-img">
-        <img src="/assets/.JPG" alt="Attraction Image" class="gallery-img" data-index="6"/>
-      </div>
+    <div class="timp-liber-img">
+      <img src="/assets/grota-haiducilor 3.jpg" alt="Attraction Image" class="gallery-img" data-index="3"/>
     </div>
+  </div>
 
-    <div class="timp-liber-gallery">
-      <div class="timp-liber-text">
-        <h3><i class="fas fa-chess-rook"></i> Castelul Corvinilor (Hunedoara)</h3>
-        <p>Unul dintre cele mai impresionante castele gotice din Europa de Est, Castelul Corvinilor din Hunedoara este o bijuterie arhitecturală ce datează din secolul al XV-lea. Cu turnuri impunătoare, poduri suspendate și o istorie fascinantă, castelul oferă vizitatorilor o incursiune în epoca medievală a Transilvaniei.​</p>
-      </div>
-      <div class="timp-liber-img">
-        <img src="assets/castelul_hunedoara.JPG" alt="Attraction Image" class="gallery-img" data-index="7"/>
-      </div>
+  <div class="timp-liber-gallery">
+    <div class="timp-liber-text">
+      <h3><i class="fas fa-church"></i> Biserica Rotondă (Geoagiu)</h3>
+      <p>O biserică unică prin forma sa circulară, datând din secolul al XI-lea. Este considerată una dintre cele mai vechi biserici de acest tip din România și oferă o perspectivă asupra arhitecturii medievale.​</p>
     </div>
-
-    <div class="timp-liber-gallery">
-      <div class="timp-liber-text">
-        <h3><i class="fas fa-fort-awesome"></i> Cetatea Alba Carolina (Alba Iulia)</h3>
-        <p>Situată în inima orașului Alba Iulia, Cetatea Alba Carolina este cea mai mare fortăreață de tip bastion din România. Construită în stil Vauban în secolul al XVIII-lea, cetatea impresionează prin arhitectura sa și găzduiește numeroase obiective turistice, inclusiv Catedrala Reîntregirii și Muzeul Național al Unirii​<p>
-      </div>
-      <div class="timp-liber-img">
-        <img src="path/to/image7.jpg" alt="Attraction Image" class="gallery-img" data-index="7"/>
-      </div>
+    <div class="timp-liber-img">
+      <img src="/assets/Capela_romanica_geoagiu.jpeg" alt="Attraction Image" class="gallery-img" data-index="4"/>
     </div>
+  </div>
 
-    <div class="timp-liber-gallery">
-      <div class="timp-liber-text">
-        <h3><i class="fas fa-place-of-worship"></i> Biserica Densuș</h3>
-        <p>Considerată cea mai veche biserică de piatră din România în care se mai oficiază slujbe, Biserica Densuș este un monument unic, construit în secolul al XIII-lea pe ruinele unei construcții romane. Arhitectura sa neobișnuită și frescele interioare o fac un loc deosebit de vizitat.​<p>
-      </div>
-      <div class="timp-liber-img">
-        <img src="assets/biserica densus_resized.JPG" alt="Attraction Image" class="gallery-img" data-index="7"/>
-      </div>
+  <div class="timp-liber-gallery">
+    <div class="timp-liber-text">
+      <h3><i class="fas fa-tree"></i> I Giardini di Zoe (Banpotoc)</h3>
+      <p>Situlată în satul Banpotoc, această grădină impresionantă este creația lui Giovanni Salvatelli, un italian pasionat de peisagistică. Inspirată de grădinile renascentiste italiene, I Giardini di Zoe oferă alei elegante, fântâni arteziene și o varietate de plante ornamentale, creând un colț de paradis în inima Transilvaniei.​</p>
     </div>
-
-    <div class="timp-liber-gallery">
-      <div class="timp-liber-text">
-        <h3><i class="fas fa-praying-hands"></i> Mănăstirea Prislop</h3>
-        <p>Aflată în apropierea orașului Hațeg, Mănăstirea Prislop este un important loc de pelerinaj ortodox. Cunoscută ca locul de odihnă al părintelui Arsenie Boca, mănăstirea atrage anual mii de credincioși și turiști, oferind un cadru natural deosebit și o atmosferă de reculegere.​​<p>
-      </div>
-      <div class="timp-liber-img">
-        <img src="path/to/image7.jpg" alt="Attraction Image" class="gallery-img" data-index="7"/>
-      </div>
+    <div class="timp-liber-img">
+      <img src="assets/gradini di zoe 3.JPG" alt="Attraction Image" class="gallery-img" data-index="5"/>
     </div>
+  </div>
 
-    <div class="timp-liber-gallery">
-      <div class="timp-liber-text">
-        <h3><i class="fas fa-university"></i> Sarmizegetusa Regia</h3>
-        <p>Fosta capitală a Daciei pre-romane, Sarmizegetusa Regia este un sit arheologic situat în Munții Orăștiei. Complexul include sanctuare circulare și dreptunghiulare, precum și vestigii ale unei așezări fortificate, oferind o perspectivă asupra civilizației dacice.​​<p>
-      </div>
-      <div class="timp-liber-img">
-        <img src="assets/cetatile dacice.JPG" alt="Attraction Image" class="gallery-img" data-index="7"/>
-      </div>
+  <div class="timp-liber-gallery">
+    <div class="timp-liber-text">
+      <h3><i class="fas fa-landmark"></i> Cetatea Devei</h3>
+      <p>Dominând orașul Deva de pe un deal vulcanic, Cetatea Devei este o fortificație medievală cu o istorie tumultoasă. Accesibilă printr-o telecabină modernă, cetatea oferă priveliști panoramice asupra împrejurimilor și găzduiește evenimente culturale pe tot parcursul anului.​</p>
     </div>
-
-    <div class="timp-liber-gallery">
-      <div class="timp-liber-text">
-        <h3><i class="fas fa-archway"></i> Ulpia Traiana Sarmizegetusa</h3>
-        <p>La aproximativ 40 km de Sarmizegetusa Regia se află ruinele orașului roman Ulpia Traiana Sarmizegetusa, fondat de împăratul Traian. Vizitatorii pot explora amfiteatrul roman, forumul și alte structuri care reflectă organizarea urbană romană​​.<p>
-      </div>
-      <div class="timp-liber-img">
-        <img src="assets/sarmi ulpia.JPG" alt="Attraction Image" class="gallery-img" data-index="7"/>
-      </div>
+    <div class="timp-liber-img">
+      <img src="/assets/Cetatea_Deva.jpg" alt="Attraction Image" class="gallery-img" data-index="6"/>
     </div>
-
-    <div class="timp-liber-gallery">
-      <div class="timp-liber-text">
-        <h3><i class="fas fa-mountain"></i>Cetățile dacice din Munții Orăștiei</h3>
-        <p>Munții Orăștiei adăpostesc un complex de fortificații dacice, inclusiv Sarmizegetusa Regia, Costești-Cetățuie, Blidaru, Piatra Roșie, Bănița și Căpâlna. Aceste cetăți, construite în stilul „murus Dacicus”, reflectă măiestria arhitecturală a dacilor și sunt incluse în patrimoniul mondial UNESCO. Traseele de drumeție către aceste situri oferă oportunități de explorare a peisajelor montane și a istoriei antice.<p>
-      </div>
-      <div class="timp-liber-img">
-        <img src="/assets/cetatile dacice 1.JPG" alt="Attraction Image" class="gallery-img" data-index="7"/>
-      </div>
+  </div>
+<a href="#top" class="mobile-anchor">
+  <i class="fas fa-arrow-up"></i>
+</a>
+  <div class="timp-liber-gallery">
+    <div class="timp-liber-text">
+      <h3><i class="fas fa-chess-rook"></i> Castelul Corvinilor (Hunedoara)</h3>
+      <p>Unul dintre cele mai impresionante castele gotice din Europa de Est, Castelul Corvinilor din Hunedoara este o bijuterie arhitecturală ce datează din secolul al XV-lea. Cu turnuri impunătoare, poduri suspendate și o istorie fascinantă, castelul oferă vizitatorilor o incursiune în epoca medievală a Transilvaniei.​</p>
     </div>
-
-    <div class="timp-liber-gallery">
-      <div class="timp-liber-text">
-        <h3><i class="fas fa-coins"></i>Muzeul Aurului (Brad)</h3>
-        <p>Situat în orașul Brad, acest muzeu unic în Europa prezintă o colecție impresionantă de peste 1.300 de exponate din aur nativ, inclusiv forme rare și spectaculoase. Muzeul oferă o incursiune fascinantă în istoria mineritului aurifer din regiune și în frumusețea naturală a aurului.​<p>
-      </div>
-      <div class="timp-liber-img">
-        <img src="path/to/image7.jpg" alt="Attraction Image" class="gallery-img" data-index="7"/>
-      </div>
+    <div class="timp-liber-img">
+      <img src="assets/castelul_hunedoara.JPG" alt="Attraction Image" class="gallery-img" data-index="7"/>
     </div>
+  </div>
 
-    <div class="timp-liber-gallery">
+  <div class="timp-liber-gallery">
+    <div class="timp-liber-text">
+      <h3><i class="fas fa-fort-awesome"></i> Cetatea Alba Carolina (Alba Iulia)</h3>
+      <p>Situată în inima orașului Alba Iulia, Cetatea Alba Carolina este cea mai mare fortăreață de tip bastion din România. Construită în stil Vauban în secolul al XVIII-lea, cetatea impresionează prin arhitectura sa și găzduiește numeroase obiective turistice, inclusiv Catedrala Reîntregirii și Muzeul Național al Unirii​</p>
+    </div>
+    <div class="timp-liber-img">
+      <img src="/assets/cetatea-alba-carolina.jpg.webp" alt="Attraction Image" class="gallery-img" data-index="8"/>
+    </div>
+  </div>
+
+  <div class="timp-liber-gallery">
+    <div class="timp-liber-text">
+      <h3><i class="fas fa-place-of-worship"></i> Biserica Densuș</h3>
+      <p>Considerată cea mai veche biserică de piatră din România în care se mai oficiază slujbe, Biserica Densuș este un monument unic, construit în secolul al XIII-lea pe ruinele unei construcții romane. Arhitectura sa neobișnuită și frescele interioare o fac un loc deosebit de vizitat.​</p>
+    </div>
+    <div class="timp-liber-img">
+      <img src="assets/biserica densus.JPG" alt="Attraction Image" class="gallery-img" data-index="9"/>
+    </div>
+  </div>
+
+  <div class="timp-liber-gallery">
+    <div class="timp-liber-text">
+      <h3><i class="fas fa-praying-hands"></i> Mănăstirea Prislop</h3>
+      <p>Aflată în apropierea orașului Hațeg, Mănăstirea Prislop este un important loc de pelerinaj ortodox. Cunoscută ca locul de odihnă al părintelui Arsenie Boca, mănăstirea atrage anual mii de credincioși și turiști, oferind un cadru natural deosebit și o atmosferă de reculegere.​</p>
+    </div>
+    <div class="timp-liber-img">
+      <img src="/assets/prislop.jpg" alt="Attraction Image" class="gallery-img" data-index="10"/>
+    </div>
+  </div>
+
+  <div class="timp-liber-gallery">
+    <div class="timp-liber-text">
+      <h3><i class="fas fa-university"></i> Sarmizegetusa Regia</h3>
+      <p>Fosta capitală a Daciei pre-romane, Sarmizegetusa Regia este un sit arheologic situat în Munții Orăștiei. Complexul include sanctuare circulare și dreptunghiulare, precum și vestigii ale unei așezări fortificate, oferind o perspectivă asupra civilizației dacice.​</p>
+    </div>
+    <div class="timp-liber-img">
+      <img src="assets/cetatile dacice.JPG" alt="Attraction Image" class="gallery-img" data-index="11"/>
+    </div>
+  </div>
+
+  <div class="timp-liber-gallery">
+    <div class="timp-liber-text">
+      <h3><i class="fas fa-archway"></i> Ulpia Traiana Sarmizegetusa</h3>
+      <p>La aproximativ 40 km de Sarmizegetusa Regia se află ruinele orașului roman Ulpia Traiana Sarmizegetusa, fondat de împăratul Traian. Vizitatorii pot explora amfiteatrul roman, forumul și alte structuri care reflectă organizarea urbană romană​</p>
+    </div>
+    <div class="timp-liber-img">
+      <img src="assets/sarmi ulpia.JPG" alt="Attraction Image" class="gallery-img" data-index="12"/>
+    </div>
+  </div>
+
+  <div class="timp-liber-gallery">
+    <div class="timp-liber-text">
+      <h3><i class="fas fa-mountain"></i> Cetățile dacice din Munții Orăștiei</h3>
+      <p>Munții Orăștiei adăpostesc un complex de fortificații dacice, inclusiv Sarmizegetusa Regia, Costești-Cetățuie, Blidaru, Piatra Roșie, Bănița și Căpâlna. Aceste cetăți, construite în stilul „murus Dacicus”, reflectă măiestria arhitecturală a dacilor și sunt incluse în patrimoniul mondial UNESCO. Traseele de drumeție către aceste situri oferă oportunități de explorare a peisajelor montane și a istoriei antice.</p>
+    </div>
+    <div class="timp-liber-img">
+      <img src="assets/cetatile dacice 1.JPG" alt="Attraction Image" class="gallery-img" data-index="13"/>
+    </div>
+  </div>
+
+  <div class="timp-liber-gallery">
+    <div class="timp-liber-text">
+      <h3><i class="fas fa-coins"></i> Muzeul Aurului (Brad)</h3>
+      <p>Situlată în orașul Brad, acest muzeu unic în Europa prezintă o colecție impresionantă de peste 1.300 de exponate din aur nativ, inclusiv forme rare și spectaculoase. Muzeul oferă o incursiune fascinantă în istoria mineritului aurifer din regiune și în frumusețea naturală a aurului.​</p>
+    </div>
+    <div class="timp-liber-img">
+      <img src="/assets/muzeul-aurului.jpg" alt="Attraction Image" class="gallery-img" data-index="14"/>
+    </div>
+  </div>
+
+   <div class="timp-liber-gallery">
       <div class="timp-liber-text">
         <h3><i class="fas fa-leaf"></i>Rezervația Naturală Grădiștea Muncelului – Cioclovina</h3>
         <p>Această rezervație naturală protejată se întinde pe o suprafață vastă și include peisaje variate, de la păduri dese la formațiuni carstice spectaculoase. Este un loc ideal pentru drumeții, observarea florei și faunei locale și explorarea peșterilor din zonă.​​<p>
       </div>
       <div class="timp-liber-img">
-        <img src="path/to/image7.jpg" alt="Attraction Image" class="gallery-img" data-index="7"/>
+        <img src="/assets/Gradistea-Muncelului-Cioclovina-.jpg" alt="Attraction Image" class="gallery-img" data-index="7"/>
       </div>
     </div>
 
@@ -338,7 +356,7 @@
         <p>Situate în apropierea comunei Balșa, Cheile Madei sunt o formațiune geologică impresionantă, cu pereți abrupți și vegetație luxuriantă. Traseele de drumeție din zonă oferă priveliști spectaculoase și oportunități pentru activități în aer liber​​​<p>
       </div>
       <div class="timp-liber-img">
-        <img src="path/to/image7.jpg" alt="Attraction Image" class="gallery-img" data-index="7"/>
+        <img src="/assets/cheile madei.jpg" alt="Attraction Image" class="gallery-img" data-index="7"/>
       </div>
     </div>
 
@@ -348,17 +366,7 @@
         <p>Aflat în Palatul Magna Curia din Deva, acest muzeu găzduiește colecții valoroase care ilustrează istoria și cultura dacilor și romanilor din regiune. Exponatele includ artefacte arheologice, obiecte de artă și documente istorice.​​​<p>
       </div>
       <div class="timp-liber-img">
-        <img src="path/to/image7.jpg" alt="Attraction Image" class="gallery-img" data-index="7"/>
-      </div>
-    </div>
-
-    <div class="timp-liber-gallery">
-      <div class="timp-liber-text">
-        <h3><i class="fas fa-tree"></i>Parcul Natural Grădiștea Muncelului – Cioclovina</h3>
-        <p>Acest parc natural protejat oferă o diversitate ecologică remarcabilă, cu peisaje montane, păduri seculare și peșteri spectaculoase. Este un loc ideal pentru ecoturism, drumeții și observarea biodiversității.​​​​<p>
-      </div>
-      <div class="timp-liber-img">
-        <img src="path/to/image7.jpg" alt="Attraction Image" class="gallery-img" data-index="7"/>
+        <img src="/assets/muzeul civilizatiei dacice si romane.jpg" alt="Attraction Image" class="gallery-img" data-index="7"/>
       </div>
     </div>
 
@@ -371,33 +379,146 @@
         <img src="assets/pestera bolii 3_resized.JPG" alt="Attraction Image" class="gallery-img" data-index="7"/>
       </div>
     </div>
+
+    <div class="timp-liber-gallery">
+  <div class="timp-liber-text">
+    <h3><i class="fas fa-water"></i> Cascada Lolaia</h3>
+    <p>Situată în Parcul Național Retezat, la altitudinea de 1.050 m, în Valea Nucșoara, Cascada Lolaia este una dintre cele mai spectaculoase căderi de apă din Munții Retezat. Apele provenite din pârâurile Pietrele, Stânișoara, Galeșu și Valea Rea se unesc aici, oferind un peisaj deosebit într-un cadru natural sălbatic.</p>
+  </div>
+  <div class="timp-liber-img">
+    <img src="/assets/cascada lolaia.jpg" alt="Cascada Lolaia" class="gallery-img" data-index="21"/>
+  </div>
 </div>
 
-    <section class="despre-section text-center">
+<div class="timp-liber-gallery">
+  <div class="timp-liber-text">
+    <h3><i class="fas fa-fort-awesome"></i> Cetatea Colț</h3>
+    <p>Aflată în satul Suseni, comuna Râu de Mori, Cetatea Colț datează din secolul al XIV-lea și este cunoscută pentru peisajul său pitoresc și legătura cu romanul „Castelul din Carpați” al lui Jules Verne. Ruinele cetății oferă o priveliște impresionantă asupra Țării Hațegului.</p>
+  </div>
+  <div class="timp-liber-img">
+    <img src="/assets/cetatea colt.JPG" alt="Cetatea Colț" class="gallery-img" data-index="22"/>
+  </div>
+</div>
+
+<div class="timp-liber-gallery">
+  <div class="timp-liber-text">
+    <h3><i class="fas fa-landmark"></i> Curtea nobiliară a Cândeștilor</h3>
+    <p>Situată în Râu de Mori, această curte cnezială a fost construită în secolul al XIV-lea pe ruinele unor edificii romane. Ansamblul include o clădire rezidențială, capelă, grajduri și alte anexe, reflectând influențele arhitecturale ale epocii.​</p>
+  </div>
+  <div class="timp-liber-img">
+    <img src="/assets/cetatea nobilara a candestilor.JPG" alt="Curtea Cândeștilor" class="gallery-img" data-index="23"/>
+  </div>
+</div>
+
+<div class="timp-liber-gallery">
+  <div class="timp-liber-text">
+    <h3><i class="fas fa-mountain"></i> Cheile Băniței</h3>
+    <p>Situate în Parcul Natural Grădiștea Muncelului-Cioclovina, Cheile Băniței sunt formate de râul Bănița care a săpat un culoar spectaculos în calcar. Traseul prin chei este scurt, de aproximativ 250-300 metri, dar oferă o experiență unică, cu pereți înalți de peste 10-15 metri și forme sculptate de apă.​</p>
+  </div>
+  <div class="timp-liber-img">
+    <img src="
+    /assets/cheile banitei.jpg" alt="Cheile Băniței" class="gallery-img" data-index="24"/>
+  </div>
+</div>
+
+<div class="timp-liber-gallery">
+  <div class="timp-liber-text">
+    <h3><i class="fas fa-leaf"></i>Furnalul de la Govăjdia</h3>
+    <p>Situat în satul Govăjdia, acest furnal este considerat primul din Europa cu flux continuu și al doilea la nivel mondial, construit între 1806 și 1810. Alimentat cu minereu de fier din Munții Poiana Ruscă, producea anual peste 8.000 de tone de fontă cenușie la sfârșitul secolului al XIX-lea. Există o legendă conform căreia fonta produsă aici a fost utilizată pentru realizarea unor componente ale Turnului Eiffel din Paris, deși această afirmație este contestată de unii istorici.​</p>
+  </div>
+  <div class="timp-liber-img">
+    <img src="assets/furnalul de la govasdie.jpg" alt="Frunzul de la Govășdia" class="gallery-img" data-index="25"/>
+  </div>
+</div>
+
+<div class="timp-liber-gallery">
+  <div class="timp-liber-text">
+    <h3><i class="fas fa-paw"></i> Rezervația de zimbri Hațeg-Slivuț</h3>
+    <p>Această rezervație, situată la 3 km de orașul Hațeg, este primul loc din România unde zimbrul european a fost reintrodus în 1958. Rezervația se întinde pe o suprafață de aproximativ 10 hectare și oferă vizitatorilor șansa de a observa aceste animale impresionante în habitatul lor natural.</p>
+  </div>
+  <div class="timp-liber-img">
+    <img src="/assets/rezervatia naturala de zimbri 2.JPG" alt="Rezervația de zimbri" class="gallery-img" data-index="26"/>
+  </div>
+</div>
+
+</div>
+
+
+  <!-- Fullscreen Carousel -->
+  <div id="fullscreen-carousel">
+    <span class="close-carousel">&times;</span>
+    <div class="carousel-inner-wrapper">
+      <img id="carousel-image" class="gallery-img fullscreen" src="" alt="carousel fullscreen">
+    </div>
+    <div class="carousel-controls">
+      <span class="prev">&#10094;</span>
+      <span class="next">&#10095;</span>
+    </div>
+  </div>
+
+  <section class="despre-section text-center">
     <a href="/contact" class="btn btn-golden">Rezervă acum</a>
-    </section>
+  </section>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const galleryImgs = document.querySelectorAll('.gallery-img');
-      const overlay = document.querySelector('.fullscreen-overlay');
-      const closeBtn = document.querySelector('.close-carousel');
+ <script>
+  document.addEventListener("turbo:load", function() {
+    const galleryImgs = document.querySelectorAll('.gallery-img');
+    const overlay = document.querySelector('#fullscreen-carousel');
+    const closeBtn = document.querySelector('.close-carousel');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    const carouselImage = document.querySelector('#carousel-image');
+    let currentIndex = -1;
 
-      galleryImgs.forEach(img => {
-        img.addEventListener('click', function () {
-          overlay.classList.remove('hidden');
-          const fullscreenImg = document.createElement('img');
-          fullscreenImg.src = img.src;
-          fullscreenImg.classList.add('fullscreen');
-          overlay.appendChild(fullscreenImg);
-        });
-      });
+    if (!overlay || !carouselImage) return; // Exit early if core elements are missing
 
-      closeBtn.addEventListener('click', function () {
-        overlay.classList.add('hidden');
-        overlay.innerHTML = ''; // Remove the fullscreen image
+    function openFullscreen(index) {
+      if (index < 0 || index >= galleryImgs.length) return;
+      currentIndex = index;
+      overlay.style.display = 'flex';
+      carouselImage.src = galleryImgs[currentIndex].src;
+    }
+
+    galleryImgs.forEach((img, index) => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', function () {
+        openFullscreen(index);
       });
     });
-  </script>
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        overlay.style.display = 'none';
+        carouselImage.src = '';
+        currentIndex = -1;
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        if (currentIndex > 0) {
+          openFullscreen(currentIndex - 1);
+        }
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        if (currentIndex < galleryImgs.length - 1) {
+          openFullscreen(currentIndex + 1);
+        }
+      });
+    }
+
+    // Reset fullscreen when navigating away
+    window.addEventListener("turbo:before-cache", function () {
+      overlay.style.display = 'none';
+      carouselImage.src = '';
+      currentIndex = -1;
+    });
+  });
+</script>
+
+
 </body>
 </html>

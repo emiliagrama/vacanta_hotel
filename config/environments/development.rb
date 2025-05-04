@@ -43,14 +43,16 @@ Rails.application.configure do
 
   # SMTP settings for Gmail (example)
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
+    address:              'mail.hotelvacanta.ro',
     port:                 587,
-    domain:               'gmail.com',
-    user_name:            'emiliagrama@gmail.com',
-    password:             'tbsc kepf bfug sots',
+    domain:               'hotelvacanta.ro',
+    user_name:            ENV['RECEPTIE_EMAIL'],
+    password:             ENV['RECEPTIE_EMAIL_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true
   }
+
+
   config.action_mailer.raise_delivery_errors = true
   # Ensure URLs in mailers point to your local dev environment
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }

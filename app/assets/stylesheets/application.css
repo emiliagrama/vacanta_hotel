@@ -421,7 +421,7 @@ input[type="submit"]:hover {
   text-align: center;
   cursor: pointer;
   z-index: 10000;
-  background: rgba(0, 0, 0, 0.3);
+
   border-radius: 50%;
   transition: background 0.3s;
 }
@@ -830,6 +830,56 @@ img, .card, .gallery-img, .form, .btn {
     display: none !important;
   }
 }
+@media (max-width: 768px) {
+  #fullscreen-carousel img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: cover;  /* This will ensure the image covers the entire area on mobile */
+  }
+}
+.mobile-anchor {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  background: #ee1d242d;
+  color: #464444;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-anchor {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+.message-success {
+  background-color: #fff9e6b7;
+  border: 2px solid #f8e47398;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.message-success h2 {
+  font-size: 24px;
+  color: rgb(238, 29, 35);
+  margin-bottom: 10px;
+}
+
+.message-success p {
+  font-size: 16px;
+  color: #333;
+}
+
 /* * === RESPONSIVE STYLES ==== */
 @media (max-width: 768px) {
   .navbar {
@@ -982,6 +1032,7 @@ img, .card, .gallery-img, .form, .btn {
     border-radius: 10px;
   }
   .gallery-grid {
+    
     grid-template-columns: 1fr;
     gap: 1.2rem;
     padding-right:2rem;
@@ -989,6 +1040,7 @@ img, .card, .gallery-img, .form, .btn {
   .homepage-gallery .container {
     padding: 0 1rem;
   }
+
 }
 .site-footer {
   background-color: #f9d4c367; /* soft coral */

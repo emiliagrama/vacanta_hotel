@@ -77,61 +77,58 @@
 <% end %>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const contactForm = document.getElementById("contact-form");
-    const newsletterCheckbox = document.getElementById("contact_newsletter");
+  const contactForm = document.getElementById("contact-form");
+  const newsletterCheckbox = document.getElementById("contact_newsletter");
 
-    contactForm.addEventListener("submit", async function (event) {
-      event.preventDefault();
+  if (!contactForm) return; // ✅ Skip if not on the contact page
 
-      const emailInput = contactForm.querySelector("input[name='contact[email]']");
-      const email = emailInput?.value?.trim() || "";
-      const subscribeToNewsletter = newsletterCheckbox?.checked;
+  const nameInput = contactForm.querySelector("[data-newsletter-target='nameField']");
+  const name = nameInput ? nameInput.value.trim() : "";
 
-      // If checkbox is ticked, attempt Mailchimp subscription first
-      if (subscribeToNewsletter) {
-        if (!email || !email.includes('@')) {
-          alert("Te rugăm să introduci o adresă de email validă.");
-          return;
-        }
+  contactForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-        try {
-          const response = await fetch('/newsletters', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: email })
-          });
+    const emailInput = contactForm.querySelector("input[name='contact[email]']");
+    const email = emailInput?.value?.trim() || "";
+    const subscribeToNewsletter = newsletterCheckbox?.checked;
 
-          const data = await response.json();
-
-          if (response.ok) {
-            // ✅ Success: Set cookie and proceed
-            document.cookie = "subscribed_to_newsletter=true; path=/; max-age=31536000";
-
-            if (typeof gtag === 'function') {
-              gtag('event', 'newsletter_signup', {
-                event_category: 'engagement',
-                event_label: 'contact_form'
-              });
-            }
-
-            contactForm.submit(); // ✅ Non-blocking continue
-            return;
-
-          } else {
-            alert(data.error || "❌ Eroare la abonare. Încearcă din nou.");
-            return; // Stop submission on error
-          }
-
-        } catch (error) {
-          console.error("Newsletter error:", error);
-          alert("❌ Eroare de rețea.");
-          return;
-        }
+    if (subscribeToNewsletter) {
+      if (!email || !email.includes("@")) {
+        alert("Te rugăm să introduci o adresă de email validă.");
+        return;
       }
 
-      // ✅ Submit immediately if not subscribing
-      contactForm.submit();
-    });
-  });
-</script>
+      try {
+        const response = await fetch("/newsletters", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email })
+        });
 
+        const data = await response.json();
+
+        if (response.ok) {
+          document.cookie = "subscribed_to_newsletter=true; path=/; max-age=31536000";
+
+          if (typeof gtag === "function") {
+            gtag("event", "newsletter_signup", {
+              event_category: "engagement",
+              event_label: "contact_form",
+            });
+          }
+
+          contactForm.submit();
+        } else {
+          alert(data.error || "❌ Eroare la abonare. Încearcă din nou.");
+        }
+      } catch (error) {
+        console.error("Newsletter error:", error);
+        alert("❌ Eroare la trimiterea newsletterului.");
+      }
+    } else {
+      contactForm.submit();
+    }
+  });
+});
+
+</script>
