@@ -2,51 +2,45 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   connect() {
-    console.log("📸 Gallery controller connected")
+    // Evită executarea în timpul unui preview Turbo
+    if (document.documentElement.hasAttribute("data-turbo-preview")) return;
+
     this.images = this.element.querySelectorAll(".gallery-img")
     this.currentIndex = 0
 
     this.images.forEach((img, index) => {
       img.addEventListener("click", () => this.openFullscreen(index))
     })
-  }
 
-  handleTouchStart(e) {
-    this.startX = e.touches[0].clientX
-  }
-
-  handleTouchMove(e) {
-    if (!this.startX) return
-    const diffX = this.startX - e.touches[0].clientX
-
-    if (Math.abs(diffX) > 50) {
-      if (diffX > 0) {
-        this.showNext(this.currentOverlay)
-      } else {
-        this.showPrev(this.currentOverlay)
-      }
-
-      this.startX = null
-    }
+    // Curăță suprapunerile la reîncărcarea paginii
+    window.addEventListener("pageshow", () => {
+      const existingOverlay = document.querySelector(".fullscreen-overlay")
+      if (existingOverlay) existingOverlay.remove()
+    })
   }
 
   openFullscreen(index) {
     this.currentIndex = index
 
+    // Elimină suprapunerile existente
+    const existingOverlay = document.querySelector(".fullscreen-overlay")
+    if (existingOverlay) existingOverlay.remove()
+
     const overlay = document.createElement("div")
     overlay.classList.add("fullscreen-overlay")
 
     const img = this.images[index].cloneNode(true)
-    img.classList.add("fullscreen")
+    img.classList.add("fullscreen", "fullscreen-img")
     img.removeAttribute("width")
     img.removeAttribute("height")
-    img.style.width = "100vw"
-    img.style.height = "100vh"
-    img.style.objectFit = "contain"
-    img.style.margin = "0"
-    img.style.padding = "0"
-    img.style.maxWidth = "none"
-    img.style.maxHeight = "none"
+    img.style.width = "auto"
+    img.style.height = "auto"
+    img.style.maxWidth = "95vw"
+    img.style.maxHeight = "95vh"
+    img.style.margin = "2rem"
+    img.style.boxShadow = "0 0 40px rgba(255, 255, 255, 0.26)"
+    img.style.backgroundColor = "#1c1c1c"
+    img.style.borderRadius = "10px"
 
     overlay.appendChild(img)
 
@@ -74,21 +68,19 @@ export default class extends Controller {
     })
     overlay.appendChild(next)
 
-    // Add swipe
+    // Adaugă suport pentru swipe
     overlay.addEventListener("touchstart", this.handleTouchStart.bind(this), { passive: true })
     overlay.addEventListener("touchmove", this.handleTouchMove.bind(this), { passive: true })
 
     document.body.appendChild(overlay)
     this.currentOverlay = overlay
 
-    // 🔒 LOCK SCROLL
+    // Blochează scroll-ul
     document.body.classList.add("no-scroll")
   }
 
   closeFullscreen(overlay) {
     overlay.remove()
-
-    // 🔓 UNLOCK SCROLL
     document.body.classList.remove("no-scroll")
   }
 
@@ -106,5 +98,24 @@ export default class extends Controller {
     const img = overlay.querySelector(".fullscreen")
     img.src = this.images[this.currentIndex].src
     img.alt = this.images[this.currentIndex].alt
+  }
+
+  handleTouchStart(e) {
+    this.startX = e.touches[0].clientX
+  }
+
+  handleTouchMove(e) {
+    if (!this.startX) return
+    const diffX = this.startX - e.touches[0].clientX
+
+    if (Math.abs(diffX) > 50) {
+      if (diffX > 0) {
+        this.showNext(this.currentOverlay)
+      } else {
+        this.showPrev(this.currentOverlay)
+      }
+
+      this.startX = null
+    }
   }
 }

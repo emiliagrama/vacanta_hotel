@@ -15,5 +15,5 @@ import { Controller } from "@hotwired/stimulus"
      this.containerTarget.scrollBy({ left: 200, behavior: "smooth" })
    }
 
-   
+
  }
