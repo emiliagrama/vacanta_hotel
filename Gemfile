@@ -28,6 +28,8 @@ gem "jbuilder"
 
 
 
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
@@ -73,5 +75,7 @@ group :test do
   gem "selenium-webdriver"
 end
 group :production do
-  
+
 end
+# Gemfile
+gem 'sitemap_generator'
