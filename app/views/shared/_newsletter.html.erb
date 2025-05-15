@@ -6,8 +6,10 @@
   <%= f.submit "Ține-mă la curent", class: "newsletter-button", data: { newsletter_target: "submitButton" } %>
 </div>
   <% end %>
-  <!-- Hidden success message -->
-  <div data-newsletter-target="successMessage" class="hidden thank-you-message">
+  <!-- Hidden success message via native attribute -->
+  <div data-newsletter-target="successMessage"
+       class="thank-you-message"
+       hidden>
     Mulțumim pentru abonare!
   </div>
 </div>
