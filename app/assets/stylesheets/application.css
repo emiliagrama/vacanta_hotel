@@ -232,7 +232,7 @@ input[type="submit"] {
   padding: 0.6rem 1.4rem;
   font-size: 1rem;
   font-family: 'Bitter', serif !important; /* 🔥 Explicit Inter font */
-  font-weight: 400; /* slightly bold but elegant */
+  font-weight: 400;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -465,6 +465,7 @@ input[type="submit"]:hover {
   max-width: 400px;
 }
 /* DESPRE page */
+
 .despre-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -511,6 +512,7 @@ body, p {
   font-size: 1.05rem;
   margin-bottom: 1.2rem;
 }
+
 /* Optional: Set font-weight styles */
 h1, h2, h3, h4,h5, h6 {
   font-family: var(--title-font);
@@ -870,7 +872,7 @@ img, .card, .gallery-img, .form, .btn {
   #fullscreen-carousel img {
     max-width: 90vw;
     max-height: 90vh;
-    object-fit: cover;  /* This will ensure the image covers the entire area on mobile */
+    object-fit: cover;
   }
 }
 .mobile-anchor {
@@ -1021,7 +1023,7 @@ img, .card, .gallery-img, .form, .btn {
 
     .gallery-img {
       width: 100%;
-      max-width: 300px; /* control max size */
+      max-width: 300px;
       height: 225px;
       object-fit: cover;
       border-radius: 10px;
@@ -1079,7 +1081,7 @@ img, .card, .gallery-img, .form, .btn {
 
 }
 .site-footer {
-  background-color: #f9d4c367; /* soft coral */
+  background-color: #f9d4c367;
   color: #1f2937;
   padding: 2rem 2rem 1rem;
   font-family: 'Inter', sans-serif;
@@ -1249,5 +1251,5 @@ input:-webkit-autofill {
   -webkit-text-fill-color: #000 !important;
 }
 .newsletter-input {
-  margin-bottom: 0.75rem; /* or use gap if you're using flex/grid */
+  margin-bottom: 0.75rem;
 }
