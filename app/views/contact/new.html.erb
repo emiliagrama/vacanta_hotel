@@ -33,7 +33,7 @@
   <div data-controller="date-picker">
     <%= f.label :package, "Tip Pachet" %>
     <%= f.select :package,
-      ["Vacanță cu tratament chibzuit", "Vacanță cu tratament pe săturate", "Mini-Vacanță de weekend", "Vacanța, așa cum vrei tu"],
+      ["Vacanța balneară chibzuită", "Vacanță cu tratament pe săturate","Vacanța cu ozonoterapie chibzuită","Vacanța cu ozonoterapie pe săturate","Vacanța balneară chibzuită cu ozon","Vacanța balneară cu ozon pe săturate", "Mini-Vacanță de weekend", "Vacanța, așa cum vrei tu"],
       { prompt: "Alege un pachet" },
       { data: { action: "change->date-picker#updateDatePicker", date_picker_target: "package" }, autocomplete: "off" } %>
 

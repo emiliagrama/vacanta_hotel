@@ -19,7 +19,12 @@ export default class extends Controller {
   }
 
   updateDatePicker() {
-    const value = this.packageTarget.value
+    // replace your current "const value = ..." with:
+const value = (this.packageTarget.value ?? "")
+  .trim()
+  .normalize("NFD").replace(/\p{Diacritic}/gu, "")  // remove accents (ă → a, ț → t)
+  .toLowerCase();
+
     this.checkOutTarget.readOnly = true
     this.checkOutCalendar.set("clickOpens", false)
 
@@ -36,7 +41,7 @@ export default class extends Controller {
       locale: { firstDayOfWeek: 1 }
     }
 
-    if (value.includes("chibzuit")) {
+    if (value.includes("chibzuită")) {
       this.checkInCalendar.set("enable", [mondayFilter])
       this.checkInCalendar.set("onChange", ([checkIn]) => {
         if (checkIn) {

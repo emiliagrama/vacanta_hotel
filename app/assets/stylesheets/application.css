@@ -807,6 +807,7 @@ img, .card, .gallery-img, .form, .btn {
   max-width: 1800px;
   margin: 0 auto;
   padding: 3rem 3rem;
+
 }
 .offers-packages {
   display: grid;
@@ -833,6 +834,7 @@ img, .card, .gallery-img, .form, .btn {
   height: 290px;
   object-fit: cover;
 }
+
 .offer-details {
   padding: 2rem;
   flex-grow: 1;
@@ -850,6 +852,7 @@ img, .card, .gallery-img, .form, .btn {
   padding: 0;
   margin: 0 0 1rem 0;
 }
+
 .offer-details ul li {
   margin-bottom: 0.4rem;
   color: #374151;
