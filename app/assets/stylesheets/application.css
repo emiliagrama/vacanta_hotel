@@ -804,7 +804,7 @@ img, .card, .gallery-img, .form, .btn {
 /* Package Cards */
 .offers-packages.container {
   width: 100%;
-  max-width: 1800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 3rem 3rem;
 
@@ -1255,4 +1255,43 @@ input:-webkit-autofill {
 }
 .newsletter-input {
   margin-bottom: 0.75rem;
+}
+.ticker-bar {
+  background: rgb(238, 29, 35);
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+  height: 30px;              /* thinner bar */
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 50px;                 /* adjust to navbar height */
+  z-index: 1000;
+}
+
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.ticker-move {
+  display: inline-block;
+  white-space: nowrap;
+  animation: ticker 20s linear infinite;
+  min-width: 200%;
+}
+
+.ticker-move span {
+  display: inline-block;
+  padding-right: 300px;  /* space between repeats */
+  color: #07094d;        /* text color (e.g. red accent) */
+  font-family: var(--title-font); /* make it stand out */
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+@keyframes ticker {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(100%); }
 }
