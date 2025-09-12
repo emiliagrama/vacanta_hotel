@@ -1285,7 +1285,7 @@ input:-webkit-autofill {
 .ticker-move span {
   display: inline-block;
   padding-right: 300px;  /* space between repeats */
-  color: #07094d;        /* text color (e.g. red accent) */
+  color: #eeeef2;        /* text color (e.g. red accent) */
   font-family: var(--title-font); /* make it stand out */
   font-size: 15px;
   letter-spacing: 1px;
