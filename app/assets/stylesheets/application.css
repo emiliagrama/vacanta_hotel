@@ -1292,6 +1292,6 @@ input:-webkit-autofill {
 }
 
 @keyframes ticker {
-  0%   { transform: translateX(-50%); }
-  100% { transform: translateX(100%); }
+  0%   { transform: translateX(50%); }
+  100% { transform: translateX(-100%); }
 }
