@@ -1,0 +1,2 @@
+module OzonoterapieHelper
+end

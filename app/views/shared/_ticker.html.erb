@@ -1,8 +1,10 @@
 <div class="ticker-bar">
   <div class="ticker-wrap">
     <div class="ticker-move">
-      <span>✨ NOU în Geoagiu-Băi — Clinica de Ozonoterapie de la Hotel Vacanța • Tratamentele balneare sunt acum completate de ozonoterapie • Descoperă beneficiile ozonului pentru sănătate! ✨</span>
-      
+      <%= link_to "✨ NOU în Geoagiu-Băi — Clinica de Ozonoterapie de la Hotel Vacanța • Tratamentele balneare sunt acum completate de ozonoterapie • Descoperă beneficiile ozonului pentru sănătate!",
+                  ozonoterapie_path,                  # or "/ozonoterapie" or ozonoterapie_path(anchor: "terapii-ozon")
+                  class: "ticker-link",
+                  aria: { label: "Mergi la Ozonoterapie" } %>
     </div>
   </div>
 </div>

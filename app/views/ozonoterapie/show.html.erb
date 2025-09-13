@@ -1,0 +1,718 @@
+<div class="ozon-page">
+
+  <!-- HERO -->
+  <section class="ozon-hero">
+  <div class="container py-5 text-center">
+    <h1 class="display-5 mb-2 ozon-title">
+      <%= image_tag "icon.png", alt: "Ozon", class: "ozon-icon" %>
+      O infuzie de oxigen, un plus de bine
+      <%= image_tag "icon.png", alt: "Ozon", class: "ozon-icon" %>
+    </h1>
+
+    <p class="lead mb-4">
+      Clinica de Ozonoterapie MedVal la Hotel Vacanța • evaluare medicală, protocoale personalizate, o viziune holistică asupra sănătății.
+    </p>
+
+    <%= link_to "Programează consultația",
+          contact_path(package: "Consultație Ozonoterapie"),
+          class: "btn btn-golden" %>
+  </div>
+</section>
+
+
+  <!-- INTRO -->
+  <section class="py-3 px-5">
+          <p class="mb-4">Activitățile zilnice vin cu dureri? Urcatul scărilor, joaca din parc cu copiii, refacerea după antrenament—când au devenit atât de grele? Vrei stabilitate în pași, un plus de energie, să fii mereu pregătit de linia de start?
+          Ozonoterapia este o terapie care folosește un amestec medical de oxigen–ozon (O₂–O₃), dozat terapeutic. Realizată sub atentă supraveghere medicală, ozonoterapia sprijină procesele naturale de refacere ale organismului și contribuie la reducerea durerii și a inflamației. Este o intervenție complementară unui stil de viață sănătos și susține o longevitate activă, orientată spre calitatea vieții.
+          Parcursul începe cu un consult. Realizăm evaluarea clinică, definim afecțiunea și obiectivele, apoi personalizăm intervenția—forma, parametrii și frecvența—cu monitorizare și evaluare constantă. Primești un plan terapeutic clar și predictibil.
+          Următorul pas: O₃ explicat simplu, opțiuni de terapie și prețuri transparente.
+        Îmbătrânirea și uzura nu sunt un verdict. Sunt procese. La ele răspundem cu metodă, cu n plan structurat și terapii recunoscute.
+        Medicina regenerativă pornește de la corpul tău: resurse proprii, reactivate în siguranță. Ozonul dă celulelor un impuls controlat: le activează propriile mecanisme antioxidante, face sângele să circule mai ușor și sprijină producția de energie în mitocondrii. Și asta schimbă jocul.
+        De ce contează ozonul? Pentru că optimizează modul în care țesuturile folosesc oxigenul și reglează stresul oxidativ. Când zgomotul inflamator scade, celulele își reiau ritmul. Microambientul se așază. Iar când medicul recomandă să adăugăm și alte proceduri cum ar fi cele balneare, ozonul le pregătește terenul—răspunsul apare mai repede și se păstrează mai mult timp. Te întrebi cum ar arăta asta, concret?
+          </p>
+          <p class="mb-0 text-muted"><em>*Planul de tratament se stabilește în urma consultului medical (luni).</em></p>
+  </section>
+
+  <!-- ALT SECTION 1 -->
+  <section class="py-5">
+  <div class="container">
+    <div class="ozon-wrap">
+
+      <!-- BIG LEAD (text sits above and to the left of the photo) -->
+      <p class="mb-3">
+        În cabinet, totul începe cu o consultație. Istoricul tău, obiectivele tale, ritmul tău.
+        Explicăm fără jargon, la două niveluri: pe scurt dacă vrei esența, în detaliu dacă îți place
+        să înțelegi mecanismele. Apoi alegem: sistemic (de tip <em>autohemoterapie majoră</em>),
+        local (infiltrații), transdermic (saună cu ozon) — <strong>exact ce ți se potrivește</strong>.
+      </p>
+
+      <!-- PHOTO floats right; text continues under it -->
+      <%= image_tag "ozon1.jpg",
+            alt: "Ozonoterapie",
+            class: "ozon-float" %>
+
+      <!-- REST OF THE TEXT (flows under the photo too) -->
+      <p class="mb-2 text-muted">
+        Vrei o imagine clară a pașilor? Siguranța primează. Nu toate procedurile sunt pentru toată lumea.
+        De exemplu, tulburările de coagulare sau tratamentele anticoagulante exclud infiltrațiile.
+        De aceea, consultul decide. Mai bine un „nu acum” onest decât un „poate” grăbit.
+      </p>
+
+      <ul class="list-unstyled mb-3">
+        <li>✅ Pentru seniori: mai multă ușurință în mișcare și zile mai previzibile.</li>
+        <li>✅ Pentru sportivi: revenire structurată între antrenamente, fără excese.</li>
+        <li>✅ Pentru familii: un parcurs explicat limpede, cu monitorizare și ajustări.</li>
+      </ul>
+
+      <p class="mb-3">
+        Cu toții se bucură de aceeași abordare: metodă, răbdare, feedback. Iar când apare progresul…
+        îl documentăm împreună. Și acum partea practică: cum se leagă toate într-un plan clar, pas cu pas?
+      </p>
+
+      <%= link_to "Alege oferta care ți se potrivește",
+          pachete_si_oferte_path(package: "Consultație Ozonoterapie"),
+          class: "btn btn-golden" %>
+    </div>
+
+
+<p class="mb-3">
+        De ce ozonoterapie, aici, acum? Pentru că Vacanța nu mai înseamnă doar odihnă—înseamnă un parcurs de sănătate, cap-coadă. Geoagiu-Băi are tradiție în terapii balneare; noi o ducem mai departe, cu o metodă modernă și supraveghere medicală.
+</p>
+ </div>
+</section>
+
+<a href="#top" class="mobile-anchor">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+
+  <!-- ALT SECTION 2 -->
+  <section class="ozon-conditions py-5 bg-light ">
+  <div class="container">
+    <header class="mb-3">
+      <h2 class="mb-2">Beneficiile ozonoterapiei, pe scurt</h2>
+      <p class="text-muted m-0">O₃ dozat corect, în slujba refacerii și a echilibrului tău.</p>
+    </header>
+
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <article class="ozon-block">
+          <h3>Coloana vertebrală</h3>
+          <ul>
+            <li>Modulare a inflamației locale</li>
+            <li>Reducerea durerii și a contracturilor paravertebrale</li>
+            <li>Relaxare musculară reflexă</li>
+            <li>Mobilitate mai bună și toleranță crescută la efort</li>
+            <li>Somn mai odihnitor, prin scăderea disconfortului</li>
+          </ul>
+        </article>
+
+        <article class="ozon-block">
+          <h3>Articulații &amp; boli degenerative</h3>
+          <ul>
+            <li>Scăderea inflamației și a durerii articulare</li>
+            <li>Reducerea rigidității și creșterea amplitudinii mișcărilor</li>
+            <li>Funcție mai bună în activitățile zilnice (mers, urcat scări)</li>
+            <li>Ritm de recuperare mai coerent între ședințe</li>
+          </ul>
+        </article>
+
+        <article class="ozon-block">
+          <h3>Circulație &amp; vase sanguine</h3>
+          <ul>
+            <li>Îmbunătățirea microcirculației periferice</li>
+            <li>Reducerea senzației de „picioare grele” și a edemelor</li>
+            <li>Confort funcțional la mers și stat prelungit în picioare</li>
+          </ul>
+        </article>
+
+        <article class="ozon-block">
+          <h3>Sistemul respirator</h3>
+          <ul>
+            <li>Sprijin pentru controlul inflamației căilor respiratorii (cazuri selectate)</li>
+            <li>Toleranță mai bună la efort</li>
+            <li>Percepție mai ușoară a respirației în programe de recuperare</li>
+          </ul>
+        </article>
+
+        <article class="ozon-block">
+          <h3>Neurologie &amp; neuroreabilitare</h3>
+          <ul>
+            <li>Diminuarea disconfortului/algiei (inclusiv componente neuropate)</li>
+            <li>Suport pentru mobilitate fină și coordonare</li>
+            <li>Reducerea oboselii și somn mai odihnitor</li>
+            <li>Ancoră în programele de recuperare funcțională</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="col-lg-6">
+        <article class="ozon-block">
+          <h3>Sistemul metabolic &amp; intern</h3>
+          <ul>
+            <li>Echilibru mai bun de oxidanți/antioxidanți (răspuns antioxidant)</li>
+            <li>Susținerea metabolismului energetic la nivel celular</li>
+            <li>Energie percepută mai stabilă, tonus general mai bun</li>
+            <li>Refacere zilnică mai coerentă</li>
+          </ul>
+        </article>
+
+        <article class="ozon-block">
+          <h3>Cardiologie (în stabilitate clinică)</h3>
+          <ul>
+            <li>Sprijin în controlul statusului inflamator sistemic</li>
+            <li>Toleranță dozată la efort în programe de recuperare</li>
+          </ul>
+        </article>
+
+        <article class="ozon-block">
+          <h3>Urologie &amp; sănătate masculină</h3>
+          <ul>
+            <li>Reducerea inflamației/disconfortului pelvin</li>
+            <li>Îmbunătățirea confortului funcțional și a calității vieții</li>
+          </ul>
+        </article>
+
+        <article class="ozon-block">
+          <h3>Ginecologie &amp; sănătate feminină</h3>
+          <ul>
+            <li>Confort urinar mai bun</li>
+            <li>Tonus funcțional pelvin și stare generală de bine</li>
+          </ul>
+        </article>
+
+        <article class="ozon-block">
+          <h3>Dermatologie &amp; plăgi</h3>
+          <ul>
+            <li>Control local al încărcării microbiene</li>
+            <li>Reducerea inflamației și îmbunătățirea microcirculației locale</li>
+          </ul>
+        </article>
+
+        <article class="ozon-block">
+          <h3>Orto-traumatologie &amp; sport</h3>
+          <ul>
+            <li>Controlul edemului și al inflamației post-traumă</li>
+            <li>Reducerea rigidității și a sensibilității la efort</li>
+            <li>Favorizarea unei recuperări graduale, fără suprasarcină</li>
+            <li>Revenire funcțională mai previzibilă</li>
+          </ul>
+        </article>
+      </div>
+</div>
+
+  <%= link_to "Rezervă pachetul de tratament potrivit pentru tine",
+          pachete_si_oferte_path(package: "Consultație Ozonoterapie"),
+          class: "btn btn-golden" %>
+
+    </div>
+</div>
+</section>
+
+
+
+  <!-- ACCORDION: afecțiuni adresate -->
+<section class="py-5">
+  <div class="container">
+    <h3 class="h4 text-center mb-2">Parcurs logistic &amp; programare</h3>
+    <p class="text-muted text-center mb-4">Am ordonat pas cu pas întregul parcurs pentru claritate.</p>
+
+    <div class="accordion parcurs-acc" id="parcursOne">
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="hParcurs">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#cParcurs"
+            aria-expanded="false"
+            aria-controls="cParcurs">
+            <span class="label-closed">Deschide parcursul complet </span>
+    <span class="label-open">Închide parcursul complet </span>
+          </button>
+        </h2>
+
+        <div id="cParcurs"
+             class="accordion-collapse collapse"
+             aria-labelledby="hParcurs"
+             data-bs-parent="#parcursOne">
+          <div class="accordion-body">
+
+            <h4 class="step-title">Pasul 1 - Alegerea pachetului</h4>
+            <ul>
+              <li>Alegeți pachetul dorit.</li>
+              <li>Rezervarea se poate face <strong>telefonic</strong> sau prin <strong>formularul de rezervări</strong> de pe site.</li>
+            </ul>
+
+            <h4 class="step-title mt-4">Pasul 2 - Verificarea disponibilității &amp; confirmarea</h4>
+            <ul>
+              <li>Verificăm <strong>disponibilitatea</strong> la data solicitată.</li>
+              <li><strong>Confirmarea rezervării</strong> se transmite telefonic sau prin e-mail.</li>
+            </ul>
+
+            <h4 class="step-title mt-4">Pasul 3 - Ziua de intrare</h4>
+            <ul>
+              <li><strong>Intrările în program se fac doar lunea.</strong></li>
+              <li><strong>Luni</strong> are loc consultația medicală inițială și se stabilește <strong>planul de tratament</strong>.</li>
+            </ul>
+
+            <h4 class="step-title mt-4">Pasul 4 - Consultație &amp; plan de tratament</h4>
+            <ul>
+              <li>În cadrul consultației se realizează <strong>evaluarea clinică</strong>, se stabilesc indicația și obiectivele.</li>
+              <li>Se elaborează <strong>protocolul personalizat</strong> (forma intervenției, parametri, frecvență) și se programează <strong>reevaluările</strong>.</li>
+              <li>Se semnează <strong>consimțământul informat</strong>.</li>
+            </ul>
+
+            <h4 class="step-title mt-4">Pasul 5 - Ajustarea pachetului în clinică</h4>
+            <ul>
+              <li>Pachetul poate fi <strong>completat/extins</strong> prin adăugarea de proceduri medicale la <strong>recomandarea medicului</strong> și cu <strong>acordul dumneavoastră</strong>.</li>
+              <li>Pachetul <strong>nu se poate micșora ca valoare</strong>.</li>
+              <li>Dacă este necesară <strong>reducerea numărului de proceduri cu ozon</strong>, medicul va propune <strong>terapii alternative adecvate</strong>, astfel încât să beneficiați de servicii medicale <strong>potrivite și personalizate</strong>.</li>
+            </ul>
+
+            <h4 class="step-title mt-4">Pasul 6 - Documente medicale</h4>
+            <ul>
+              <li>La consultație, vă rugăm să aduceți <strong>documente medicale relevante</strong> care atestă patologia și istoricul (<strong>diagnostice</strong>/scrisori medicale, investigații recente, lista tratamentelor curente – dacă este cazul).</li>
+            </ul>
+
+            <%= link_to "Programează momentul pentru tine",
+          contact_path(package: "Consultație Ozonoterapie"),
+          class: "btn btn-golden" %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--Descoperă beneficiile ozonoterapiei—la nivel sistemic -->
+<section class="ozon-benefits py-5">
+  <div class="container">
+  <h2 class="mb-3">Descoperă beneficiile ozonoterapiei—la nivel sistemic</h2>
+    <div class="row g-4">
+      <!-- Left column -->
+      <div class="col-lg-6">
+        <div class="benefit-card h-100">
+
+          <ul class="emoji-list">
+            <li class="e-micro">Acțiune antimicrobiană — sprijin antibacterian, antifungic și virustatic</li>
+            <li class="e-shield">Susținerea răspunsului imun — modulare/întărire în programe selectate</li>
+            <li class="e-comfort">Confort fizic — contribuie la reducerea inflamației și a durerii</li>
+            <li class="e-energy">Energie &amp; vitalitate — tonus mai bun, refacere funcțională mai coerentă</li>
+            <li class="e-glucose">Metabolism glucidic — poate crește sensibilitatea la insulină</li>
+            <li class="e-lipid">Profil lipidic &amp; compoziție — sprijin lipolitic; poate favoriza un profil lipidic mai echilibrat</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="col-lg-6">
+        <div class="benefit-card h-100">
+          <ul class="emoji-list">
+            <li class="e-circ">Circulație — microcirculație sanguină și limfatică îmbunătățite</li>
+            <li class="e-focus">Efort &amp; claritate — toleranță mai bună la efort; susținere pentru atenție și memorie</li>
+            <li class="e-mood">Tonus psihic — sprijin pentru echilibru emoțional (programe adjuvante)</li>
+            <li class="e-detox">Antioxidanți &amp; „detox” — susține sistemele antioxidante și favorizează eliminarea metaboliților reziduali</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <%= link_to "Rezervă consultația de ozon", contact_path(package: "Consultație Ozonoterapie"), class: "btn btn-golden" %>
+    </div>
+  </div>
+</section>
+
+
+<!--terapiile noastre-->
+<section class="py-5" id="terapii-ozon">
+  <div class="container">
+    <h2 class="text-center mb-2">Terapille noastre cu ozon</h2>
+    <p class="text-muted text-center mb-4">
+      Administrate în siguranță, la indicația medicului — sistemic, local și transdermic, în funcție de profilul tău.
+    </p>
+
+    <div class="row g-4">
+      <!-- Infiltrații -->
+      <div class="col-md-6">
+        <article class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="h5 mb-2">Infiltrații cu ozon subcutanat (local &amp; total)</h3>
+            <ul class="mb-3">
+              <li>Injecții fine cu amestec medical O₂–O₃ în țesutul subcutanat (local sau în rețea).</li>
+              <li>Beneficii: reduc durere și tensiune; edem local reduc; creșterea mobilitate și confort funcțional.</li>
+            </ul>
+            <details>
+              <summary class="details-toggle">
+  <span class="dt-label"
+        data-closed="Citește detalii"
+        data-open="Închide detalii"></span>
+</summary>
+
+              <div class="small text-body">
+                <p class="mb-2"><strong>Ce sunt?</strong> Injecții fine cu amestec medical O₂–O₃ în țesutul subcutanat (local sau în rețea).</p>
+                <p class="mb-2"><strong>Indicații:</strong> dureri miofasciale, contracturi paravertebrale, puncte dureroase periarticulare, tendinopatii ușoare, suprasolicitare; se decide la consult.</p>
+                <p class="mb-2"><strong>Contraindicații/precauții:</strong> tulburări de coagulare sau anticoagulante (nu se fac), infecție/iritație locală (se amână), sarcină/comorbidități majore (numai la indicația medicului). Reacții posibile: eritem, echimoze minore, tumefacție tranzitorie.</p>
+                <p class="mb-0"><strong>Cum decurge:</strong> ace atraumatice, 10–20 min/ședință, monitorizare și evaluare medicală.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+      </div>
+
+      <!-- Pungă cu ozon -->
+      <div class="col-md-6">
+        <article class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="h5 mb-2">Pungă cu ozon</h3>
+            <ul class="mb-3">
+              <li>Aplicare locală a amestecului medical O₂–O₃ pe un membru, într-o pungă etanșă, cu flux și evacuare controlate.</li>
+              <li>Creează un micro-mediu în jurul leziunii, cu acțiune la suprafața țesuturilor.</li>
+            </ul>
+            <details>
+              <summary class="details-toggle">
+  <span class="dt-label"
+        data-closed="Citește detalii"
+        data-open="Închide detalii"></span>
+</summary>
+
+              <div class="small text-body">
+                <p class="mb-2"><strong>Ce este?</strong> Este o aplicare locală a amestecului medical O₂–O₃ pe un membru, într-o pungă etanșă, cu flux și evacuare controlate.</p>
+                <p class="mb-2"><strong>Cum acționează?</strong> Procedura creează un micro-mediu în jurul leziunii, prin care ozonul acționează la suprafața țesuturilor.</p>
+                <p class="mb-2"><strong>Beneficii:</strong> Intervenția sprijină controlul încărcării microbiene, favorizează epitelizarea și granulația și poate reduce disconfortul local.</p>
+                <p class="mb-2"><strong>Indicații (adjuvant):</strong> O folosim ca adjuvant în ulcere cronice venoase sau diabetice, plăgi cu vindecare lentă, escare și plăgi post-chirurgicale selectate, întotdeauna ca parte a îngrijirii standard a plăgilor.</p>
+                <p class="mb-2"><strong>Precauții:</strong> Nu aplicăm procedura în urgențe chirurgicale sau în ischemie critică netratată; utilizăm etanșare corectă și distrugător catalitic pentru a preveni inhalarea, iar decizia și ritmul se stabilesc după consult.</p>
+                <p class="mb-0"><strong>Durată:</strong> O ședință durează, de regulă, 10–30 de minute și se programează în serii, integrate cu pansamentele și celelalte măsuri recomandate.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+      </div>
+
+      <!-- Insuflații nazale -->
+      <div class="col-md-6">
+        <article class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="h5 mb-2">Insuflații nazale cu ozon</h3>
+            <ul class="mb-3">
+              <li>Aplicații locale, intranazale, ale amestecului medical O₂–O₃ la concentrații joase, fără inhalare pulmonară.</li>
+              <li>Gaz umidificat/trecut prin ulei și livrat controlat.</li>
+            </ul>
+            <details>
+              <summary class="details-toggle">
+  <span class="dt-label"
+        data-closed="Citește detalii"
+        data-open="Închide detalii"></span>
+</summary>
+
+              <div class="small text-body">
+                <p class="mb-2"><strong>Ce sunt?</strong> Sunt aplicații locale, intranazale, ale amestecului medical O₂–O₃ la concentrații joase, fără inhalare pulmonară. Gazul este umidificat/trecut prin ulei și livrat controlat</p>
+                <p class="mb-2"><strong>Beneficii:</strong> Procedura poate îmbunătăți confortul nazal și igiena mucoasei și poate susține, ca adjuvant, programele pentru rinosinuzite ușoare, împreună cu măsurile standard (irigații saline).</p>
+                <p class="mb-2"><strong>Indicații:</strong> O folosim selectiv în disconfort nazal persistent/rinosinuzite necomplicate, după evaluare medicală și în integrare cu terapiile recomandate de ghiduri.</p>
+                <p class="mb-2"><strong>Precauții:</strong> Nu se inhalează ozonul; expunerea pulmonară este dăunătoare. Evităm procedura la epistaxis frecvent, rinită atrofică, astm necontrolat sau după intervenții ORL recente.</p>
+                <p class="mb-0"><strong>Durată:</strong> O ședință durează, de regulă, câteva minute pe nară, în serii scurte, cu monitorizare.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+      </div>
+
+      <!-- Insuflații rectale -->
+      <div class="col-md-6">
+        <article class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="h5 mb-2">Insuflații rectale cu ozon</h3>
+            <ul class="mb-3">
+              <li>Aplicații sistemice, minim-invazive; O₂–O₃ administrat controlat prin cateter mic de unică folosință.</li>
+              <li>Gazul se dizolvă local și acționează prin produse care traversează mucoasa.</li>
+            </ul>
+            <details>
+              <summary class="details-toggle">
+  <span class="dt-label"
+        data-closed="Citește detalii"
+        data-open="Închide detalii"></span>
+</summary>
+
+              <div class="small text-body">
+                <p class="mb-2"><strong>Ce sunt?</strong> Sunt aplicații sistemice, minim-invazive, în care O₂–O₃ medical este administrat controlat printr-un cateter mic, de unică folosință. Gazul se dizolvă local și acționează prin produse care traversează mucoasa.</p>
+                <p class="mb-2"><strong>Beneficii:</strong> Procedura este, de regulă, bine tolerată și oferă o alternativă fără puncție venoasă pentru protocoale sistemice, putând susține confortul digestiv în programe selectate, alături de îngrijirea standard.</p>
+                <p class="mb-2"><strong>Precauții:</strong> Ocazional pot apărea balonare sau constipație trecătoare. Indicația și ritmul se stabilesc după consult.</p>
+                <p class="mb-0"><strong>Durată &amp; parcurs:</strong> Ședințele sunt scurte și se programează în serii/cicluri cu parametri dozați la concentrații joase.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+      </div>
+
+      <!-- Saună cu ozon -->
+      <div class="col-md-6">
+        <article class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="h5 mb-2">Saună cu ozon</h3>
+            <ul class="mb-3">
+              <li>Procedură transdermică într-o capsulă cu abur; O₂–O₃ introdus controlat; capul rămâne în exterior.</li>
+              <li>Gaz rezidual evacuat și neutralizat.</li>
+            </ul>
+            <details>
+              <summary class="details-toggle">
+  <span class="dt-label"
+        data-closed="Citește detalii"
+        data-open="Închide detalii"></span>
+</summary>
+
+              <div class="small text-body">
+                <p class="mb-2"><strong>Ce este?</strong> Este o procedură transdermică într-o capsulă cu abur în care se introduce O₂–O₃ medical. Capul rămâne în exterior, iar pacientul respiră oxigen, fără expunere la ozon pe căile respiratorii. Gazul rezidual este evacuat și neutralizat.</p>
+                <p class="mb-2"><strong>Beneficii:</strong> Procedura poate induce relaxare musculară, susține circulația periferică prin hipertermie și sprijină îngrijirea locală a tegumentelor, contribuind la o stare generală de bine.</p>
+                <p class="mb-2"><strong>Indicații (adjuvant):</strong> O folosim în programe de refacere și confort musculo–articular, în rigiditate ușoară sau după efort, precum și pentru suport local al pielii — mereu ca parte a planului recomandat.</p>
+                <p class="mb-2"><strong>Precauții:</strong> Evităm procedura în febră/infecții acute, sarcină, instabilitate cardio–respiratorie sau afecțiuni cutanate active la zona de contact.</p>
+                <p class="mb-0"><strong>Durată:</strong> O ședință durează în mod obișnuit 20–30 de minute, cu supraveghere și hidratare; frecvența se individualizează.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+      </div>
+
+      <!-- Autohemoterapie majoră (AHT) -->
+      <div class="col-md-6">
+        <article class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="h5 mb-2">Autohemoterapie majoră (AHT)</h3>
+            <ul class="mb-3">
+              <li>Recoltăm sânge, îl expunem la O₂–O₃ în doze terapeutice și îl reinfuzăm intravenos, lent.</li>
+              <li>Efectul este sistemic.</li>
+            </ul>
+            <details>
+              <summary class="details-toggle">
+  <span class="dt-label"
+        data-closed="Citește detalii"
+        data-open="Închide detalii"></span>
+</summary>
+
+              <div class="small text-body">
+                <p class="mb-2"><strong>Ce este?</strong> Recoltăm o cantitate mică de sânge, o expunem la O₂–O₃ în doze terapeutice și o reinfuzăm intravenos, lent. Efectul este sistemic.</p>
+                <p class="mb-2"><strong>Beneficii:</strong> Susține starea generală și energia funcțională, ajută la o recuperare mai coerentă și la toleranță mai bună la efort, în programe selectate.</p>
+                <p class="mb-2"><strong>Indicație &amp; parcurs:</strong> Se decide doar la consult, ca parte a unui protocol personalizat și în completarea tratamentelor recomandate.</p>
+                <p class="mb-2"><strong>Precauții:</strong> Contraindicată în deficit G6PD, tireotoxicoză, hemoragii active/instabilitate cardio-respiratorie, sarcină; alte situații – numai după încadrare clinică.</p>
+                <p class="mb-0"><strong>Durată:</strong> ~30 min/ședință. <br>
+                <strong>Important!</strong> Procedura este opțională; se realizează la indicația medicului, cu acordul pacientului, și se achită separat, conform tabelului de tarife.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+      </div>
+    </div>
+
+
+</section>
+
+
+    <div class="text-center mt-4">
+      <%= link_to "Descoperă pe larg toate terapiile noastre cu ozon",
+          tratamente_si_facilitati_path(package: "Consultație Ozonoterapie"),
+          class: "btn btn-golden" %>
+    </div>
+  </div>
+</section>
+<!-- tarife -->
+<section class="py-5" id="tarife">
+  <div class="container">
+    <h2 class="h4 text-center mb-2">Plan tarifar Ozonoterapie</h2>
+    <p class="text-muted text-center mb-4">
+      Tarifele se aplică procedurilor efectuate în afara pachetelor. Indicația și parametrii se stabilesc la consult.
+    </p>
+
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <ul class="price-lines m-0">
+          <li>
+            <span class="label">Consultație</span>
+            <span class="dots" aria-hidden="true"></span>
+            <span class="price">100 lei</span>
+          </li>
+
+          <li>
+            <span class="label">Infiltrații cu ozon subcutanat <small class="text-muted">— local</small></span>
+            <span class="dots" aria-hidden="true"></span>
+            <span class="price">50 lei</span>
+          </li>
+
+          <li>
+            <span class="label">Infiltrații cu ozon subcutanat <small class="text-muted">— total</small></span>
+            <span class="dots" aria-hidden="true"></span>
+            <span class="price">100 lei</span>
+          </li>
+
+          <li>
+            <span class="label">Pungă cu ozon</span>
+            <span class="dots" aria-hidden="true"></span>
+            <span class="price">50 lei</span>
+          </li>
+
+          <li>
+            <span class="label">Insuflații nazale</span>
+            <span class="dots" aria-hidden="true"></span>
+            <span class="price">50 lei</span>
+          </li>
+
+          <li>
+            <span class="label">Insuflații rectale vaginale</span>
+            <span class="dots" aria-hidden="true"></span>
+            <span class="price">50 lei</span>
+          </li>
+
+          <li>
+            <span class="label">Saună cu ozon</span>
+            <span class="dots" aria-hidden="true"></span>
+            <span class="price">150 lei</span>
+          </li>
+
+          <li>
+            <span class="label">Autohemoterapie</span>
+            <span class="dots" aria-hidden="true"></span>
+            <span class="price">300 lei</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="text-center small text-muted mt-3 mb-0">
+      Pentru <strong>pachete de tratament</strong> de 5 sau 10 nopți, vedeți ofertele noastre.
+    </p>
+    <p class="text-center mt-2">
+      <%= link_to "Descoperă toate pachetele de ozonoterapie",
+          pachete_si_oferte_path(anchor: "ozon"), class: "btn btn-golden" %>
+    </p>
+  </div>
+</section>
+
+<!-- HIGHLIGHTED OFFERS -->
+<section id="highlighted-offers"class="highlighted-offers  py-5">
+  <div class="row align-items-stretch g-4">
+
+    <div class="col-md-6"data-aos="fade-right" data-aos-duration="1500" data-aos-easing="ease-in-out">
+      <div class="offer-card h-100 p-4 border rounded">
+        <h3>Vacanța cu Ozonoterapie Chibzuită</h3>
+        <ul>
+          <li>5 nopți de cazare</li>
+        <li>Loc în cameră dublă</li>
+        <li>Pensiune completă</li>
+        <li>1 terapie cu ozon/zi</li>
+        <li>Acces gratuit la bazin</li>
+        <li>Pret/persoană: <strong>1700</strong> lei</li>
+        <li>Cameră single: 2200 lei</li>
+        </ul>
+        <div class="mt-auto">
+          <%= link_to "Rezervă vacanța", contact_path, class: "btn btn-golden" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" data-aos="fade-left" data-aos-duration="1500" data-aos-easing="ease-in-out">
+      <div class="offer-card h-100 p-4 border rounded">
+        <h3>Vacanța Balneară Chibzuită cu Ozon</h3>
+        <ul>
+          <li>5 nopți de cazare</li>
+          <li>Loc în cameră dublă</li>
+          <li>Pensiune completă</li>
+          <li>4 tratamente balneare/zi</li>
+          <li>1 terapie cu ozon/zi</li>
+          <li>Acces gratuit la bazin</li>
+          <li>Preț/persoană: 2200 lei</li>
+          <li>Cameră single: 2700 lei</li>
+        </ul>
+        <div class="mt-auto">
+          <%= link_to "Rezervă mini-vacanța", contact_path, class: "btn btn-golden" %>
+        </div>
+      </div>
+    </div>
+<div class="centered text-center py-4">
+  <%= link_to "Descoperă toate ofertele", pachete_si_oferte_path, class: "btn btn-golden" %>
+</div>
+  </div>
+</section>
+
+<!--dr FILIMON -->
+<section class="py-5" id="dr-filimon-alt">
+  <div class="container">
+    <div class="ozon-wrap">
+
+      <!-- Big lead (sits to the left of the photo) -->
+      <p class="lead mb-3">
+        Dr. Valeria Filimon practică medicina de peste douăzeci și cinci de ani, cu formare și activitate îndelungată în medicina de urgență și cu ani de coordonare a Serviciului de Ambulanță Hunedoara. Reputația profesională s-a construit în timp, în situații care cer luciditate și rigoare, dar și în relația directă cu pacienții, unde calmul și respectul cântăresc la fel de mult ca experiența.
+
+
+      <!-- Photo floats right; text continues under it -->
+      <%= image_tag "Ozonoterapie9.jpg",
+            alt: "Cabinet ozonoterapie",
+            class: "ozon-float" %>
+
+      <!-- Rest of the text (will wrap alongside then under the image) -->
+      <a href="https://www.replicahd.ro/cel-mai-iubit-medic-hunedorean-dr-valeria-filimon-de-25-de-ani-in-slujba-oamenilor/"
+     target="_blank" rel="noopener noreferrer" class="link-secondary">
+    Recunoașterea publică din presa locală
+  </a>,
+  când a fost votată de publicul cititor drept „cel mai iubit medic din Hunedoara” nu a fost întâmplătoare; în spatele ei se află muncă, consecvență și rezultate.
+ </p>
+
+      <p class="mb-3">
+        În clinica noastră, dr. Filimon realizează toate consultațiile și stabilește parcursul
+        terapeutic împreună cu fiecare pacient. Abordarea este eficientă și empatică deopotrivă: analiza atentă a istoricului,
+        clarificarea obiectivelor, verificarea contraindicațiilor și explicarea opțiunilor pe înțelesul tuturor.
+      </p>
+
+      <p class="mb-3">
+        Din 2017, prin cabinetul <a href="https://www.medval.ro/" class="link-secondary">MedVal</a> din Deva, dr. Valeria Filimon desfășoară ozonoterapie
+        în regim ambulator, cu parametri dozați și monitorizare atentă. Sute de pacienți au urmat protocoale sub îndrumarea sa,
+        beneficiind de efectele terapeutice ale ozonului. Prioritatea rămâne aceeași: siguranță, etică și rezultate urmărite corect.
+      </p>
+
+      <p class="mb-0">
+        Ce poate aștepta un pacient de la întâlnirea cu dr. Filimon: un consult temeinic, explicații clare, un plan personalizat
+        și o prezență calmă, care inspiră încredere. Este un medic discret, exigent cu sine și atent cu oamenii din fața sa—genul
+        de profesionist pe care te poți sprijini când ai nevoie de decizii bune și de un traseu medical așezat.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+  <!-- review -->
+ <section class="py-5" id="testimoniale">
+  <div class="container">
+    <h2 class="h4 mb-4 text-center">Ce spun pacienții care au încercat ozonoterapia</h2>
+
+    <article class="testimonial-card mx-auto">
+      <blockquote class="testimonial-quote">
+        <p>
+          „Recomand procedurile cu ozon și în cazul recuperării postoperatorii; în cazul meu, zona afectată de necroză din lipsa sângelui oxigenat nu a putut fi vindecată cu unguentele clasice, iar durerile creșteau în intensitate zi de zi, și se resimțeau mai ales noaptea. Am ales să aplic și o metodă nouă pentru mine: ozonoterapia. La câteva ore după prima ședință cu ozon (infiltrații subcutanate în jurul gleznei) am observat o reducere a inflamației și a durerii cauzate de necroza pielii. După câteva ședințe cu sac de ozon și infiltrații, rana a început să se vindece și pielea a început să își recapete elasticitatea și o culoare mai sănătoasă, iar durerile și disconfortul au dispărut. Recomand o cură de cel puțin câteva săptămâni pe an pentru o recuperare solidă. Am văzut pe propria piele cum celulele corpului se regenerează dacă le ajutăm cu oxigen.”
+        </p>
+      </blockquote>
+      <figcaption class="testimonial-author text-end">– Gelu M., 45 de ani</figcaption>
+    </article>
+
+    <p class="text-center mt-4 mb-0">
+      <a href="#" class="btn btn-golden">Rezervă consultația de ozon</a>
+    </p>
+
+    <p class="text-muted small text-center mt-3 mb-0">
+      E timpul să descoperi și tu beneficiile ozonoterapiei și cât de ușor se poate îmbunătăți calitatea vieții cu îngrijirea medicală potrivită.
+      <strong>E timpul pentru vacanță de sănătate!</strong>
+    </p>
+  </div>
+</section>
+
+
+  <!-- CTA FINAL -->
+  <section class="py-5 ozon-cta">
+    <div class="container text-center">
+      <h3 class="h4 mb-3">Hai să stabilim planul tău, pas cu pas</h3>
+      <p class="mb-4">Consultațiile se fac <strong>doar lunea</strong>. Cazarea nu este obligatorie pentru consult.</p>
+      <%= link_to "Rezervă consultația", contact_path(package: "Consultație Ozonoterapie"), class: "btn btn-golden" %>
+    </div>
+  </section>
+
+</div>

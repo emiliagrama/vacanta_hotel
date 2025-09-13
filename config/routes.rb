@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   get 'hidden_pages/termeni_si_conditii'
   get 'hidden_pages/politica_confidentialitate'
   get 'hidden_pages/politica_cookies'
@@ -18,6 +19,8 @@ Rails.application.routes.draw do
   get "tratamente_si_facilitati", to: "tratamente_si_facilitati#index"
   get "restaurant_conferinte_si_terasa", to: "restaurant_conferinte_si_terasa#index"
   get "timp_liber" , to:"timp_liber#index"
+  get "ozonoterapie", to: "ozonoterapie#show", as: :ozonoterapie
+
 
   # Contact form
   get "contact",          to: "contact#new",     as: :contact
