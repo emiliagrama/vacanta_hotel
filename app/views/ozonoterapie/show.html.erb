@@ -22,16 +22,26 @@
 
 
   <!-- INTRO -->
-  <section class="py-3 px-5">
-          <p class="mb-4">Activitățile zilnice vin cu dureri? Urcatul scărilor, joaca din parc cu copiii, refacerea după antrenament—când au devenit atât de grele? Vrei stabilitate în pași, un plus de energie, să fii mereu pregătit de linia de start?
-          Ozonoterapia este o terapie care folosește un amestec medical de oxigen–ozon (O₂–O₃), dozat terapeutic. Realizată sub atentă supraveghere medicală, ozonoterapia sprijină procesele naturale de refacere ale organismului și contribuie la reducerea durerii și a inflamației. Este o intervenție complementară unui stil de viață sănătos și susține o longevitate activă, orientată spre calitatea vieții.
-          Parcursul începe cu un consult. Realizăm evaluarea clinică, definim afecțiunea și obiectivele, apoi personalizăm intervenția—forma, parametrii și frecvența—cu monitorizare și evaluare constantă. Primești un plan terapeutic clar și predictibil.
-          Următorul pas: O₃ explicat simplu, opțiuni de terapie și prețuri transparente.
-        Îmbătrânirea și uzura nu sunt un verdict. Sunt procese. La ele răspundem cu metodă, cu n plan structurat și terapii recunoscute.
-        Medicina regenerativă pornește de la corpul tău: resurse proprii, reactivate în siguranță. Ozonul dă celulelor un impuls controlat: le activează propriile mecanisme antioxidante, face sângele să circule mai ușor și sprijină producția de energie în mitocondrii. Și asta schimbă jocul.
+  <section class="py-5 ">
+   <div class="container">
+   <div class="ozon-wrap">
+          <p class="mb-4">Activitățile zilnice vin cu dureri? Urcatul scărilor, joaca din parc cu copiii, refacerea după antrenament—când au devenit atât de grele? Vrei stabilitate în pași, un plus de energie, să fii mereu pregătit de linia de start?</p>
+          <p class="mb-4">
+          Ozonoterapia este o terapie care folosește un amestec medical de oxigen–ozon (O₂–O₃), dozat terapeutic. Realizată sub atentă supraveghere medicală, ozonoterapia sprijină procesele naturale de refacere ale organismului și contribuie la reducerea durerii și a inflamației. Este o intervenție complementară unui stil de viață sănătos și susține o longevitate activă, orientată spre calitatea vieții.</p>
+          <p class="mb-4">
+          Parcursul începe cu un consult. Realizăm evaluarea clinică, definim afecțiunea și obiectivele, apoi <strong>personalizăm intervenția</strong>—forma, parametrii și frecvența—cu monitorizare și evaluare constantă. Primești un plan terapeutic clar și predictibil.</p>
+          <p class="mb-4">
+          Următorul pas: O₃ explicat simplu, opțiuni de terapie și prețuri transparente.</p>
+          <p class="mb-4">      
+        Îmbătrânirea și uzura nu sunt un verdict. Sunt procese. La ele răspundem cu metodă, cu n plan structurat și terapii recunoscute.</p>
+        <p class="mb-4">
+        Medicina regenerativă pornește de la corpul tău: resurse proprii, reactivate în siguranță. Ozonul dă celulelor un impuls controlat: le activează propriile mecanisme antioxidante, face sângele să circule mai ușor și sprijină producția de energie în mitocondrii. Și asta schimbă jocul.</p>
+        <p class="mb-4">
         De ce contează ozonul? Pentru că optimizează modul în care țesuturile folosesc oxigenul și reglează stresul oxidativ. Când zgomotul inflamator scade, celulele își reiau ritmul. Microambientul se așază. Iar când medicul recomandă să adăugăm și alte proceduri cum ar fi cele balneare, ozonul le pregătește terenul—răspunsul apare mai repede și se păstrează mai mult timp. Te întrebi cum ar arăta asta, concret?
           </p>
           <p class="mb-0 text-muted"><em>*Planul de tratament se stabilește în urma consultului medical (luni).</em></p>
+   </div>
+    </div>
   </section>
 
   <!-- ALT SECTION 0 -->
@@ -69,17 +79,23 @@
         Cu toții se bucură de aceeași abordare: metodă, răbdare, feedback. Iar când apare progresul…
         îl documentăm împreună. Și acum partea practică: cum se leagă toate într-un plan clar, pas cu pas?
       </p>
+</div>
 
-      <%= link_to "Alege oferta care ți se potrivește",
-          pachete_si_oferte_path(package: "Consultație Ozonoterapie"),
-          class: "btn btn-golden" %>
-    </div>
+ 
+
+
+    
 
 
 <p class="mb-3">
         De ce ozonoterapie, aici, acum? Pentru că Vacanța nu mai înseamnă doar odihnă—înseamnă un parcurs de sănătate, cap-coadă. Geoagiu-Băi are tradiție în terapii balneare; noi o ducem mai departe, cu o metodă modernă și supraveghere medicală.
 </p>
  </div>
+      <div class="text-center">
+  <%= link_to "Alege oferta care ți se potrivește",
+              pachete_si_oferte_path(package: "Consultație Ozonoterapie"),
+              class: "btn btn-golden" %>
+</div>
 </section>
 
 <a href="#top" class="mobile-anchor">
@@ -390,12 +406,16 @@
       </div>
 </div>
 
+<div class="text-center mt-3">
   <%= link_to "Rezervă pachetul de tratament potrivit pentru tine",
-          pachete_si_oferte_path(package: "Consultație Ozonoterapie"),
-          class: "btn btn-golden" %>
+              pachete_si_oferte_path(package: "Consultație Ozonoterapie"),
+              class: "btn btn-golden" %>
+</div>
+
 
     </div>
 </div>
+
 </section>
 
 
