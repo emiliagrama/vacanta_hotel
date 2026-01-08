@@ -1,4 +1,11 @@
 {
+  "name": "hotel-vacanta",
+  "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": "22.x",
+    "yarn": "1.22.x"
+  },
   "dependencies": {
     "flatpickr": "^4.6.13"
   }
