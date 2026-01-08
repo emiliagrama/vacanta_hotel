@@ -26,14 +26,7 @@
 <link rel="shortcut icon" href="<%= asset_path 'favicon.ico' %>">
 
 </head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FW93X29TVW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'G-FW93X29TVW', { anonymize_ip: true });
 
-</script>
 
 <body data-controller="dropdown" data-action="click@window->dropdown#close">
   <div id="cookie-banner" class="cookie-banner">
@@ -214,7 +207,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function gtag(){ dataLayer.push(arguments); }
 
   gtag('js', new Date());
-  gtag('config', 'G-FW93X29TVW');
+  gtag('config', 'G-FW93X29TVW', { anonymize_ip: true });
+
 
   // Set custom user property from cookie — safe even if reloaded by Turbo
   if (typeof window._visitorTypeSet === 'undefined') {
