@@ -8,3 +8,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "flatpickr", to: "https://cdn.skypack.dev/flatpickr"
 
 pin "flatpickr/ro", to: "flatpickr/ro.js"
+pin "cookies", to: "cookies.js"
