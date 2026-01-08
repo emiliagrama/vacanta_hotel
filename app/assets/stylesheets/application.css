@@ -1306,10 +1306,14 @@ input:-webkit-autofill {
 }
 /* ----- Ozonoterapie page ----- */
 .ozon-hero {
-  background: linear-gradient(0deg, rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
-              url('/assets/ozon/hero.jpg') center/cover no-repeat;
+  background: linear-gradient(
+    0deg,
+    rgba(255,255,255,0.9),
+    rgba(255,255,255,0.9)
+  );
   border-bottom: 1px solid #eee;
 }
+
 .ozon-bullets li { margin-bottom: .4rem; padding-left: .9rem; position: relative; }
 .ozon-bullets li::before { content: "•"; position: absolute; left: 0; }
 
