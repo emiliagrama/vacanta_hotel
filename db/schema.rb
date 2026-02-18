@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_20_085004) do
+ActiveRecord::Schema[7.1].define(version: 2026_02_18_185918) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,4 +30,33 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_20_085004) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "offer_programs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "title"
+    t.jsonb "includes_bullets"
+    t.integer "position"
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["key"], name: "index_offer_programs_on_key", unique: true
+  end
+
+  create_table "offer_variants", force: :cascade do |t|
+    t.bigint "offer_program_id", null: false
+    t.integer "people_count", null: false
+    t.string "meal_plan", null: false
+    t.string "duration_kind", null: false
+    t.integer "nights", null: false
+    t.string "room_type", null: false
+    t.integer "price_ron", null: false
+    t.boolean "active", default: true, null: false
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meal_plan", "duration_kind", "nights", "room_type"], name: "idx_on_meal_plan_duration_kind_nights_room_type_f76185f98f"
+    t.index ["offer_program_id", "people_count"], name: "index_offer_variants_on_offer_program_id_and_people_count"
+    t.index ["offer_program_id"], name: "index_offer_variants_on_offer_program_id"
+  end
+
+  add_foreign_key "offer_variants", "offer_programs"
 end

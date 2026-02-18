@@ -1,50 +1,62 @@
 
 <section class="offers-hero text-center">
-<h2>Pachete și Oferte</h2>
+  <h2>Pachete și Oferte</h2>
 </section>
 
 <section class="offers-intro text-center">
   <h3>Alege vacanța care ți se potrivește</h3>
   <p>Vii pentru tratament, relaxare sau doar un weekend de respiro? Avem pachetul potrivit pentru tine. Indiferent de durata sejurului, ai parte de apă termală, aer curat și o atmosferă unde nu trebuie să te grăbești nicăieri.</p>
 </section>
-<section class="offers-intro text-center">
-<h3>Pachete de tratament balnear</h3>
-</section>
-<section class="offers-packages container">
-  <div class="offer-card">
-    <%= image_tag "nu_3.jpg", alt: "Vacanța balneară chibzuită" %>
-     <div class="offer-details" >
-      <h4>Vacanța balneară chibzuită</h4>
-      <ul>
-        <li>5 nopți de cazare</li>
-        <li>Loc în cameră dublă</li>
-        <li>Pensiune completă</li>
-        <li>4 tratamente pe zi</li>
-        <li>Acces gratuit la bazin</li>
-        <li>Pret/persoană: <strong>1500</strong> lei</li>
-        <li>Cameră single: 2000 lei</li>
-      </ul>
-      <a href="/contact" class="btn btn-golden">Rezervă acum</a>
-    </div>
-  </div>
 
-  <div class="offer-card">
-    <%= image_tag "nu.jpg", alt: "Vacanța cu Tratament Cinstit" %>
-    <div class="offer-details">
-      <h4>Vacanța balneară pe săturate</h4>
-      <ul>
-        <li>10 nopți de cazare</li>
-        <li>Loc în cameră dublă</li>
-        <li>Pensiune completă</li>
-        <li>4 tratamente/zi</li>
-        <li>Acces gratuit la bazin</li>
-        <li>Preț/persoană: <strong>2800</strong> lei</li>
-        <li>Cameră single 3500 lei</li>
-      </ul>
-      <a href="/contact" class="btn btn-golden">Rezervă acum</a>
+<section class="offers-intro text-center">
+  <h3>Pachete de tratament balnear</h3>
+</section>
+
+<section class="offers-packages--paired container">
+  <% @balneo_pairs.each do |pair| %>
+    <div class="offers-two-col-row">
+      <div class="offers-two-col">
+        <% if pair[:demi] %>
+          <%= render "offer_card",
+            variant: pair[:demi],
+            summary_lines: [
+              "2 persoane",
+              "#{pair[:demi].nights} nopți de cazare",
+              room_label(pair[:demi].room_type, pair[:demi].people_count)
+            ],
+            details_lines: [
+              meal_details_line(pair[:demi].meal_plan),
+              *pair[:demi].offer_program.includes_list
+            ]
+          %>
+        <% end %>
+      </div>
+
+      <div class="offers-two-col">
+        <% if pair[:completa] %>
+          <%= render "offer_card",
+            variant: pair[:completa],
+            summary_lines: [
+              "2 persoane",
+              "#{pair[:completa].nights} nopți de cazare",
+              room_label(pair[:completa].room_type, pair[:completa].people_count)
+            ],
+            details_lines: [
+              meal_details_line(pair[:completa].meal_plan),
+              *pair[:completa].offer_program.includes_list
+            ]
+          %>
+        <% end %>
+      </div>
     </div>
-  </div>
-  </section>
+  <% end %>
+</section>
+
+
+
+
+
+
 
   <section class="offers-intro text-center">
 <h3>Pachete cu Ozonoterapie</h3>

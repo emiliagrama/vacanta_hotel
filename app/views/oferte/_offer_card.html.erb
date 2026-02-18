@@ -1,0 +1,21 @@
+<div class="offer-card">
+  <%# optional image later %>
+
+  <div class="offer-details">
+    <h4><%= offer_title(variant) %></h4>
+    <ul>
+      <% summary_lines.each do |line| %>
+        <li><%= line %></li>
+      <% end %>
+
+      <%# details hidden later behind button %>
+      <% details_lines.each do |line| %>
+        <li><%= line %></li>
+      <% end %>
+
+      <li>Pret: <strong><%= variant.price_ron %></strong> lei</li>
+    </ul>
+
+    <a href="/contact" class="btn btn-golden">Rezervă acum</a>
+  </div>
+</div>
