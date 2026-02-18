@@ -1,0 +1,4 @@
+// flatpickr/dist/l10n/ro@4.6.13 downloaded from https://ga.jspm.io/npm:flatpickr@4.6.13/dist/l10n/ro.js
+
+var e={};(function(i,n){n(e)})(0,(function(e){var i="undefined"!==typeof window&&void 0!==window.flatpickr?window.flatpickr:{l10ns:{}};var n={weekdays:{shorthand:["Dum","Lun","Mar","Mie","Joi","Vin","Sâm"],longhand:["Duminică","Luni","Marți","Miercuri","Joi","Vineri","Sâmbătă"]},months:{shorthand:["Ian","Feb","Mar","Apr","Mai","Iun","Iul","Aug","Sep","Oct","Noi","Dec"],longhand:["Ianuarie","Februarie","Martie","Aprilie","Mai","Iunie","Iulie","August","Septembrie","Octombrie","Noiembrie","Decembrie"]},firstDayOfWeek:1,time_24hr:true,ordinal:function(){return""}};i.l10ns.ro=n;var r=i.l10ns;e.Romanian=n;e.default=r;Object.defineProperty(e,"__esModule",{value:true})}));const i=e.Romanian,n=e.__esModule;export{i as Romanian,n as __esModule,e as default};
+

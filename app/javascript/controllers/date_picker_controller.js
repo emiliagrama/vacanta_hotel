@@ -1,6 +1,7 @@
-import { Controller } from "@hotwired/stimulus";
-import flatpickr from "flatpickr";
-import { Romanian } from "flatpickr/ro";
+import flatpickr from "flatpickr"
+import { Romanian } from "flatpickr/dist/l10n/ro"
+
+
 
 export default class extends Controller {
   static targets = ["package", "checkIn", "checkOut"];
