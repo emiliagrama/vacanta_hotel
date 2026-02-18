@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get "despre", to: "despre#index"
   get "pachete_si_oferte",  to: "pachete_si_oferte#index"
   get "tratamente_si_facilitati", to: "tratamente_si_facilitati#index"
-  get "restaurant_conferinte_si_terasa", to: "restaurant_conferinte_si_terasa#index"
+  get "/facilitati", to: "facilitati#index"
   get "timp_liber" , to:"timp_liber#index"
   get "ozonoterapie", to: "ozonoterapie#show", as: :ozonoterapie
 
