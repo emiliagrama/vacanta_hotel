@@ -1,0 +1,3 @@
+module FacilitatiHelper
+
+end

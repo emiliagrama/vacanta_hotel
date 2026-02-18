@@ -15,9 +15,9 @@ SitemapGenerator::Sitemap.create do
 
   # Top‐level pages
   add '/despre',                             priority: 0.8,  changefreq: 'monthly'
-  add '/pachete_si_oferte',                  priority: 0.8,  changefreq: 'weekly'
+  add '/oferte',                             priority: 0.8,  changefreq: 'weekly'
   add '/tratamente_si_facilitati',           priority: 0.8,  changefreq: 'weekly'
-  add '/restaurant_conferinte_si_terasa',    priority: 0.8,  changefreq: 'weekly'
+  add '/facilitati',                         priority: 0.8,  changefreq: 'weekly'
   add '/timp_liber',                         priority: 0.8,  changefreq: 'weekly'
 
   # Contact form

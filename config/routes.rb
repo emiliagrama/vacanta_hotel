@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   root "about#about"
   get "despre", to: "despre#index"
-  get "pachete_si_oferte",  to: "pachete_si_oferte#index"
+  get "oferte", to: "oferte#index"
   get "tratamente_si_facilitati", to: "tratamente_si_facilitati#index"
   get "/facilitati", to: "facilitati#index"
   get "timp_liber" , to:"timp_liber#index"
