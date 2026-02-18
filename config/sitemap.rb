@@ -16,7 +16,7 @@ SitemapGenerator::Sitemap.create do
   # Top‐level pages
   add '/despre',                             priority: 0.8,  changefreq: 'monthly'
   add '/oferte',                             priority: 0.8,  changefreq: 'weekly'
-  add '/tratamente_si_facilitati',           priority: 0.8,  changefreq: 'weekly'
+  add '/proceduri',                          priority: 0.8,  changefreq: 'weekly'
   add '/facilitati',                         priority: 0.8,  changefreq: 'weekly'
   add '/timp_liber',                         priority: 0.8,  changefreq: 'weekly'
 

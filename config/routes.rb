@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   root "about#about"
   get "despre", to: "despre#index"
   get "oferte", to: "oferte#index"
-  get "tratamente_si_facilitati", to: "tratamente_si_facilitati#index"
+  get "proceduri", to: "proceduri#index"
   get "/facilitati", to: "facilitati#index"
   get "timp_liber" , to:"timp_liber#index"
   get "ozonoterapie", to: "ozonoterapie#show", as: :ozonoterapie

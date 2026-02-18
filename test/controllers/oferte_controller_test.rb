@@ -1,6 +1,6 @@
 require "test_helper"
 
-class PacheteSiOferteControllerTest < ActionDispatch::IntegrationTest
+class OferteControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
