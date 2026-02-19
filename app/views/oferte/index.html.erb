@@ -1,43 +1,37 @@
-
 <section class="offers-hero text-center">
   <h2>Oferte de vacanță</h2>
 </section>
 
 <section class="offers-hero">
   <div class="offers-hero__inner text-center">
-
     <p class="offers-hero__lead">
       Vii pentru tratament, relaxare sau doar un weekend de respiro? Avem pachetul potrivit pentru tine. Indiferent de durata sejurului, ai parte de apă termală, aer curat și o atmosferă unde nu trebuie să te grăbești nicăieri.
     </p>
-
     <div class="offers-hero__divider"></div>
-
-    
     <p class="offers-hero__sub">Pentru întreaga familie</p>
-
     <h3>Vacanțe de sănătate</h3>
     <p class="offers-hero__note">Oferă-ți ție și celor dragi cel mai de preț dar</p>
-
-    <p class="offers-hero__anchor">Vacanța de sănătate în doi</p>
   </div>
 </section>
 
+<!-- =========================
+     VACANTA IN DOI (2 persoane)
+     ========================= -->
+<section class="offers-group-title text-center">
+  <p class="offers-hero__anchor">Vacanța de sănătate în doi</p>
+</section>
 
-<% @program_pairs.each do |program, pairs| %>
-
+<% @double_program_pairs.each do |program, pairs| %>
   <section class="offers-intro text-center">
     <h3><%= program.title %></h3>
 
     <% if program.intro_text.present? %>
-      <p class="offers-intro-text">
-        <%= program.intro_text %>
-      </p>
+      <p class="offers-intro-text"><%= program.intro_text %></p>
     <% end %>
   </section>
 
   <section class="offers-packages--paired container">
     <% pairs.each do |pair| %>
-
       <div class="offers-two-col-row">
         <div class="offers-two-col">
           <% if pair[:demi] %>
@@ -77,6 +71,64 @@
   </section>
 <% end %>
 
+<!-- =========================
+     VACANTA SINGLE (1 persoana)
+     ========================= -->
+<section class="offers-group-title text-center">
+  <p class="offers-hero__anchor">Vacanța de sănătate single</p>
+</section>
+
+<% @single_program_pairs.each do |program, pairs| %>
+  <section class="offers-intro text-center">
+    <h3><%= program.title %></h3>
+
+    <% if program.intro_text.present? %>
+      <p class="offers-intro-text"><%= program.intro_text %></p>
+    <% end %>
+  </section>
+
+  <section class="offers-packages--paired container">
+    <% pairs.each do |pair| %>
+      <div class="offers-two-col-row">
+        <div class="offers-two-col">
+          <% if pair[:demi] %>
+            <%= render "offer_card",
+              variant: pair[:demi],
+              summary_lines: [
+                "o persoană",
+                "#{pair[:demi].nights} nopti de cazare",
+                room_label(pair[:demi].room_type, pair[:demi].people_count)
+              ],
+              details_lines: [
+                meal_details_line(pair[:demi].meal_plan),
+                *pair[:demi].offer_program.includes_list
+              ]
+            %>
+          <% end %>
+        </div>
+
+        <div class="offers-two-col">
+          <% if pair[:completa] %>
+            <%= render "offer_card",
+              variant: pair[:completa],
+              summary_lines: [
+                "o persoană",
+                "#{pair[:completa].nights} nopti de cazare",
+                room_label(pair[:completa].room_type, pair[:completa].people_count)
+              ],
+              details_lines: [
+                meal_details_line(pair[:completa].meal_plan),
+                *pair[:completa].offer_program.includes_list
+              ]
+            %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </section>
+<% end %>
+
+
 
 <section class="offers-intro text-center">
 <h3>Boost de vacanță</h3>
@@ -109,10 +161,10 @@
       </ul>
     </div>
   </div>
-  </section>
+</section>
 
 <section class="offers-intro text-center">
-<h3>Vacanța light</h3>
+  <h3>Vacanța light</h3>
 </section>
   <section class="offers-packages container">
 <a href="#top" class="mobile-anchor">
