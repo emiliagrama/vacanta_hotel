@@ -1,14 +1,30 @@
 
 <section class="offers-hero text-center">
-  <h2>Pachete și Oferte</h2>
+  <h2>Oferte de vacanță</h2>
 </section>
 
-<section class="offers-intro text-center">
-  <h3>Alege vacanța care ți se potrivește</h3>
-  <p>Vii pentru tratament, relaxare sau doar un weekend de respiro? Avem pachetul potrivit pentru tine. Indiferent de durata sejurului, ai parte de apă termală, aer curat și o atmosferă unde nu trebuie să te grăbești nicăieri.</p>
+<section class="offers-hero">
+  <div class="offers-hero__inner text-center">
+
+    <p class="offers-hero__lead">
+      Vii pentru tratament, relaxare sau doar un weekend de respiro? Avem pachetul potrivit pentru tine. Indiferent de durata sejurului, ai parte de apă termală, aer curat și o atmosferă unde nu trebuie să te grăbești nicăieri.
+    </p>
+
+    <div class="offers-hero__divider"></div>
+
+    
+    <p class="offers-hero__sub">Pentru întreaga familie</p>
+
+    <h3>Vacanțe de sănătate</h3>
+    <p class="offers-hero__note">Oferă-ți ție și celor dragi cel mai de preț dar</p>
+
+    <p class="offers-hero__anchor">Vacanța de sănătate în doi</p>
+  </div>
 </section>
+
 
 <% @program_pairs.each do |program, pairs| %>
+
   <section class="offers-intro text-center">
     <h3><%= program.title %></h3>
 
@@ -18,10 +34,10 @@
       </p>
     <% end %>
   </section>
-  <section class="offers-packages--paired container">
-    <h2 class="offers-program-title"><%= program.title %></h2>
 
+  <section class="offers-packages--paired container">
     <% pairs.each do |pair| %>
+
       <div class="offers-two-col-row">
         <div class="offers-two-col">
           <% if pair[:demi] %>
@@ -62,48 +78,6 @@
 <% end %>
 
 
-
- <section class="offers-intro text-center">
-<h3>Pachete de tratament balnear + ozonoterapie</h3>
-</section>
-
-<section class="offers-packages container">
-  <div class="offer-card">
-    <%= image_tag "oferte_11.jpg", alt: "Vacanța balneară chibzuită" %>
-     <div class="offer-details" >
-      <h4>Vacanța balneară chibzuită cu ozon </h4>
-      <ul>
-        <li>5 nopți de cazare</li>
-        <li>Loc în cameră dublă</li>
-        <li>Pensiune completă</li>
-        <li>4 tratamente balneare/zi</li>
-        <li>1 terapie cu ozon/zi</li>
-        <li>Acces gratuit la bazin</li>
-        <li>Pret/persoană: <strong>2200</strong> lei</li>
-        <li>Cameră single: 2700 lei</li>
-      </ul>
-      <a href="/contact" class="btn btn-golden">Rezervă acum</a>
-    </div>
-  </div>
-
-  <div class="offer-card">
-    <%= image_tag "oferte_1.jpg", alt: "Vacanța cu Tratament Cinstit" %>
-    <div class="offer-details">
-      <h4>Vacanța balneară cu ozon pe săturate</h4>
-      <ul>
-        <li>10 nopți de cazare</li>
-        <li>Loc în cameră dublă</li>
-        <li>Pensiune completă</li>
-        <li>4 tratamente balneare/zi</li>
-        <li>1 terapie cu ozon/zi</li>
-        <li>Acces gratuit la bazin</li>
-        <li>Preț/persoană: <s>4200</s><strong> 3990</strong> lei</li>
-        <li>Cameră single 4690 lei</li>
-      </ul>
-      <a href="/contact" class="btn btn-golden">Rezervă acum</a>
-    </div>
-  </div>
-  </section>
 <section class="offers-intro text-center">
 <h3>Boost de vacanță</h3>
 *Pachetul upgrade se rezervă direct la recepția hotelului.

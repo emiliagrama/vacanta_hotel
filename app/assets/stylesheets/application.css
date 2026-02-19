@@ -1583,5 +1583,60 @@ details[open] .details-toggle::before { transform: rotate(90deg); }
 }
 
 
+.offers-hero {
+  padding: 3.5rem 1rem 2.5rem;
+}
+
+.offers-hero__inner {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.offers-hero h1 {
+  margin-bottom: 1.2rem;
+}
+
+.offers-hero__lead {
+  max-width: 820px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.offers-hero__divider {
+  width: 70px;
+  height: 2px;
+  margin: 1.8rem auto;
+  background: rgba(212,163,115,.9); /* your warm accent */
+}
+
+.offers-hero h2 {
+  margin: 0;
+}
+
+.offers-hero__sub {
+  margin: 0.6rem 0 1.6rem;
+  opacity: 0.7;
+}
+
+.offers-hero h2 {
+  margin: 0.2rem 0 0.6rem;
+}
+
+.offers-hero__note {
+  margin: 0 auto 1.4rem;
+  opacity: 0.85;
+}
+
+.offers-hero__anchor {
+  margin-top: 1.6rem;
+  font-size: 1.15rem;
+  opacity: 0.75;
+  letter-spacing: 0.2px;
+  color: #94641d;
+}
+
+
+
 
 

@@ -21,7 +21,7 @@ def offer_title(v)
     case v.offer_program.key
     when "balneo" then "balneo"
     when "ozon" then "cu Ozon"
-    when "balneo_ozon" then "balneo + Ozon"
+    when "balneo_ozon" then "balneo cu Ozon"
     when "relaxare" then "de relaxare"
     else v.offer_program.title
     end
