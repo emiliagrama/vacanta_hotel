@@ -2,9 +2,10 @@ class OferteController < ApplicationController
   def index
     @programs = OfferProgram.active.order(:position)
 
-    @double_program_pairs = @programs.index_with { |p| build_pairs_for(p, people_count: 2) }
-    @single_program_pairs = @programs.index_with { |p| build_pairs_for(p, people_count: 1) }
+    @double_program_pairs = @programs.to_h { |p| [p, build_pairs_for(p, people_count: 2)] }
+    @single_program_pairs = @programs.to_h { |p| [p, build_pairs_for(p, people_count: 1)] }
 
+    # drop programs with no pairs
     @double_program_pairs.select! { |_program, pairs| pairs.any? }
     @single_program_pairs.select! { |_program, pairs| pairs.any? }
   end
@@ -14,7 +15,6 @@ class OferteController < ApplicationController
   def build_pairs_for(program, people_count:)
     variants = OfferVariant.active
       .where(offer_program: program, people_count: people_count)
-      .order(:position)
 
     grouped = variants.group_by { |v| [v.duration_kind, v.nights, v.room_type] }
 
