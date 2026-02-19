@@ -16,9 +16,19 @@ module OferteHelper
     else room_type
     end
 end
- def offer_title(v)
-    "Vacanța de sănătate balneo #{duration_label(v.duration_kind)} cu #{meal_plan_label(v.meal_plan)}, în cameră #{v.room_type}"
-  end
+def offer_title(v)
+  prefix =
+    case v.offer_program.key
+    when "balneo" then "balneo"
+    when "ozon" then "cu Ozon"
+    when "balneo_ozon" then "balneo + Ozon"
+    when "relaxare" then "de relaxare"
+    else v.offer_program.title
+    end
+
+  "Vacanța de sănătate #{prefix} #{duration_label(v.duration_kind)} cu #{meal_plan_label(v.meal_plan)}, în cameră #{v.room_type}"
+end
+
 
   def meal_details_line(plan)
     return "Demi-pensiune (mic dejun și la alegere prânz sau cină)" if plan == "demi"

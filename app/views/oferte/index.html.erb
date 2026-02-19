@@ -8,96 +8,60 @@
   <p>Vii pentru tratament, relaxare sau doar un weekend de respiro? Avem pachetul potrivit pentru tine. Indiferent de durata sejurului, ai parte de apă termală, aer curat și o atmosferă unde nu trebuie să te grăbești nicăieri.</p>
 </section>
 
-<section class="offers-intro text-center">
-  <h3>Pachete de tratament balnear</h3>
-</section>
-
-<section class="offers-packages--paired container">
-  <% @balneo_pairs.each do |pair| %>
-    <div class="offers-two-col-row">
-      <div class="offers-two-col">
-        <% if pair[:demi] %>
-          <%= render "offer_card",
-            variant: pair[:demi],
-            summary_lines: [
-              "2 persoane",
-              "#{pair[:demi].nights} nopți de cazare",
-              room_label(pair[:demi].room_type, pair[:demi].people_count)
-            ],
-            details_lines: [
-              meal_details_line(pair[:demi].meal_plan),
-              *pair[:demi].offer_program.includes_list
-            ]
-          %>
-        <% end %>
-      </div>
-
-      <div class="offers-two-col">
-        <% if pair[:completa] %>
-          <%= render "offer_card",
-            variant: pair[:completa],
-            summary_lines: [
-              "2 persoane",
-              "#{pair[:completa].nights} nopți de cazare",
-              room_label(pair[:completa].room_type, pair[:completa].people_count)
-            ],
-            details_lines: [
-              meal_details_line(pair[:completa].meal_plan),
-              *pair[:completa].offer_program.includes_list
-            ]
-          %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-</section>
-
-
-
-
-
-
-
+<% @program_pairs.each do |program, pairs| %>
   <section class="offers-intro text-center">
-<h3>Pachete cu Ozonoterapie</h3>
-*Planul de tratament cu ozon se stabilește în urma consultului medical, în fiecare zi de luni a săptămânii!
-</section>
+    <h3><%= program.title %></h3>
 
-<section class="offers-packages container">
-  <div class="offer-card">
-    <%= image_tag "oferte_10.jpg", alt: "Vacanța balneară chibzuită" %>
-     <div class="offer-details" >
-      <h4>Vacanța cu ozonoterapie chibzuită</h4>
-      <ul>
-        <li>5 nopți de cazare</li>
-        <li>Loc în cameră dublă</li>
-        <li>Pensiune completă</li>
-        <li>1 terapie cu ozon/zi</li>
-        <li>Acces gratuit la bazin</li>
-        <li>Preț/persoană: <strong>1700</strong> lei</li>
-        <li>Cameră single: 2200 lei</li>
-      </ul>
-      <a href="/contact" class="btn btn-golden">Rezervă acum</a>
-    </div>
-  </div>
-
-  <div class="offer-card">
-    <%= image_tag "oferte_5.jpg", alt: "Vacanța cu Tratament Cinstit" %>
-    <div class="offer-details">
-      <h4>Vacanța cu ozonoterapie pe săturate</h4>
-      <ul>
-        <li>10 nopți de cazare</li>
-        <li>Loc în cameră dublă</li>
-        <li>Pensiune completă</li>
-        <li>1 terapie cu ozon/zi</li>
-        <li>Acces gratuit la bazin</li>
-        <li>Preț/persoană:  <s>3200</s><strong> 2990</strong> lei</li>
-        <li>Cameră single 3690 lei</li>
-      </ul>
-      <a href="/contact" class="btn btn-golden">Rezervă acum</a>
-    </div>
-  </div>
+    <% if program.intro_text.present? %>
+      <p class="offers-intro-text">
+        <%= program.intro_text %>
+      </p>
+    <% end %>
   </section>
+  <section class="offers-packages--paired container">
+    <h2 class="offers-program-title"><%= program.title %></h2>
+
+    <% pairs.each do |pair| %>
+      <div class="offers-two-col-row">
+        <div class="offers-two-col">
+          <% if pair[:demi] %>
+            <%= render "offer_card",
+              variant: pair[:demi],
+              summary_lines: [
+                "2 persoane",
+                "#{pair[:demi].nights} nopti de cazare",
+                room_label(pair[:demi].room_type, pair[:demi].people_count)
+              ],
+              details_lines: [
+                meal_details_line(pair[:demi].meal_plan),
+                *pair[:demi].offer_program.includes_list
+              ]
+            %>
+          <% end %>
+        </div>
+
+        <div class="offers-two-col">
+          <% if pair[:completa] %>
+            <%= render "offer_card",
+              variant: pair[:completa],
+              summary_lines: [
+                "2 persoane",
+                "#{pair[:completa].nights} nopti de cazare",
+                room_label(pair[:completa].room_type, pair[:completa].people_count)
+              ],
+              details_lines: [
+                meal_details_line(pair[:completa].meal_plan),
+                *pair[:completa].offer_program.includes_list
+              ]
+            %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </section>
+<% end %>
+
+
 
  <section class="offers-intro text-center">
 <h3>Pachete de tratament balnear + ozonoterapie</h3>

@@ -45,3 +45,43 @@ rows = [
 ]
 
 rows.each { |attrs| balneo.offer_variants.create!(attrs.merge(active: true)) }
+
+
+ozon = OfferProgram.create!(
+  key: "ozon",
+  title: "Pachete cu Ozonoterapie",
+  position: 2,
+  active: true,
+  intro_text: "Planul de tratament cu ozon se stabilește în urma consultului medical, în fiecare zi de luni a săptămânii!",
+
+  includes_bullets: [
+    "Consultatie medicală de specialitate",
+    "1 procedură de ozonoterapie/zi",
+    "Acces la bazinul cu apă termală"
+  ]
+)
+
+rows = [
+  # 5 nopti - demi - 2 pers
+  { people_count: 2, duration_kind: "intensa",    nights: 5,  meal_plan: "demi",     room_type: "superior", price_ron: 2600, position: 101 },
+  { people_count: 2, duration_kind: "intensa",    nights: 5,  meal_plan: "demi",     room_type: "standard", price_ron: 2380, position: 102 },
+  { people_count: 2, duration_kind: "intensa",    nights: 5,  meal_plan: "demi",     room_type: "economy",  price_ron: 1980, position: 103 },
+
+  # 5 nopti - completa - 2 pers
+  { people_count: 2, duration_kind: "intensa",    nights: 5,  meal_plan: "completa", room_type: "superior", price_ron: 3100, position: 104 },
+  { people_count: 2, duration_kind: "intensa",    nights: 5,  meal_plan: "completa", room_type: "standard", price_ron: 2880, position: 105 },
+  { people_count: 2, duration_kind: "intensa",    nights: 5,  meal_plan: "completa", room_type: "economy",  price_ron: 2480, position: 106 },
+
+  # 10 nopti - demi - 2 pers
+  { people_count: 2, duration_kind: "prelungita", nights: 10, meal_plan: "demi",     room_type: "superior", price_ron: 4960, position: 107 },
+  { people_count: 2, duration_kind: "prelungita", nights: 10, meal_plan: "demi",     room_type: "standard", price_ron: 4520, position: 108 },
+  { people_count: 2, duration_kind: "prelungita", nights: 10, meal_plan: "demi",     room_type: "economy",  price_ron: 4120, position: 109 },
+
+  # 10 nopti - completa - 2 pers
+  { people_count: 2, duration_kind: "prelungita", nights: 10, meal_plan: "completa", room_type: "superior", price_ron: 5960, position: 110 },
+  { people_count: 2, duration_kind: "prelungita", nights: 10, meal_plan: "completa", room_type: "standard", price_ron: 5520, position: 111 },
+  { people_count: 2, duration_kind: "prelungita", nights: 10, meal_plan: "completa", room_type: "economy",  price_ron: 5120, position: 112 }
+]
+
+rows.each { |attrs| ozon.offer_variants.create!(attrs.merge(active: true)) }
+
