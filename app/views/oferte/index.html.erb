@@ -1,5 +1,6 @@
 <section class="offers-hero text-center">
   <h2>Oferte de vacanță</h2>
+  <p class="offers-hero__sub">Pentru întreaga familie</p>
 </section>
 
 <section class="offers-hero">
@@ -8,9 +9,15 @@
       Vii pentru tratament, relaxare sau doar un weekend de respiro? Avem pachetul potrivit pentru tine. Indiferent de durata sejurului, ai parte de apă termală, aer curat și o atmosferă unde nu trebuie să te grăbești nicăieri.
     </p>
     <div class="offers-hero__divider"></div>
-    <p class="offers-hero__sub">Pentru întreaga familie</p>
+    
     <h3>Vacanțe de sănătate</h3>
-    <p class="offers-hero__note">Oferă-ți ție și celor dragi cel mai de preț dar</p>
+<p
+  class="offers-hero__note"
+  data-controller="typewriter"
+  data-typewriter-text-value="Oferă-ți ție și celor dragi cel mai de preț dar"
+  data-typewriter-speed-value="28"
+  data-typewriter-start-delay-value="250"
+></p>
   </div>
 </section>
 
@@ -18,7 +25,7 @@
      VACANTA IN DOI (2 persoane)
      ========================= -->
 <section class="offers-group-title text-center">
-  <p class="offers-hero__anchor">Vacanța de sănătate în doi</p>
+  <p class="offers-hero__anchor">~Sănătate în doi~</p>
 </section>
 
 <% @double_program_pairs.each do |program, pairs| %>
@@ -44,7 +51,8 @@
               ],
               details_lines: [
                 meal_details_line(pair[:demi].meal_plan),
-                *pair[:demi].offer_program.includes_list
+                *Array(pair[:demi].offer_program.includes_bullets)
+
               ]
             %>
           <% end %>
@@ -61,7 +69,8 @@
               ],
               details_lines: [
                 meal_details_line(pair[:completa].meal_plan),
-                *pair[:completa].offer_program.includes_list
+                *Array(pair[:completa].offer_program.includes_bullets)
+
               ]
             %>
           <% end %>
@@ -75,7 +84,7 @@
      VACANTA SINGLE (1 persoana)
      ========================= -->
 <section class="offers-group-title text-center">
-  <p class="offers-hero__anchor">Vacanța de sănătate single</p>
+  <p class="offers-hero__anchor">~Sănătate  pe cont propriu~</p>
 </section>
 
 <% @single_program_pairs.each do |program, pairs| %>
@@ -101,7 +110,7 @@
               ],
               details_lines: [
                 meal_details_line(pair[:demi].meal_plan),
-                *pair[:demi].offer_program.includes_list
+                *Array(pair[:demi].offer_program.includes_bullets)
               ]
             %>
           <% end %>
@@ -118,7 +127,7 @@
               ],
               details_lines: [
                 meal_details_line(pair[:completa].meal_plan),
-                *pair[:completa].offer_program.includes_list
+                *Array(pair[:completa].offer_program.includes_bullets)
               ]
             %>
           <% end %>

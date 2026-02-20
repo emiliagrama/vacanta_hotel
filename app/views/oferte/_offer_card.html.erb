@@ -1,21 +1,41 @@
 <div class="offer-card">
-  <%# optional image later %>
-
   <div class="offer-details">
     <h4><%= offer_title(variant) %></h4>
-    <ul>
-      <% summary_lines.each do |line| %>
-        <li><%= line %></li>
-      <% end %>
 
-      <%# details hidden later behind button %>
-      <% details_lines.each do |line| %>
-        <li><%= line %></li>
-      <% end %>
+    <div class="offer-price">
+      <span class="offer-price-amount"><%= number_with_delimiter(variant.price_ron) %></span>
+      <span class="offer-price-currency">lei</span>
+    </div>
 
-      <li>Pret: <strong><%= variant.price_ron %></strong> lei</li>
-    </ul>
+    <%# Everything else hidden behind toggle %>
+    <div class="offer-more" data-controller="offer-details">
+      <button
+        type="button"
+        class="offer-more-btn"
+        data-action="offer-details#toggle"
+        data-offer-details-target="button"
+        aria-expanded="false"
+      >
+        Citește mai mult
+      </button>
 
-    <a href="/contact" class="btn btn-golden">Rezervă acum</a>
+      <div class="offer-hidden is-collapsed" data-offer-details-target="details">
+        <ul class="offer-summary">
+          <% summary_lines.each do |line| %>
+            <li><%= line %></li>
+          <% end %>
+        </ul>
+
+        <% if details_lines.present? %>
+          <ul class="offer-details-list">
+            <% details_lines.each do |line| %>
+              <li><%= line %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+
+    <%= link_to "Rezervă acum", "/contact", class: "btn btn-golden" %>
   </div>
 </div>
