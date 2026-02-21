@@ -460,10 +460,10 @@ input[type="submit"]:hover {
   flex-wrap: wrap;
   padding: 4rem 2rem;
 }
-.offer-card {
-  height: auto !important;     /* neutralizes h-100 stretch */
-  min-height: 540 !important;
-  max-width: 540px !important;            /* adjust until it matches the old look */
+.highlighted-offers .offer-card {
+  height: auto !important;
+  min-height: 500px !important;
+  max-width: 500px !important;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1505,14 +1505,6 @@ details[open] .details-toggle::before { transform: rotate(90deg); }
   color:rgb(70, 65, 61) ;
 }
 
-/* Package Cards */
-.offers-packages.container {
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 3rem 3rem;
-}
-
 .offers-packages {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1540,7 +1532,6 @@ details[open] .details-toggle::before { transform: rotate(90deg); }
   transform: scale(1.01);
 }
 
-
 .offer-details {
   padding: 2rem;
   flex-grow: 1;
@@ -1553,7 +1544,6 @@ details[open] .details-toggle::before { transform: rotate(90deg); }
   font-size: 1.4rem;
   color: rgb(194, 139, 139);
   margin-bottom: 0.75rem;
-
 }
 
 .offer-details ul {
@@ -1634,6 +1624,7 @@ details[open] .details-toggle::before { transform: rotate(90deg); }
 .offers-packages--paired {
   padding: 1rem 1rem;
   background-color: rgb(255, 250, 241);
+  
 }
 
 .offers-two-col-row {
@@ -1688,10 +1679,6 @@ details[open] .details-toggle::before { transform: rotate(90deg); }
   }
 }
 
-.offers-hero__inner {
-  max-width: 920px;
-  margin: 0 auto;
-}
 
 .offers-hero h1 {
   margin-bottom: 1.2rem;
@@ -1966,3 +1953,4 @@ details[open] .details-toggle::before { transform: rotate(90deg); }
 .offers-people-block.is-filter-hidden {
   display: none !important;
 }
+/* TEST: remove the hidden width cap */
