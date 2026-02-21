@@ -1,4 +1,23 @@
-<div class="offer-card">
+  <% program_key = variant.offer_program.key.to_s
+
+    vacanta = (program_key == "relaxare") ? "relaxare" : "sanatate"
+
+    tratament =
+      case program_key
+      when "balneo" then "balnear"
+      when "ozon" then "ozon"
+      when "balneo_ozon" then "balnear_ozon"
+      else "unknown"
+      end
+  %>
+<div
+  class="offer-card"
+  data-vacanta="<%= vacanta %>"
+  data-people="<%= variant.people_count %>"
+  data-tratament="<%= tratament %>"
+  data-nights="<%= variant.nights %>"
+  data-meal="<%= variant.meal_plan %>"
+>
   <div class="offer-details">
     <h4><%= offer_title(variant) %></h4>
 

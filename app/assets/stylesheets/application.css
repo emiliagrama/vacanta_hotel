@@ -460,11 +460,16 @@ input[type="submit"]:hover {
   flex-wrap: wrap;
   padding: 4rem 2rem;
 }
-
-
-.offers {
+.offer-card {
+  height: auto !important;     /* neutralizes h-100 stretch */
+  min-height: 540 !important;
+  max-width: 540px !important;            /* adjust until it matches the old look */
+  margin-left: auto;
+  margin-right: auto;
+}
+.offer {
   flex: 1 1 300px;
-  max-width: 50px;
+  max-width: 400px;
 }
 /* DESPRE page */
 
@@ -1638,9 +1643,42 @@ details[open] .details-toggle::before { transform: rotate(90deg); }
   margin-bottom: 3rem; 
   align-items: start;
 }
+/* When filtering meal, show cards as a normal grid */
+.offers-filtered-results.is-grid-mode .offers-packages--paired {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
+/* Each program block becomes a grid of cards */
+.offers-filtered-results.is-grid-mode .offers-program-block .offers-packages--paired {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+/* In grid mode, kill the paired row layout wrappers */
+.offers-filtered-results.is-grid-mode .offers-two-col-row {
+  display: contents; /* let children participate in the grid */
+}
+
+.offers-filtered-results.is-grid-mode .offers-two-col {
+  display: contents;
+}
+
+/* cards fill grid cells */
+.offers-filtered-results.is-grid-mode .offer-card {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .offers-filtered-results.is-grid-mode .offers-program-block .offers-packages--paired {
+    grid-template-columns: 1fr;
+  }
+}
 @media (max-width: 1100px) {
-  .offer-card { min-height: 463px; }
+  .offer-card { min-height: 463px !important; }
   .offer-card.is-expanded { min-height: 0; }
 }
 
@@ -1727,3 +1765,204 @@ details[open] .details-toggle::before { transform: rotate(90deg); }
   .offer-card { min-height: 0; }
 }
 
+/* =========================
+   OFFERS FILTER (modern-retro)
+   ========================= */
+.offers-filter-scope,
+.offers-filter__panel,
+.offers-filter__group,
+.filter-pill,
+.offers-filter__count,
+.offers-filter__label {
+  color: #2b2b2b; /* dark readable text */
+}
+.offers-filter-scope {
+  max-width: 980px;
+  margin: 18px auto 6px;
+  padding: 0 14px;
+}
+
+/* Toggle button */
+.offers-filter__toggle {
+  width: auto;
+  margin: 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #a51e1e !important;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.14);
+
+  background: rgba(255,255,255,.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  font-weight: 600;
+  letter-spacing: .02em;
+  cursor: pointer;
+
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.offers-filter__toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  background: rgba(255,255,255,.60);
+}
+
+.offers-filter__arrow {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgba(0,0,0,.55);
+  border-bottom: 2px solid rgba(0,0,0,.55);
+  transform: rotate(45deg);
+  margin-top: -2px;
+  transition: transform .18s ease;
+}
+
+.offers-filter__arrow.is-open {
+  transform: rotate(-135deg);
+  margin-top: 4px;
+}
+
+/* Panel */
+.offers-filter__panel {
+  margin: 14px auto 0;
+  border-radius: 22px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: rgba(255,255,255,.52);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow: 0 22px 55px rgba(0,0,0,.12);
+  overflow: hidden;
+
+  transition: max-height .28s ease, opacity .2s ease, transform .2s ease, padding .2s ease, border-width .2s ease;
+  max-height: 900px;
+  opacity: 1;
+  transform: translateY(0);
+  padding: 16px;
+}
+
+.offers-filter__panel.is-collapsed {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-6px);
+  padding-top: 0;
+  padding-bottom: 0;
+  border-width: 0;
+}
+
+/* Top row (count + reset) */
+.offers-filter__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.offers-filter__count {
+  font-size: 13px;
+  opacity: .75;
+}
+
+/* Reset button (visible, elegant) */
+.offers-filter__reset {
+  padding: 8px 16px;
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .03em;
+
+  background: rgba(198,156,61,.15);
+  border: 1px solid rgba(198,156,61,.55);
+  color: #5c3e08 !important;
+
+  cursor: pointer;
+  transition: all .18s ease;
+}
+
+.offers-filter__reset:hover {
+  background: rgba(198,156,61,.25);
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+  transform: translateY(-1px);
+}
+
+.offers-filter__reset:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Grid layout */
+.offers-filter__grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 860px) {
+  .offers-filter__grid { grid-template-columns: 1fr; }
+}
+
+/* Group */
+.offers-filter__group {
+  padding: 12px;
+  border-radius: 18px;
+  border: 1px dashed rgba(0,0,0,.14);
+  background: rgba(255,255,255,.28);
+}
+
+.offers-filter__label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  opacity: .75;
+  margin-bottom: 10px;
+}
+
+/* Pills */
+.offers-filter__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.filter-pill {
+  color: #2b2b2b !important;
+}
+.filter-pill {
+  border-radius: 999px;
+  padding: 9px 12px;
+  border: 1px solid rgba(0,0,0,.16);
+  background: rgba(255,255,255,.55);
+  cursor: pointer;
+
+  font-size: 14px;
+  line-height: 1;
+  transition: transform .15s ease,
+   box-shadow .2s ease,
+    background .2s ease, 
+    border-color .2s ease;
+}
+
+.filter-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.10);
+}
+
+.filter-pill.is-active {
+  border-color: rgba(198,156,61,.9);
+  background: linear-gradient(180deg, rgba(198,156,61,.25), rgba(198,156,61,.12));
+}
+
+/* Hide via filter */
+.offer-card.is-filter-hidden,
+.offers-two-col-row.is-filter-hidden,
+.offers-program-block.is-filter-hidden,
+.offers-people-block.is-filter-hidden {
+  display: none !important;
+}

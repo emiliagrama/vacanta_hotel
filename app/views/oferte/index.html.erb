@@ -1,216 +1,301 @@
-<section class="offers-hero text-center">
-  <h2>Oferte de vacanță</h2>
-  <p class="offers-hero__sub">Pentru întreaga familie</p>
-</section>
+<div class="offers-page" id="top">
 
-<section class="offers-hero">
-  <div class="offers-hero__inner text-center">
-    <p class="offers-hero__lead">
-      Vii pentru tratament, relaxare sau doar un weekend de respiro? Avem pachetul potrivit pentru tine. Indiferent de durata sejurului, ai parte de apă termală, aer curat și o atmosferă unde nu trebuie să te grăbești nicăieri.
-    </p>
-    <div class="offers-hero__divider"></div>
-    
-    <h3>Vacanțe de sănătate</h3>
-<p
-  class="offers-hero__note"
-  data-controller="typewriter"
-  data-typewriter-text-value="Oferă-ți ție și celor dragi cel mai de preț dar"
-  data-typewriter-speed-value="28"
-  data-typewriter-start-delay-value="250"
-></p>
-  </div>
-</section>
-
-<!-- =========================
-     VACANTA IN DOI (2 persoane)
-     ========================= -->
-<section class="offers-group-title text-center">
-  <p class="offers-hero__anchor">~Sănătate în doi~</p>
-</section>
-
-<% @double_program_pairs.each do |program, pairs| %>
-  <section class="offers-intro text-center">
-    <h3><%= program.title %></h3>
-
-    <% if program.intro_text.present? %>
-      <p class="offers-intro-text"><%= program.intro_text %></p>
-    <% end %>
+  <section class="offers-hero text-center">
+    <h2>Oferte de vacanță</h2>
+    <p class="offers-hero__sub">Pentru întreaga familie</p>
   </section>
 
-  <section class="offers-packages--paired container">
-    <% pairs.each do |pair| %>
-      <div class="offers-two-col-row">
-        <div class="offers-two-col">
-          <% if pair[:demi] %>
-            <%= render "offer_card",
-              variant: pair[:demi],
-              summary_lines: [
-                "2 persoane",
-                "#{pair[:demi].nights} nopti de cazare",
-                room_label(pair[:demi].room_type, pair[:demi].people_count)
-              ],
-              details_lines: [
-                meal_details_line(pair[:demi].meal_plan),
-                *Array(pair[:demi].offer_program.includes_bullets)
+  <section class="offers-hero">
+    <div class="offers-hero__inner text-center">
+      <p class="offers-hero__lead">
+        Vii pentru tratament, relaxare sau doar un weekend de respiro? Avem pachetul potrivit pentru tine. Indiferent de durata sejurului, ai parte de apă termală, aer curat și o atmosferă unde nu trebuie să te grăbești nicăieri.
+      </p>
 
-              ]
-            %>
-          <% end %>
-        </div>
+      <div class="offers-hero__divider"></div>
 
-        <div class="offers-two-col">
-          <% if pair[:completa] %>
-            <%= render "offer_card",
-              variant: pair[:completa],
-              summary_lines: [
-                "2 persoane",
-                "#{pair[:completa].nights} nopti de cazare",
-                room_label(pair[:completa].room_type, pair[:completa].people_count)
-              ],
-              details_lines: [
-                meal_details_line(pair[:completa].meal_plan),
-                *Array(pair[:completa].offer_program.includes_bullets)
+      <h3>Vacanțe de sănătate</h3>
+      <p
+          class="offers-hero__note"
+          data-controller="typewriter"
+          data-typewriter-text-value="Oferă-ți ție și celor dragi cel mai de preț dar"
+          data-typewriter-speed-value="28"
+          data-typewriter-start-delay-value="250"
+        ></p>
+      <!-- ✅ SCOPE WRAPPER: controller must wrap FILTER + RESULTS -->
+      <div class="offers-filter-scope" data-controller="offers-filter">
 
-              ]
-            %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  </section>
-<% end %>
+        <!-- ✅ FILTER UI (keep your existing markup/classes/targets) -->
+        <section class="offers-filter">
+          <button
+            type="button"
+            class="offers-filter__toggle"
+            data-action="offers-filter#toggle"
+            aria-expanded="false"
+          >
+            Filtrează ofertele
+            <span class="offers-filter__arrow" data-offers-filter-target="arrow"></span>
+          </button>
 
-<!-- =========================
-     VACANTA SINGLE (1 persoana)
-     ========================= -->
-<section class="offers-group-title text-center">
-  <p class="offers-hero__anchor">~Sănătate pe cont propriu~</p>
-</section>
+          <div class="offers-filter__panel is-collapsed" data-offers-filter-target="panel">
+            <div class="offers-filter__top">
+              <span class="offers-filter__count" data-offers-filter-target="count">Toate ofertele</span>
+              <button type="button" class="offers-filter__reset" data-action="offers-filter#reset">Resetează</button>
+            </div>
 
-<% @single_program_pairs.each do |program, pairs| %>
-  <section class="offers-intro text-center">
-    <h3><%= program.title %></h3>
+            <div class="offers-filter__grid">
 
-    <% if program.intro_text.present? %>
-      <p class="offers-intro-text"><%= program.intro_text %></p>
-    <% end %>
-  </section>
+              <div class="offers-filter__group">
+                <div class="offers-filter__label">Tipuri de vacanțe</div>
+                <div class="offers-filter__options">
+                  <button type="button" class="filter-pill" data-action="offers-filter#select" data-group="vacanta" data-value="sanatate">De sănătate</button>
+                  <button type="button" class="filter-pill" data-action="offers-filter#select" data-group="vacanta" data-value="relaxare">De relaxare</button>
+                </div>
+              </div>
 
-  <section class="offers-packages--paired container">
-    <% pairs.each do |pair| %>
-      <div class="offers-two-col-row">
-        <div class="offers-two-col">
-          <% if pair[:demi] %>
-            <%= render "offer_card",
-              variant: pair[:demi],
-              summary_lines: [
-                "o persoană",
-                "#{pair[:demi].nights} nopti de cazare",
-                room_label(pair[:demi].room_type, pair[:demi].people_count)
-              ],
-              details_lines: [
-                meal_details_line(pair[:demi].meal_plan),
-                *Array(pair[:demi].offer_program.includes_bullets)
-              ]
-            %>
-          <% end %>
-        </div>
+              <div class="offers-filter__group">
+                <div class="offers-filter__label">Număr de persoane</div>
+                <div class="offers-filter__options">
+                  <button type="button" class="filter-pill" data-action="offers-filter#select" data-group="people" data-value="2">2 persoane</button>
+                  <button type="button" class="filter-pill" data-action="offers-filter#select" data-group="people" data-value="1">O persoană</button>
+                </div>
+              </div>
 
-        <div class="offers-two-col">
-          <% if pair[:completa] %>
-            <%= render "offer_card",
-              variant: pair[:completa],
-              summary_lines: [
-                "o persoană",
-                "#{pair[:completa].nights} nopti de cazare",
-                room_label(pair[:completa].room_type, pair[:completa].people_count)
-              ],
-              details_lines: [
-                meal_details_line(pair[:completa].meal_plan),
-                *Array(pair[:completa].offer_program.includes_bullets)
-              ]
-            %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  </section>
-<% end %>
+              <div class="offers-filter__group">
+                <div class="offers-filter__label">Tipul de tratament</div>
+                <div class="offers-filter__options">
+                  <button type="button" class="filter-pill" data-action="offers-filter#select" data-group="tratament" data-value="balnear">Balnear</button>
+                  <button type="button" class="filter-pill" data-action="offers-filter#select" data-group="tratament" data-value="ozon">Cu ozon</button>
+                </div>
+              </div>
 
+              <div class="offers-filter__group">
+                <div class="offers-filter__label">Durata sejurului</div>
+                <div class="offers-filter__options">
+                  <button type="button" class="filter-pill" data-action="offers-filter#select" data-group="nights" data-value="5">5 nopți</button>
+                  <button type="button" class="filter-pill" data-action="offers-filter#select" data-group="nights" data-value="10">10 nopți</button>
+                </div>
+              </div>
 
+              <div class="offers-filter__group">
+                <div class="offers-filter__label">Regim de masă</div>
+                <div class="offers-filter__options">
+                  <button type="button" class="filter-pill" data-action="offers-filter#select" data-group="meal" data-value="demi">Demi-pensiune</button>
+                  <button type="button" class="filter-pill" data-action="offers-filter#select" data-group="meal" data-value="completa">Pensiune completă</button>
+                </div>
+              </div>
 
-<section class="offers-intro text-center">
-<h3>Boost de vacanță</h3>
-*Pachetul upgrade se rezervă direct la recepția hotelului.
-</section>
+            </div>
+          </div>
+        </section>
 
-<section class="offers-packages container">
-  <div class="offer-card">
+       
 
-     <div class="offer-details" >
-      <h4>Upgrade Ozonoterapie </h4>
-      <ul>
-        <li>Adaugă 5 zile de tratament cu ozon în vacanța ta!</li>
-        <li>Consultație medicală</li>
-        <li>1 terapie cu ozon/zi</li>
-        <li>Preț: <s>700</s> <strong>550</strong> lei</li>
-      </ul>
+        <!-- ✅ FILTERED RESULTS ONLY -->
+        <div class="offers-filtered-results" data-offers-filter-target="results">
+
+          <!-- =========================
+              VACANTA IN DOI (2 persoane)
+          ========================= -->
+          <section class="offers-people-block" data-people-block="2">
+          <section class="offers-group-title text-center">
+            <p class="offers-hero__anchor">~Sănătate în doi~</p>
+          </section>
+
+            <% @double_program_pairs.each do |program, pairs| %>
+              <section class="offers-program-block">
+                <section class="offers-intro text-center">
+                  <h3><%= program.title %></h3>
+
+                  <% if program.intro_text.present? %>
+                    <p class="offers-intro-text"><%= program.intro_text %></p>
+                  <% end %>
+                </section>
+
+                <section class="offers-packages--paired container">
+                  <% pairs.each do |pair| %>
+                    <div class="offers-two-col-row">
+                      <div class="offers-two-col">
+                        <% if pair[:demi] %>
+                          <%= render "offer_card",
+                            variant: pair[:demi],
+                            summary_lines: [
+                              "2 persoane",
+                              "#{pair[:demi].nights} nopti de cazare",
+                              room_label(pair[:demi].room_type, pair[:demi].people_count)
+                            ],
+                            details_lines: [
+                              meal_details_line(pair[:demi].meal_plan),
+                              *Array(pair[:demi].offer_program.includes_bullets)
+                            ]
+                          %>
+                        <% end %>
+                      </div>
+
+                      <div class="offers-two-col">
+                        <% if pair[:completa] %>
+                          <%= render "offer_card",
+                            variant: pair[:completa],
+                            summary_lines: [
+                              "2 persoane",
+                              "#{pair[:completa].nights} nopti de cazare",
+                              room_label(pair[:completa].room_type, pair[:completa].people_count)
+                            ],
+                            details_lines: [
+                              meal_details_line(pair[:completa].meal_plan),
+                              *Array(pair[:completa].offer_program.includes_bullets)
+                            ]
+                          %>
+                        <% end %>
+                      </div>
+                    </div>
+                  <% end %>
+                </section>
+              </section>
+            <% end %>
+          </section>
+
+          <!-- =========================
+              VACANTA SINGLE (1 persoana)
+          ========================= -->
+          <section class="offers-people-block" data-people-block="1">
+          <section class="offers-group-title text-center">
+            <p class="offers-hero__anchor">~Sănătate pe cont propriu~</p>
+          </section>
+
+            <% @single_program_pairs.each do |program, pairs| %>
+              <section class="offers-program-block">
+                <section class="offers-intro text-center">
+                  <h3><%= program.title %></h3>
+
+                  <% if program.intro_text.present? %>
+                    <p class="offers-intro-text"><%= program.intro_text %></p>
+                  <% end %>
+                </section>
+
+                <section class="offers-packages--paired container">
+                  <% pairs.each do |pair| %>
+                    <div class="offers-two-col-row">
+                      <div class="offers-two-col">
+                        <% if pair[:demi] %>
+                          <%= render "offer_card",
+                            variant: pair[:demi],
+                            summary_lines: [
+                              "o persoană",
+                              "#{pair[:demi].nights} nopti de cazare",
+                              room_label(pair[:demi].room_type, pair[:demi].people_count)
+                            ],
+                            details_lines: [
+                              meal_details_line(pair[:demi].meal_plan),
+                              *Array(pair[:demi].offer_program.includes_bullets)
+                            ]
+                          %>
+                        <% end %>
+                      </div>
+
+                      <div class="offers-two-col">
+                        <% if pair[:completa] %>
+                          <%= render "offer_card",
+                            variant: pair[:completa],
+                            summary_lines: [
+                              "o persoană",
+                              "#{pair[:completa].nights} nopti de cazare",
+                              room_label(pair[:completa].room_type, pair[:completa].people_count)
+                            ],
+                            details_lines: [
+                              meal_details_line(pair[:completa].meal_plan),
+                              *Array(pair[:completa].offer_program.includes_bullets)
+                            ]
+                          %>
+                        <% end %>
+                      </div>
+                    </div>
+                  <% end %>
+                </section>
+              </section>
+            <% end %>
+          </section>
+
+        </div><!-- /results -->
+      </div><!-- /filter scope wrapper -->
     </div>
-  </div>
+  </section>
 
-  <div class="offer-card">
+  <!-- =========================
+      BOOST (NOT FILTERED)
+  ========================= -->
+  <section class="offers-intro text-center">
+    <h3>Boost de vacanță</h3>
+    <p>*Pachetul upgrade se rezervă direct la recepția hotelului.</p>
+  </section>
 
-    <div class="offer-details">
-      <h4>Upgrade Balnear</h4>
-      <ul>
-        <li>Adaugă 5 zile de tratament balnear în vacanța ta!</li>
-        <li>Consultație medicală</li>
-        <li>4 tratamente balneare/zi</li>
-        <li>Preț: <strong>500</strong> lei</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="offers-intro text-center">
-  <h3>Vacanța light</h3>
-</section>
   <section class="offers-packages container">
-<a href="#top" class="mobile-anchor">
-  <i class="fas fa-arrow-up"></i>
-</a>
- <div class="offer-card">
-    <%= image_tag "nu_4.jpg", alt: "Mini-Vacanța de Weekend" %>
-    <div class="offer-details">
-
-      <h4>Mini-Vacanța de Weekend</h4>
-      <ul>
-        <li>2 nopți de cazare</li>
-        <li>Cameră dublă</li>
-        <li>Demi-pensiune</li>
-        <li> 10% reducere la restaurant</li>
-        <li>Acces gratuit la bazin</li>
-        <li>Preț: <strong>800</strong> lei</li>
-      </ul>
-      <a href="/contact" class="btn btn-golden">Rezervă acum</a>
+    <div class="offer-card">
+      <div class="offer-details">
+        <h4>Upgrade Ozonoterapie</h4>
+        <ul>
+          <li>Adaugă 5 zile de tratament cu ozon în vacanța ta!</li>
+          <li>Consultație medicală</li>
+          <li>1 terapie cu ozon/zi</li>
+          <li>Preț: <s>700</s> <strong>550</strong> lei</li>
+        </ul>
+      </div>
     </div>
-  </div>
 
-  <div class="offer-card">
-    <%= image_tag "nu_6.jpg", alt: "Vacanța, așa cum vrei tu" %>
-    <div class="offer-details">
-      <h4>Vacanța, așa cum vrei tu</h4>
-      <ul>
-      <li>Fii creatorul propriei tale vacanțe! Contactează-ne direct la telefon <strong>0254 249 111</strong> sau completeaza formularul de rezervări.</li>
-      <li>Prețurile noastre încep de la:
-      <li><strong> 250</strong> lei / noapte - Camera dubla standard</li>
-      <li><strong>300</strong> lei / noapte - Camera dubla superior</li>
-*include acces la bazin</li></ul>
-      <a href="/contact" class="btn btn-golden">Rezervă acum</a>
+    <div class="offer-card">
+      <div class="offer-details">
+        <h4>Upgrade Balnear</h4>
+        <ul>
+          <li>Adaugă 5 zile de tratament balnear în vacanța ta!</li>
+          <li>Consultație medicală</li>
+          <li>4 tratamente balneare/zi</li>
+          <li>Preț: <strong>500</strong> lei</li>
+        </ul>
+      </div>
     </div>
-  </div>
-</section>
-<section class="offers-intro text-center">
- </section>
+  </section>
 
-</section>
+  <!-- =========================
+      LIGHT (NOT FILTERED)
+  ========================= -->
+  <section class="offers-intro text-center">
+    <h3>Vacanța light</h3>
+  </section>
+
+  <section class="offers-packages container">
+    <a href="#top" class="mobile-anchor">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <div class="offer-card">
+      <%= image_tag "nu_4.jpg", alt: "Mini-Vacanța de Weekend" %>
+      <div class="offer-details">
+        <h4>Mini-Vacanța de Weekend</h4>
+        <ul>
+          <li>2 nopți de cazare</li>
+          <li>Cameră dublă</li>
+          <li>Demi-pensiune</li>
+          <li>10% reducere la restaurant</li>
+          <li>Acces gratuit la bazin</li>
+          <li>Preț: <strong>800</strong> lei</li>
+        </ul>
+        <a href="/contact" class="btn btn-golden">Rezervă acum</a>
+      </div>
+    </div>
+
+    <div class="offer-card">
+      <%= image_tag "nu_6.jpg", alt: "Vacanța, așa cum vrei tu" %>
+      <div class="offer-details">
+        <h4>Vacanța, așa cum vrei tu</h4>
+        <ul>
+          <li>Fii creatorul propriei tale vacanțe! Contactează-ne direct la telefon <strong>0254 249 111</strong> sau completeaza formularul de rezervări.</li>
+          <li>Prețurile noastre încep de la:</li>
+          <li><strong>250</strong> lei / noapte - Camera dubla standard</li>
+          <li><strong>300</strong> lei / noapte - Camera dubla superior</li>
+          <li>*include acces la bazin</li>
+        </ul>
+        <a href="/contact" class="btn btn-golden">Rezervă acum</a>
+      </div>
+    </div>
+  </section>
+
+</div>
