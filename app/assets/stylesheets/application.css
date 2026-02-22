@@ -1634,25 +1634,7 @@ details[open] .details-toggle::before { transform: rotate(90deg); }
 .offers-two-col {
   height: 100%;
 }
-.offers-two-col .offer-card {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
 
-/* Push CTA area to bottom (adjust selector if yours differs) */
-.offers-two-col .offer-details,
-.offers-two-col .offer-details-wrapper,
-.offers-two-col .offer-details-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.offers-two-col .btn,
-.offers-two-col .btn-golden {
-  margin-top: auto;
-}
 /* When filtering meal, show cards as a normal grid */
 .offers-filtered-results.is-grid-mode .offers-packages--paired {
   max-width: 1200px;
