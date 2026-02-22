@@ -1,4 +1,6 @@
 <%= form_with model: @contact, url: contact_path, method: :post, data: { turbo: false }, html: { id: "contact-form" } do |f| %>
+<%= hidden_field_tag :variant_id, params[:variant_id] %>
+<%= hidden_field_tag :offer_hint, params[:offer_hint] %>
   <!-- Nume (Required) -->
   <div>
     <%= f.label :name, "Nume" %>

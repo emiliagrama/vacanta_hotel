@@ -1,5 +1,12 @@
 
 <p>Nume: <%= @contact.name %></p>
+<p><strong>Ofertă selectată (din pagina Oferte):</strong>
+  <%= @offer_hint.presence || "N/A" %>
+</p>
+
+<p><strong>ID variantă:</strong>
+  <%= @variant_id.presence || "N/A" %>
+</p>
 <p>Telefon: <%= @contact.phone %></p>
 <p>Email: <%= @contact.email.presence || "N/A" %></p>
 <p>Număr Adulți: <%= @contact.number_of_adults %></p>
