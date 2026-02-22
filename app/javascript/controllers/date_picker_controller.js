@@ -69,7 +69,7 @@ export default class extends Controller {
     };
 
     // 5 nights (Mon -> +5)
-    if (value.includes("chibzuit")) {
+    if (value.includes("intens")) {
       this.checkInCalendar.set("enable", [mondayFilter]);
       this.checkInCalendar.set("onChange", ([checkIn]) => {
         if (!checkIn) return;
@@ -79,7 +79,7 @@ export default class extends Controller {
       });
 
     // 10 nights (Mon -> +10)
-    } else if (value.includes("săturate")) {
+    } else if (value.includes("prelungit")) {
       this.checkInCalendar.set("enable", [mondayFilter]);
       this.checkInCalendar.set("onChange", ([checkIn]) => {
         if (!checkIn) return;
