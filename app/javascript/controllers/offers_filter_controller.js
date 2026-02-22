@@ -49,21 +49,26 @@ export default class extends Controller {
 apply() {
   const scope = this.hasResultsTarget ? this.resultsTarget : this.element
   const cards = Array.from(scope.querySelectorAll(".offer-card"))
-  let visible = 0
+  let visible = 2
 const mealSelected = !!this.state.meal
 scope.classList.toggle("is-grid-mode", mealSelected)
   // 1) Hide/show cards
   cards.forEach((card) => {
-    const ok =
-      this.match(card, "vacanta") &&
-      this.match(card, "people") &&
-      this.matchTratament(card) &&
-      this.match(card, "nights") &&
-      this.match(card, "meal")
+  const isRelaxareSpecial = card.dataset.relaxareSpecial === "true"
 
-    card.classList.toggle("is-filter-hidden", !ok)
-    if (ok) visible++
-  })
+  const ok = isRelaxareSpecial
+    ? this.state.vacanta === "relaxare"
+    : (
+        this.match(card, "vacanta") &&
+        this.match(card, "people") &&
+        this.matchTratament(card) &&
+        this.match(card, "nights") &&
+        this.match(card, "meal")
+      )
+
+  card.classList.toggle("is-filter-hidden", !ok)
+  if (!card.classList.contains("is-filter-hidden")) visible++
+})
 
   // 2) Hide empty rows (you already have this)
   scope.querySelectorAll(".offers-two-col-row").forEach((row) => {
@@ -101,7 +106,18 @@ scope.classList.toggle("is-grid-mode", mealSelected)
     const selected = this.state.people
     block.classList.toggle("is-filter-hidden", selected ? blockPeople !== selected : false)
   })
+scope.querySelectorAll(".offers-people-block").forEach((block) => {
+  const selectedPeople = this.state.people
+  const isRelaxare = this.state.vacanta === "relaxare"
 
+  if (isRelaxare) {
+    block.classList.toggle("is-filter-hidden", true) // always hide on relaxare
+    return
+  }
+
+  const blockPeople = block.dataset.peopleBlock
+  block.classList.toggle("is-filter-hidden", selectedPeople ? blockPeople !== selectedPeople : false)
+})
   this.countTarget.textContent =
     visible === cards.length ? "Toate ofertele" : `${visible} oferte disponibile`
 }
