@@ -14,17 +14,19 @@
       <div class="offers-hero__divider"></div>
 
       <h3>Vacanțe de sănătate</h3>
+
       <p
-          class="offers-hero__note"
-          data-controller="typewriter"
-          data-typewriter-text-value="Oferă-ți ție și celor dragi cel mai de preț dar"
-          data-typewriter-speed-value="28"
-          data-typewriter-start-delay-value="250"
-        ></p>
-      <!-- ✅ SCOPE WRAPPER: controller must wrap FILTER + RESULTS -->
+        class="offers-hero__note"
+        data-controller="typewriter"
+        data-typewriter-text-value="Oferă-ți ție și celor dragi cel mai de preț dar"
+        data-typewriter-speed-value="28"
+        data-typewriter-start-delay-value="250"
+      ></p>
+
+      <!-- ✅ controller wraps FILTER + FILTERABLE RESULTS -->
       <div class="offers-filter-scope" data-controller="offers-filter">
 
-        <!-- ✅ FILTER UI (keep your existing markup/classes/targets) -->
+        <!-- ✅ FILTER UI -->
         <section class="offers-filter">
           <button
             type="button"
@@ -88,24 +90,21 @@
           </div>
         </section>
 
-       
-
-        <!-- ✅ FILTERED RESULTS ONLY -->
+        <!-- ✅ EVERYTHING FILTERABLE MUST BE INSIDE THIS -->
         <div class="offers-filtered-results" data-offers-filter-target="results">
 
           <!-- =========================
               VACANTA IN DOI (2 persoane)
           ========================= -->
           <section class="offers-people-block" data-people-block="2">
-          <section class="offers-group-title text-center">
-            <p class="offers-hero__anchor">~Sănătate în doi~</p>
-          </section>
+            <section class="offers-group-title text-center">
+              <p class="offers-hero__anchor">~Sănătate în doi~</p>
+            </section>
 
             <% @double_program_pairs.each do |program, pairs| %>
               <section class="offers-program-block">
                 <section class="offers-intro text-center">
                   <h3><%= program.title %></h3>
-
                   <% if program.intro_text.present? %>
                     <p class="offers-intro-text"><%= program.intro_text %></p>
                   <% end %>
@@ -158,15 +157,14 @@
               VACANTA SINGLE (1 persoana)
           ========================= -->
           <section class="offers-people-block" data-people-block="1">
-          <section class="offers-group-title text-center">
-            <p class="offers-hero__anchor">~Sănătate pe cont propriu~</p>
-          </section>
+            <section class="offers-group-title text-center">
+              <p class="offers-hero__anchor">~Sănătate pe cont propriu~</p>
+            </section>
 
             <% @single_program_pairs.each do |program, pairs| %>
               <section class="offers-program-block">
                 <section class="offers-intro text-center">
                   <h3><%= program.title %></h3>
-
                   <% if program.intro_text.present? %>
                     <p class="offers-intro-text"><%= program.intro_text %></p>
                   <% end %>
@@ -215,69 +213,67 @@
             <% end %>
           </section>
 
+          <!-- =========================
+              RELAXARE (FILTERABLE)
+          ========================= -->
+        <section class="offers-relaxare-section">
+          <section class="offers-intro text-center">
+            <h3>Vacanțe de relaxare</h3>
+          </section>
+
+          <section class="offers-packages container">
+            <a href="#top" class="mobile-anchor">
+              <i class="fas fa-arrow-up"></i>
+            </a>
+
+            <div class="offer-card"
+              data-vacanta="relaxare"
+              data-relaxare-special="true">
+              <%= image_tag "nu_4.jpg", alt: "Mini-Vacanța de Weekend" %>
+              <div class="offer-details">
+                <h4>Mini-Vacanța de Weekend</h4>
+                <ul>
+                  <li>2 persoanele</li>
+                  <li>2 nopți de cazare</li>
+                  <li>Cameră dublă cu balcon</li>
+                  <li>Demi-pensiune</li>
+                  <li>10% reducere la restaurant</li>
+                  <li>Acces la bazinul cu apă termală</li>
+                  <li>Preț: <strong>860</strong> lei</li>
+                </ul>
+                <a href="/contact" class="btn btn-golden">Rezervă acum</a>
+              </div>
+            </div>
+
+            <div class="offer-card"
+              data-vacanta="relaxare"
+              data-relaxare-special="true">
+              <%= image_tag "nu_3.jpg", alt: "Vacanța, așa cum vrei tu" %>
+              <div class="offer-details">
+                <h4>Vacanța, așa cum vrei tu</h4>
+                <ul>
+                  <li>Fii creatorul propriei tale vacanțe!</li>
+                  <li><strong>300</strong> lei / noapte - Camera dublă superior</li>
+                  <li><strong>250</strong> lei / noapte - Camera dublă standard</li>
+                  <li><strong>200</strong> lei / noapte - Camera single</li>
+                  <li><strong>320</strong> lei / noapte - Camera triplă</li>
+                  <li><strong>40</strong> lei / persoană - Mic dejun</li>
+                  <li>*parcare gratuită în limita locurilor disponibile</li>
+                  <li>**accesul la bazinul cu apă termală este inlcus</li>
+                  <li>Contactează-ne direct la telefon <strong>0254 249 111</strong> sau completeaza formularul de rezervări.</li>
+                </ul>
+                <a href="/contact" class="btn btn-golden">Rezervă acum</a>
+              </div>
+            </div>
+          </section>
+        </section>
         </div><!-- /results -->
       </div><!-- /filter scope wrapper -->
-    </div>
-  </section>
 
- 
+    </div><!-- /offers-hero__inner -->
+  </section>
 
   <!-- =========================
-      LIGHT (NOT FILTERED)
-  ========================= -->
-  <section class="offers-intro text-center">
-    <h3>Vacanțe de relaxare
-</h3>
-  </section>
-
-  <section class="offers-packages container">
-    <a href="#top" class="mobile-anchor">
-      <i class="fas fa-arrow-up"></i>
-    </a>
-
-    <div class="offer-card"
-     data-vacanta="relaxare"
-     data-relaxare-special="true">    
-       <%= image_tag "nu_4.jpg", alt: "Mini-Vacanța de Weekend" %>
-      <div class="offer-details">
-        <h4>Mini-Vacanța de Weekend</h4>
-        <ul>
-          <li>2 persoanele</li>
-          <li>2 nopți de cazare</li>
-          <li>Cameră dublă cu balcon</li>
-          <li>Demi-pensiune</li>
-          <li>10% reducere la restaurant</li>
-          <li>Acces la bazinul cu apă termală</li>
-          <li>Preț: <strong>860</strong> lei</li>
-        </ul>
-        <a href="/contact" class="btn btn-golden">Rezervă acum</a>
-      </div>
-    </div>
-
-    <div class="offer-card"
-     data-vacanta="relaxare"
-     data-relaxare-special="true">  
-       <%= image_tag "nu_3.jpg", alt: "Vacanța, așa cum vrei tu" %>
-      <div class="offer-details">
-        <h4>Vacanța, așa cum vrei tu</h4>
-        <ul>
-          <li>Fii creatorul propriei tale vacanțe!</li> 
-          <li><strong>300</strong> lei / noapte - Camera dublă superior</li>
-          <li><strong>250</strong> lei / noapte - Camera dublă standard</li>
-          <li><strong>200</strong> lei / noapte - Camera single</li>
-          <li><strong>320</strong> lei / noapte - Camera triplă</li>
-          <li><strong>40</strong> lei / persoană - Mic dejun</li>
-          <li>*parcare gratuită în limita locurilor disponibile</li>
-          <li>**accesul la bazinul cu apă termală este inlcus</li>
-          <li>Contactează-ne direct la telefon <strong>0254 249 111</strong> sau completeaza formularul de rezervări.</li>
-        </ul>
-        <a href="/contact" class="btn btn-golden">Rezervă acum</a>
-      </div>
-    </div>
-  </section>
-
-</div>
- <!-- =========================
       BOOST (NOT FILTERED)
   ========================= -->
   <section class="offers-intro text-center">
@@ -310,3 +306,5 @@
       </div>
     </div>
   </section>
+
+</div>

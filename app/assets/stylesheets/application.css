@@ -1663,7 +1663,17 @@ details[open] .details-toggle::before { transform: rotate(90deg); }
   max-width: none;
   margin: 0;
 }
+/* ✅ In grid mode, do NOT stretch cards to same row height */
+.offers-filtered-results.is-grid-mode .offers-program-block .offers-packages--paired {
+  align-items: start; /* prevents row stretch effect */
+}
 
+.offers-filtered-results.is-grid-mode .offer-card {
+  align-self: start;  /* extra safety */
+}
+.is-filter-hidden {
+  display: none !important;
+}
 @media (max-width: 900px) {
   .offers-filtered-results.is-grid-mode .offers-program-block .offers-packages--paired {
     grid-template-columns: 1fr;

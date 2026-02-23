@@ -1,23 +1,21 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
   offer_program: one
-  people_count: 1
-  meal_plan: MyString
-  duration_kind: MyString
-  nights: 1
-  room_type: MyString
-  price_ron: 1
-  active: false
+  people_count: 2
+  meal_plan: demi
+  duration_kind: intens
+  nights: 5
+  room_type: superioara
+  price_ron: 2600
+  active: true
   position: 1
 
 two:
   offer_program: two
-  people_count: 1
-  meal_plan: MyString
-  duration_kind: MyString
-  nights: 1
-  room_type: MyString
-  price_ron: 1
-  active: false
-  position: 1
+  people_count: 2
+  meal_plan: completa
+  duration_kind: intens
+  nights: 5
+  room_type: standard
+  price_ron: 3100
+  active: true
+  position: 2
