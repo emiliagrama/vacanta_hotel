@@ -1440,10 +1440,7 @@ details[open] .details-toggle::before { transform: rotate(90deg); }
 
 /* ==== OFFERS PAGE ====(paired layout + cards) */
 /* Hero Section */
-.offers-hero {
-  padding: 1rem 1rem;
-  text-align: center;
-}
+
 
 .section-title,
 .offers-hero h2,
@@ -1775,7 +1772,7 @@ details[open] .details-toggle::before { transform: rotate(90deg); }
   color: #2b2b2b; /* dark readable text */
 }
 .offers-filter-scope {
-  max-width: 980px;
+  max-width: 1300px;
   margin: 18px auto 6px;
   padding: 0 14px;
 }
