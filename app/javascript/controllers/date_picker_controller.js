@@ -2,9 +2,6 @@ import { Controller } from "@hotwired/stimulus"
 import flatpickr from "flatpickr"
 import { Romanian } from "flatpickr/dist/l10n/ro"
 
-
-
-
 export default class extends Controller {
   static targets = ["package", "checkIn", "checkOut"];
 
@@ -57,7 +54,8 @@ export default class extends Controller {
     this.resetCalendarsForNewMode();
 
     // Filters
-    const mondayFilter  = (date) => date.getDay() === 1;      // Monday
+    const mondayFilter = (date) => date.getDay() === 1; // Monday
+    const sundayFilter = (date) => date.getDay() === 0; // Sunday
     const weekendFilter = (date) => [5, 6].includes(date.getDay()); // Fri/Sat
 
     // Common “custom” options (used only for “vrei tu” re-init)
@@ -70,7 +68,7 @@ export default class extends Controller {
 
     // 5 nights (Mon -> +5)
     if (value.includes("intens")) {
-      this.checkInCalendar.set("enable", [mondayFilter]);
+      this.checkInCalendar.set("enable", [sundayFilter]);
       this.checkInCalendar.set("onChange", ([checkIn]) => {
         if (!checkIn) return;
         const checkOut = new Date(checkIn);
@@ -78,15 +76,15 @@ export default class extends Controller {
         this.checkOutCalendar.setDate(checkOut, true);
       });
 
-    // 10 nights (Mon -> +10)
-    } else if (value.includes("prelungit")) {
-      this.checkInCalendar.set("enable", [mondayFilter]);
-      this.checkInCalendar.set("onChange", ([checkIn]) => {
-        if (!checkIn) return;
-        const checkOut = new Date(checkIn);
-        checkOut.setDate(checkOut.getDate() + 10);
-        this.checkOutCalendar.setDate(checkOut, true);
-      });
+      // 12 nights (Sun -> +12)
+      } else if (value.includes("prelungit")) {
+        this.checkInCalendar.set("enable", [sundayFilter]);
+        this.checkInCalendar.set("onChange", ([checkIn]) => {
+          if (!checkIn) return;
+          const checkOut = new Date(checkIn);
+          checkOut.setDate(checkOut.getDate() + 12);
+          this.checkOutCalendar.setDate(checkOut, true);
+        });
 
     // Monday-only consultation (same-day checkout)
     } else if (value.includes("consult")) {
