@@ -30,10 +30,10 @@ balneo_rows = [
   { people_count: 2, duration_kind: "intensa",   nights: 5, meal_plan: "completa",  room_type: "superioară", price_ron: 3100, position: 4 },
 
   # 10 nopti - demi - 2 pers
-  { people_count: 2, duration_kind: "prelungita", nights: 10, meal_plan: "demi",    room_type: "superioară", price_ron: 4960, position: 7 },
+  { people_count: 2, duration_kind: "prelungita", nights: 10, meal_plan: "demi",    room_type: "superioară", price_ron: 4980, position: 7 },
 
   # 10 nopti - completa - 2 pers
-  { people_count: 2, duration_kind: "prelungita", nights: 10, meal_plan: "completa", room_type: "superioară", price_ron: 5960, position: 10 },
+  { people_count: 2, duration_kind: "prelungita", nights: 10, meal_plan: "completa", room_type: "superioară", price_ron: 4980, position: 10 },
 ]
 
 balneo_rows.each { |attrs| balneo.offer_variants.create!(attrs.merge(active: true)) }
@@ -81,10 +81,10 @@ ozon_rows = [
   { people_count: 2, duration_kind: "intensa",    nights: 5,  meal_plan: "completa", room_type: "superioară", price_ron: 3100, position: 204 },
 
   # 10 nopti - demi - 2 pers
-  { people_count: 2, duration_kind: "prelungita", nights: 10, meal_plan: "demi",     room_type: "superioară", price_ron: 4960, position: 207 },
+  { people_count: 2, duration_kind: "prelungita", nights: 10, meal_plan: "demi",     room_type: "superioară", price_ron: 4980, position: 207 },
 
   # 10 nopti - completa - 2 pers
-  { people_count: 2, duration_kind: "prelungita", nights: 10, meal_plan: "completa", room_type: "superioară", price_ron: 5960, position: 210 },
+  { people_count: 2, duration_kind: "prelungita", nights: 10, meal_plan: "completa", room_type: "superioară", price_ron: 4980, position: 210 },
 ]
 
 ozon_rows.each { |attrs| ozon.offer_variants.create!(attrs.merge(active: true)) }
@@ -136,7 +136,7 @@ balneo_ozon_rows = [
   { people_count: 2, duration_kind: "prelungita", nights: 10, meal_plan: "demi",     room_type: "superioară", price_ron: 6280, position: 408 },
 
   # 10 nopti - completa - 2 pers
-  { people_count: 2, duration_kind: "prelungita", nights: 10, meal_plan: "completa", room_type: "superioară", price_ron: 7280, position: 411 },
+  { people_count: 2, duration_kind: "prelungita", nights: 10, meal_plan: "completa", room_type: "superioară", price_ron: 6960, position: 411 },
 ]
 
 balneo_ozon_rows.each { |attrs| balneo_ozon.offer_variants.create!(attrs.merge(active: true)) }

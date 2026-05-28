@@ -8,14 +8,3 @@ one:
   price_ron: 2600
   active: true
   position: 1
-
-two:
-  offer_program: two
-  people_count: 2
-  meal_plan: completa
-  duration_kind: intens
-  nights: 5
-  room_type: standard
-  price_ron: 3100
-  active: true
-  position: 2
