@@ -11,8 +11,6 @@ module OferteHelper
     # keeping your current wording; refine later for 1 person
     case room_type
     when "superior" then "Cameră dublă superioară cu balcon (matrimonială/twin)"
-    when "standard" then "Cameră dublă standard cu balcon (matrimonială/twin)"
-    when "economy"  then "Cameră dublă economy fără balcon (matrimonială/twin)"
     else room_type
     end
 end

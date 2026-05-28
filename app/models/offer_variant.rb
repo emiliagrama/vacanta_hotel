@@ -5,7 +5,7 @@ class OfferVariant < ApplicationRecord
 
   MEAL_PLANS = %w[demi completa].freeze
   DURATION_KINDS = %w[intensa prelungita].freeze
-  ROOM_TYPES = %w[superioară standard economy].freeze
+  ROOM_TYPES = %w[superioară].freeze
 
   validates :people_count, inclusion: { in: [1, 2] }
   validates :meal_plan, inclusion: { in: MEAL_PLANS }
