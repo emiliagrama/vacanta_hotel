@@ -10,7 +10,7 @@ module OferteHelper
   def room_label(room_type, people_count)
     # keeping your current wording; refine later for 1 person
     case room_type
-    when "standard" then "Cameră dublă standard cu balcon (matrimonială/twin)"
+    when "standard" then "Cameră dublă cu balcon (matrimonială/twin)"
     else room_type
     end
 end
