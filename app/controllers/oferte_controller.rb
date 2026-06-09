@@ -26,7 +26,7 @@ class OferteController < ApplicationController
       }
     end
 
-    room_order = { "superioară" => 1 }
+    room_order = { "standard" => 1 }
     duration_order = { "intensa" => 1, "prelungita" => 2 }
 
     pairs.sort_by do |h|

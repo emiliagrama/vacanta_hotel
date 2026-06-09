@@ -4,7 +4,7 @@ one:
   meal_plan: demi
   duration_kind: intens
   nights: 5
-  room_type: superioara
+  room_type: standard
   price_ron: 2600
   active: true
   position: 1
