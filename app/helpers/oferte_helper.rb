@@ -13,19 +13,20 @@ module OferteHelper
     when "standard" then "Cameră dublă cu balcon (matrimonială/twin)"
     else room_type
     end
-end
-def offer_title(v)
-  prefix =
-    case v.offer_program.key
-    when "balneo" then "balneo"
-    when "ozon" then "cu Ozon"
-    when "balneo_ozon" then "balneo cu Ozon"
-    when "relaxare" then "de relaxare"
-    else v.offer_program.title
-    end
+  end
+  
+  def offer_title(v)
+    prefix =
+      case v.offer_program.key
+      when "balneo" then "balneo"
+      when "ozon" then "cu Ozon"
+      when "balneo_ozon" then "balneo cu Ozon"
+      when "relaxare" then "de relaxare"
+      else v.offer_program.title
+      end
 
-  "Vacanța de sănătate #{prefix} #{duration_label(v.duration_kind)} cu #{meal_plan_label(v.meal_plan)}"
-end
+    "Vacanța de sănătate #{prefix} #{duration_label(v.duration_kind)} cu #{meal_plan_label(v.meal_plan)}"
+  end
 
 
   def meal_details_line(plan)
