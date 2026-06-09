@@ -33,7 +33,7 @@ balneo_rows = [
   { people_count: 2, duration_kind: "prelungita", nights: 12, meal_plan: "demi",    room_type: "superioară", price_ron: 4980, position: 7 },
 
   # 12 nopti - completa - 2 pers
-  { people_count: 2, duration_kind: "prelungita", nights: 12, meal_plan: "completa", room_type: "superioară", price_ron: 4980, position: 10 },
+  { people_count: 2, duration_kind: "prelungita", nights: 12, meal_plan: "completa", room_type: "superioară", price_ron: 5980, position: 10 },
 ]
 
 balneo_rows.each { |attrs| balneo.offer_variants.create!(attrs.merge(active: true)) }
@@ -44,16 +44,16 @@ balneo_single_rows = [
   # =========================
 
   # 5 nopti - demi - 1 pers
-  { people_count: 1, duration_kind: "intensa",    nights: 5, meal_plan: "demi",    room_type: "superioară", price_ron: 1925, position: 101 },
+  { people_count: 1, duration_kind: "intensa",    nights: 5, meal_plan: "demi",    room_type: "superioară", price_ron: 1550, position: 101 },
 
   # 5 nopti - completa - 1 pers
-  { people_count: 1, duration_kind: "intensa",    nights: 5, meal_plan: "completa", room_type: "superioară", price_ron: 2125, position: 104 },
+  { people_count: 1, duration_kind: "intensa",    nights: 5, meal_plan: "completa", room_type: "superioară", price_ron: 1790, position: 104 },
 
   # 12 nopti - demi - 1 pers
-  { people_count: 1, duration_kind: "prelungita", nights: 12, meal_plan: "demi",    room_type: "superioară", price_ron: 3630, position: 107 },
+  { people_count: 1, duration_kind: "prelungita", nights: 12, meal_plan: "demi",    room_type: "superioară", price_ron: 2990, position: 107 },
 
   # 12 nopti - completa - 1 pers
-  { people_count: 1, duration_kind: "prelungita", nights: 12, meal_plan: "completa", room_type: "superioară", price_ron: 4130, position: 110 },
+  { people_count: 1, duration_kind: "prelungita", nights: 12, meal_plan: "completa", room_type: "superioară", price_ron: 3490, position: 110 },
 ]
 
 balneo_single_rows.each { |attrs| balneo.offer_variants.create!(attrs.merge(active: true)) }
@@ -84,7 +84,7 @@ ozon_rows = [
   { people_count: 2, duration_kind: "prelungita", nights: 12, meal_plan: "demi",     room_type: "superioară", price_ron: 4980, position: 207 },
 
   # 12 nopti - completa - 2 pers
-  { people_count: 2, duration_kind: "prelungita", nights: 12, meal_plan: "completa", room_type: "superioară", price_ron: 4980, position: 210 },
+  { people_count: 2, duration_kind: "prelungita", nights: 12, meal_plan: "completa", room_type: "superioară", price_ron: 5980, position: 210 },
 ]
 
 ozon_rows.each { |attrs| ozon.offer_variants.create!(attrs.merge(active: true)) }
@@ -96,16 +96,16 @@ ozon_single_rows = [
   # =========================
 
   # 5 nopti - intensa - demi
-  { people_count: 1, duration_kind: "intensa",    nights: 5, meal_plan: "demi",      room_type: "superioară", price_ron: 1925, position:301 },
+  { people_count: 1, duration_kind: "intensa",    nights: 5, meal_plan: "demi",      room_type: "superioară", price_ron: 1550, position:301 },
 
   # 5 nopti - intensa - completa
-  { people_count: 1, duration_kind: "intensa",    nights: 5, meal_plan: "completa",  room_type: "superioară", price_ron: 2125, position: 304 },
+  { people_count: 1, duration_kind: "intensa",    nights: 5, meal_plan: "completa",  room_type: "superioară", price_ron: 1790, position: 304 },
 
   # 12 nopti - prelungita - demi
-  { people_count: 1, duration_kind: "prelungita", nights: 12, meal_plan: "demi",     room_type: "superioară", price_ron: 3630, position: 307 },
+  { people_count: 1, duration_kind: "prelungita", nights: 12, meal_plan: "demi",     room_type: "superioară", price_ron: 2990, position: 307 },
 
   # 12 nopti - prelungita - completa
-  { people_count: 1, duration_kind: "prelungita", nights: 12, meal_plan: "completa", room_type: "superioară", price_ron: 4130, position: 310 },
+  { people_count: 1, duration_kind: "prelungita", nights: 12, meal_plan: "completa", room_type: "superioară", price_ron: 3490, position: 310 },
 ]
 
 ozon_single_rows.each { |attrs| ozon.offer_variants.create!(attrs.merge(active: true)) }
@@ -147,16 +147,16 @@ balneo_ozon_rows.each { |attrs| balneo_ozon.offer_variants.create!(attrs.merge(a
 
 balneo_ozon_single_rows = [
   # 5 nopti - intensă - demi
-  { people_count: 1, duration_kind: "intensa",   nights: 5,  meal_plan: "demi",     room_type: "superioară", price_ron: 2425, position: 401 },
+  { people_count: 1, duration_kind: "intensa",   nights: 5,  meal_plan: "demi",     room_type: "superioară", price_ron: 1990, position: 401 },
 
   # 5 nopti - intensă - completă
-  { people_count: 1, duration_kind: "intensa",   nights: 5,  meal_plan: "completa", room_type: "superioară", price_ron: 2625, position: 404 },
+  { people_count: 1, duration_kind: "intensa",   nights: 5,  meal_plan: "completa", room_type: "superioară", price_ron: 2240, position: 404 },
 
   # 12 nopti - prelungită - demi
-  { people_count: 1, duration_kind: "prelungita", nights: 12, meal_plan: "demi",     room_type: "superioară", price_ron: 4290, position: 407 },
+  { people_count: 1, duration_kind: "prelungita", nights: 12, meal_plan: "demi",     room_type: "superioară", price_ron: 3580, position: 407 },
 
   # 12 nopti - prelungită - completă
-  { people_count: 1, duration_kind: "prelungita", nights: 12, meal_plan: "completa", room_type: "superioară", price_ron: 4790, position: 410 },
+  { people_count: 1, duration_kind: "prelungita", nights: 12, meal_plan: "completa", room_type: "superioară", price_ron: 3950, position: 410 },
 ]
 
 balneo_ozon_single_rows.each { |attrs| balneo_ozon.offer_variants.create!(attrs.merge(active: true))
