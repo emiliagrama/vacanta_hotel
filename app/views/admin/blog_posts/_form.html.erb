@@ -1,0 +1,45 @@
+<%= form_with model: [:admin, blog_post], local: true do |form| %>
+  <% if blog_post.errors.any? %>
+    <div>
+      <h2><%= pluralize(blog_post.errors.count, "error") %> prevented this article from saving:</h2>
+
+      <ul>
+        <% blog_post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, "Title" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :excerpt, "Short excerpt" %>
+    <%= form.text_area :excerpt, rows: 3 %>
+  </div>
+
+  <div>
+    <%= form.label :body, "Article content" %>
+    <%= form.text_area :body, rows: 12 %>
+  </div>
+
+  <div>
+    <%= form.label :featured_image, "Featured image" %>
+    <%= form.file_field :featured_image %>
+  </div>
+
+  <div>
+    <%= form.label :published, "Publish now" %>
+    <%= form.check_box :published %>
+  </div>
+
+  <div>
+    <%= form.label :published_at, "Publication date" %>
+    <%= form.datetime_field :published_at %>
+  </div>
+
+  <%= form.submit "Save Article" %>
+<% end %>

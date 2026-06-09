@@ -1,7 +1,64 @@
-<h1>Admin Dashboard</h1>
+<div class="admin-page">
+  <div class="admin-header">
+    <div>
+      <h1 class="admin-title">Hotel Vacanța Admin</h1>
+      <p>Manage blog articles.</p>
+    </div>
 
-<p>You are logged in.</p>
+    <div class="admin-actions">
+      <%= link_to "New Article", new_admin_blog_post_path, class: "admin-btn" %>
 
-<%= button_to "Logout",
-              admin_logout_path,
-              method: :delete %>
+      <%= button_to "Logout",
+                    admin_logout_path,
+                    method: :delete,
+                    class: "admin-btn secondary" %>
+    </div>
+  </div>
+
+  <% if @blog_posts.any? %>
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Status</th>
+          <th>Published At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @blog_posts.each do |blog_post| %>
+          <tr>
+            <td><%= blog_post.title %></td>
+
+            <td>
+              <span class="admin-status <%= blog_post.published? ? "published" : "draft" %>">
+                <%= blog_post.published? ? "Published" : "Draft" %>
+              </span>
+            </td>
+
+            <td>
+              <%= blog_post.published_at&.strftime("%d/%m/%Y %H:%M") || "—" %>
+            </td>
+
+            <td>
+              <div class="admin-inline-actions">
+                <%= link_to "Edit", edit_admin_blog_post_path(blog_post), class: "admin-btn secondary" %>
+
+                <%= button_to "Delete",
+                              admin_blog_post_path(blog_post),
+                              method: :delete,
+                              data: { turbo_confirm: "Delete this article?" },
+                              class: "admin-btn danger" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <div class="admin-empty">
+      No articles yet.
+    </div>
+  <% end %>
+</div>
