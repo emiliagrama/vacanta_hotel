@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+  get    "/admin/login",  to: "admin/sessions#new",     as: :admin_login
+  post   "/admin/login",  to: "admin/sessions#create"
+  delete "/admin/logout", to: "admin/sessions#destroy", as: :admin_logout
   
+  namespace :admin do
+    resources :blog_posts
+  end
+
   get 'hidden_pages/termeni_si_conditii'
   get 'hidden_pages/politica_confidentialitate'
   get 'hidden_pages/politica_cookies'
