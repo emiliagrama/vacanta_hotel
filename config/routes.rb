@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   delete "/admin/logout", to: "admin/sessions#destroy", as: :admin_logout
   
   namespace :admin do
-    resources :blog_posts
+    resources :blog_posts do
+      patch :toggle_publish, on: :member
+    end
   end
 
   get 'hidden_pages/termeni_si_conditii'

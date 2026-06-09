@@ -1,15 +1,20 @@
-<h1>Admin Login</h1>
+<div class="admin-login-page">
+  <div class="admin-login-card">
+    <h1 class="admin-title">Hotel Vacanța Admin</h1>
+    <p class="admin-login-subtitle">Log in to manage blog articles.</p>
 
-<%= form_with url: admin_login_path, local: true do |form| %>
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email %>
+    <%= form_with url: admin_login_path, local: true, class: "admin-form" do |form| %>
+      <div class="admin-form-group">
+        <%= form.label :email %>
+        <%= form.email_field :email, autofocus: true %>
+      </div>
+
+      <div class="admin-form-group">
+        <%= form.label :password %>
+        <%= form.password_field :password %>
+      </div>
+
+      <%= form.submit "Login", class: "admin-btn" %>
+    <% end %>
   </div>
-
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-
-  <%= form.submit "Login" %>
-<% end %>
+</div>

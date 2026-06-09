@@ -124,3 +124,63 @@
 .admin-header .button_to {
   display: inline-block;
 }
+
+/*loginpage*/
+
+.admin-login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.admin-login-card {
+  width: 100%;
+  max-width: 520px;
+  background: #fffdf8;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+}
+
+.admin-login-subtitle {
+  margin-bottom: 28px;
+  color: #555;
+}
+
+.admin-form {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-form-group {
+  margin-bottom: 20px;
+}
+
+.admin-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.admin-form-group input,
+.admin-form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d7d7d7;
+  border-radius: 8px;
+}
+
+.admin-image-preview {
+  margin-bottom: 16px;
+}
+
+.admin-image-preview img {
+  max-width: 280px;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}

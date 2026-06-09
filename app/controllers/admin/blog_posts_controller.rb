@@ -2,7 +2,7 @@ class Admin::BlogPostsController < ApplicationController
   layout "admin"
 
   before_action :require_admin
-  before_action :set_blog_post, only: [:edit, :update, :destroy]
+  before_action :set_blog_post, only: [:edit, :update, :destroy, :toggle_publish]
 
   def index
     @blog_posts = BlogPost.order(created_at: :desc)
@@ -37,6 +37,11 @@ class Admin::BlogPostsController < ApplicationController
     @blog_post.destroy
     redirect_to admin_blog_posts_path, notice: "Article deleted successfully."
   end
+
+  def toggle_publish
+  @blog_post.update!(published: !@blog_post.published?)
+  redirect_to admin_blog_posts_path, notice: "Article status updated."
+end
 
   private
 

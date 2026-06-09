@@ -11,6 +11,13 @@
     </div>
   <% end %>
 
+  <% if blog_post.featured_image.attached? %>
+  <div class="admin-image-preview">
+    <p>Current featured image:</p>
+    <%= image_tag blog_post.featured_image, alt: blog_post.title %>
+  </div>
+  <% end %>
+
   <div>
     <%= form.label :title, "Title" %>
     <%= form.text_field :title %>

@@ -45,6 +45,11 @@
               <div class="admin-inline-actions">
                 <%= link_to "Edit", edit_admin_blog_post_path(blog_post), class: "admin-btn secondary" %>
 
+                <%= button_to blog_post.published? ? "Unpublish" : "Publish",
+                toggle_publish_admin_blog_post_path(blog_post),
+                method: :patch,
+                class: "admin-btn secondary" %>
+
                 <%= button_to "Delete",
                               admin_blog_post_path(blog_post),
                               method: :delete,

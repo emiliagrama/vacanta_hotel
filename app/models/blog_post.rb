@@ -13,8 +13,18 @@ class BlogPost < ApplicationRecord
       .where.not(published_at: nil)
       .order(published_at: :desc)
   }
+    before_save :set_published_at, if: -> { published? && published_at.blank? }
+    before_save :clear_published_at, if: -> { !published? }
 
   private
+
+  def set_published_at
+    self.published_at = Time.current
+  end
+
+  def clear_published_at
+    self.published_at = nil
+  end
 
   def generate_slug
     self.slug = title.parameterize
