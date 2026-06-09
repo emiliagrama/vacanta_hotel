@@ -24,7 +24,7 @@ def offer_title(v)
     else v.offer_program.title
     end
 
-  "Vacanța de sănătate #{prefix} #{duration_label(v.duration_kind)} cu #{meal_plan_label(v.meal_plan)}, în cameră #{v.room_type}"
+  "Vacanța de sănătate #{prefix} #{duration_label(v.duration_kind)} cu #{meal_plan_label(v.meal_plan)}"
 end
 
 
