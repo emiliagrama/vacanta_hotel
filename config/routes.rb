@@ -8,7 +8,9 @@ Rails.application.routes.draw do
       patch :toggle_publish, on: :member
     end
   end
-
+  
+  get "blog", to: "blog#index", as: :blog
+  get "blog/:slug", to: "blog#show", as: :blog_post
   get 'hidden_pages/termeni_si_conditii'
   get 'hidden_pages/politica_confidentialitate'
   get 'hidden_pages/politica_cookies'
