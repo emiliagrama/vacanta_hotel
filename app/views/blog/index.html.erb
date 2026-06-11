@@ -15,8 +15,7 @@
             <article class="blog-public-card">
 
             <% if post.featured_image.attached? %>
-                <%= image_tag post.featured_image, class: "blog-card-image" %>
-            <% else %>
+                <%= image_tag post.featured_image.variant(resize_to_fill: [600, 400]), class: "blog-card-image", alt: post.title %>            <% else %>
                 <%= image_tag "hero-hotel.jpg", class: "blog-card-image" %>
             <% end %>
 
