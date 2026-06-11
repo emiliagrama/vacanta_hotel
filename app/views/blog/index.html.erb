@@ -1,0 +1,50 @@
+<section class="public-blog-page">
+  <div class="blog-hero-intro">
+    <p class="blog-kicker">Hotel Vacanța</p>
+    <h1>Blog</h1>
+    <p>
+      Noutăți, recomandări și inspirație pentru vacanțe, tratamente și momente de relaxare la Geoagiu-Băi.
+    </p>
+  </div>
+
+    <% if @blog_posts.any? %>
+
+    <div class="blog-card-grid">
+        <% @blog_posts.each do |post| %>
+        <%= link_to blog_post_path(post.slug), class: "blog-card-link" do %>
+            <article class="blog-public-card">
+
+            <% if post.featured_image.attached? %>
+                <%= image_tag post.featured_image, class: "blog-card-image" %>
+            <% else %>
+                <%= image_tag "hero-hotel.jpg", class: "blog-card-image" %>
+            <% end %>
+
+            <div class="blog-card-content">
+                <% if post.published_at.present? %>
+                <p class="blog-card-date">
+                    <%= post.published_at.strftime("%d.%m.%Y") %>
+                </p>
+                <% end %>
+
+                <h2><%= post.title %></h2>
+                <p><%= post.excerpt %></p>
+
+                <span class="blog-read-link">
+                Citește articolul
+                </span>
+            </div>
+
+            </article>
+        <% end %>
+        <% end %>
+    </div>
+
+    <% else %>
+
+    <p class="empty-blog-message">
+        Momentan nu există articole publicate.
+    </p>
+
+    <% end %>
+</section>

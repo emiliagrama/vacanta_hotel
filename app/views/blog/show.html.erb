@@ -1,0 +1,23 @@
+<article class="public-blog-article">
+  <section class="blog-article-hero">
+    <% if @blog_post.featured_image.attached? %>
+    <%= image_tag @blog_post.featured_image, class: "blog-article-hero-image" %>
+    <% else %>
+    <%= image_tag "hero-hotel.jpg", class: "blog-article-hero-image" %>
+    <% end %>
+
+    <div class="blog-article-overlay">
+      <% if @blog_post.published_at.present? %>
+        <p class="blog-article-date"><%= @blog_post.published_at.strftime("%d.%m.%Y") %></p>
+      <% end %>
+
+      <h1><%= @blog_post.title %></h1>
+    </div>
+  </section>
+
+  <section class="blog-article-body">
+    <%= simple_format(@blog_post.body) %>
+
+    <%= link_to "← Înapoi la Blog", blog_path, class: "blog-back-link" %>
+  </section>
+</article>
