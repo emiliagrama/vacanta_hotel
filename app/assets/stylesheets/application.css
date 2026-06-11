@@ -284,7 +284,11 @@ input[type="submit"]:hover {
 .flatpickr-day:hover {
   background: #ccc;
 }
-
+.intro-content {
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: left;
+}
 /* === HOMEPAGE GALLERY LAYOUT === */
 .homepage-gallery {
   display: flex;
