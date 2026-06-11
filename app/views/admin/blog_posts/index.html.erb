@@ -51,10 +51,10 @@
                 class: "admin-btn secondary" %>
 
                 <%= button_to "Delete",
-                              admin_blog_post_path(blog_post),
-                              method: :delete,
-                              data: { turbo_confirm: "Delete this article?" },
-                              class: "admin-btn danger" %>
+                  admin_blog_post_path(blog_post),
+                  method: :delete,
+                  data: { turbo_confirm: "Are you sure you want to permanently delete this article?" },
+                  class: "admin-btn danger" %>
               </div>
             </td>
           </tr>
