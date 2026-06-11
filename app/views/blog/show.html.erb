@@ -1,3 +1,6 @@
+<% content_for :title, @blog_post.title %>
+<% content_for :meta_description, @blog_post.summary %>
+
 <article class="public-blog-article">
   <section class="blog-article-hero">
     <% if @blog_post.featured_image.attached? %>

@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HotelVacanta</title>
-  <link rel="canonical" href="https://www.hotelvacanta.ro<%= request.fullpath %>" />
-  <meta name="description" content="Hotel Vacanța – liniște și relaxare în stațiunea balneo Geoagiu Băi. Camere confortabile, spa, restaurant, oferte speciale și evenimente." />
+   <title>
+    <%= content_for?(:title) ? yield(:title) : "Hotel Vacanța" %>
+    </title>
+
+    <link rel="canonical" href="https://www.hotelvacanta.ro<%= request.fullpath %>" />
+
+    <meta name="description"
+          content="<%= content_for?(:meta_description) ? yield(:meta_description) : 'Hotel Vacanța – liniște și relaxare în stațiunea balneo Geoagiu Băi. Camere confortabile, spa, restaurant, oferte speciale și evenimente.' %>">
 
   <meta name="google-site-verification" content="dwpNaLRnwtYLfW6MeRbtm7fnrbjPPtAQ7iP_M6tbBxs" />
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -20,10 +25,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path 'apple-touch-icon.png' %>">
-<link rel="icon" type="image/png" sizes="32x32" href="<%= asset_path 'favicon-32x32.png' %>">
-<link rel="icon" type="image/png" sizes="16x16" href="<%= asset_path 'favicon-16x16.png' %>">
-<link rel="manifest" href="<%= asset_path 'site.webmanifest' %>">
-<link rel="shortcut icon" href="<%= asset_path 'favicon.ico' %>">
+  <link rel="icon" type="image/png" sizes="32x32" href="<%= asset_path 'favicon-32x32.png' %>">
+  <link rel="icon" type="image/png" sizes="16x16" href="<%= asset_path 'favicon-16x16.png' %>">
+  <link rel="manifest" href="<%= asset_path 'site.webmanifest' %>">
+  <link rel="shortcut icon" href="<%= asset_path 'favicon.ico' %>">
 
 </head>
 
