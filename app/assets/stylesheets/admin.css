@@ -1,7 +1,21 @@
+.admin-layout {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+}
+
+.admin-page,
+.admin-page *,
+.admin-login-page,
+.admin-login-page * {
+  box-sizing: border-box;
+}
+
 .admin-page {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 48px 24px;
+  width: min(100% - 32px, 1200px);
+  min-height: 100vh;
+  margin: 24px auto;
+  padding: 40px 36px;
   font-family: Inter, system-ui, sans-serif;
   color: #1f1f1f;
 }
@@ -10,22 +24,31 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   margin-bottom: 32px;
 }
 
 .admin-title {
   font-family: Bitter, serif;
   font-size: 40px;
+  line-height: 1.1;
   margin: 0;
 }
 
-.admin-actions {
+.admin-actions,
+.admin-inline-actions {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
 }
 
-.admin-btn {
+.admin-header .button_to,
+.admin-inline-actions form {
+  margin: 0;
+}
+
+.admin-btn,
+.admin-page input[type="submit"] {
   display: inline-block;
   border: none;
   border-radius: 8px;
@@ -35,6 +58,7 @@
   text-decoration: none;
   font-weight: 600;
   cursor: pointer;
+  box-shadow: none;
 }
 
 .admin-btn.secondary {
@@ -46,6 +70,16 @@
 .admin-btn.danger {
   background: #8b0000;
 }
+
+.admin-empty {
+  padding: 40px;
+  background: #fafafa;
+  border-radius: 12px;
+  text-align: center;
+  color: #777;
+}
+
+/* Table */
 
 .admin-table {
   width: 100%;
@@ -84,23 +118,7 @@
   color: #8a5a00;
 }
 
-.admin-inline-actions {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.admin-inline-actions form {
-  margin: 0;
-}
-
-.admin-empty {
-  padding: 40px;
-  background: #fafafa;
-  border-radius: 12px;
-  text-align: center;
-  color: #777;
-}
+/* Forms */
 
 .admin-page form {
   background: transparent;
@@ -110,22 +128,57 @@
   border: 0;
 }
 
-.admin-page button,
-.admin-page input[type="submit"] {
-  box-shadow: none;
+.admin-form {
+  width: 100%;
+  max-width: 900px;
 }
 
-.admin-inline-actions {
-  display: flex;
-  gap: 10px;
-  align-items: center;
+.admin-form-group {
+  margin-bottom: 22px;
 }
 
-.admin-header .button_to {
-  display: inline-block;
+.admin-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
 }
 
-/*loginpage*/
+.admin-form-group input:not([type="checkbox"]):not([type="submit"]),
+.admin-form-group textarea,
+.admin-form-group select {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 46px;
+  padding: 12px 14px;
+  border: 1px solid #d7d7d7;
+  border-radius: 8px;
+  font: inherit;
+  background: white;
+}
+
+.admin-form-group textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.admin-form-group input[type="checkbox"] {
+  width: auto;
+  margin-top: 8px;
+}
+
+.admin-image-preview {
+  margin-bottom: 16px;
+}
+
+.admin-image-preview img {
+  max-width: 280px;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Login page */
 
 .admin-login-page {
   min-height: 100vh;
@@ -149,38 +202,73 @@
   color: #555;
 }
 
+/* Mobile */
+
+@media (max-width: 768px) {
+  .admin-page {
+    width: calc(100% - 16px);
+    margin: 8px auto;
+    padding: 24px 16px;
+  }
+
+  .admin-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-title {
+    font-size: 30px;
+    margin-bottom: 8px;
+  }
+
+  .admin-actions,
+  .admin-inline-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-btn,
+  .admin-page input[type="submit"] {
+    width: 100%;
+    text-align: center;
+    padding: 13px 16px;
+  }
+
 .admin-form {
-  background: transparent;
-  box-shadow: none;
-  padding: 0;
-  margin: 0;
-}
-
-.admin-form-group {
-  margin-bottom: 20px;
-}
-
-.admin-form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-.admin-form-group input,
-.admin-form-group textarea {
   width: 100%;
-  padding: 12px 14px;
-  border: 1px solid #d7d7d7;
-  border-radius: 8px;
+  max-width: 100%;
 }
 
-.admin-image-preview {
-  margin-bottom: 16px;
-}
+  .admin-form-group {
+    margin-bottom: 24px;
+  }
 
-.admin-image-preview img {
-  max-width: 280px;
-  height: auto;
-  border-radius: 10px;
-  display: block;
+  .admin-form-group label {
+    font-size: 15px;
+  }
+
+  .admin-form-group input:not([type="checkbox"]),
+  .admin-form-group textarea,
+  .admin-form-group select {
+    min-height: 52px;
+    font-size: 16px;
+    padding: 14px 15px;
+  }
+
+  .admin-form-group textarea {
+    min-height: 260px;
+  }
+
+  .admin-image-preview img {
+    max-width: 100%;
+  }
+
+  .admin-empty {
+    padding: 32px 18px;
+  }
+
+  .admin-login-card {
+    padding: 28px 20px;
+  }
 }

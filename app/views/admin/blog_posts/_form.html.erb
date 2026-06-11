@@ -1,7 +1,10 @@
-<%= form_with model: [:admin, blog_post], local: true do |form| %>
+<%= form_with model: [:admin, blog_post], local: true, class: "admin-form" do |form| %>
   <% if blog_post.errors.any? %>
-    <div>
-      <h2><%= pluralize(blog_post.errors.count, "error") %> prevented this article from saving:</h2>
+    <div class="admin-form-group">
+      <h2>
+        <%= pluralize(blog_post.errors.count, "error") %>
+        prevented this article from saving:
+      </h2>
 
       <ul>
         <% blog_post.errors.full_messages.each do |message| %>
@@ -12,41 +15,43 @@
   <% end %>
 
   <% if blog_post.featured_image.attached? %>
-  <div class="admin-image-preview">
-    <p>Current featured image:</p>
-    <%= image_tag blog_post.featured_image, alt: blog_post.title %>
-  </div>
+    <div class="admin-image-preview">
+      <p>Current featured image:</p>
+      <%= image_tag blog_post.featured_image, alt: blog_post.title %>
+    </div>
   <% end %>
 
-  <div>
+  <div class="admin-form-group">
     <%= form.label :title, "Title" %>
     <%= form.text_field :title %>
   </div>
 
-  <div>
-    <%= form.label :excerpt, "Short excerpt" %>
+  <div class="admin-form-group">
+    <%= form.label :excerpt, "Short summary" %>
     <%= form.text_area :excerpt, rows: 3 %>
   </div>
 
-  <div>
+  <div class="admin-form-group">
     <%= form.label :body, "Article content" %>
     <%= form.text_area :body, rows: 12 %>
   </div>
 
-  <div>
+  <div class="admin-form-group">
     <%= form.label :featured_image, "Featured image" %>
     <%= form.file_field :featured_image %>
   </div>
 
-  <div>
-    <%= form.label :published, "Publish now" %>
+  <div class="admin-form-group">
+    <%= form.label :published, "Publish now" %><br>
     <%= form.check_box :published %>
   </div>
 
-  <div>
+  <div class="admin-form-group">
     <%= form.label :published_at, "Publication date" %>
-    <%= form.datetime_field :published_at %>
+    <%= form.date_field :published_at %>
   </div>
 
-  <%= form.submit "Save Article" %>
+  <div class="admin-form-group">
+    <%= form.submit "Save Article", class: "admin-btn" %>
+  </div>
 <% end %>

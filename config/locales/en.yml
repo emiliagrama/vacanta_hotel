@@ -29,3 +29,10 @@
 
 en:
   hello: "Hello world"
+
+en:
+  activerecord:
+    attributes:
+      blog_post:
+        excerpt: "Short summary"
+        body: "Article content"

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get    "/admin/login",  to: "admin/sessions#new",     as: :admin_login
-  post   "/admin/login",  to: "admin/sessions#create"
+  get    "/admin",        to: "admin/sessions#new",     as: :admin_login
+  post   "/admin",        to: "admin/sessions#create"
   delete "/admin/logout", to: "admin/sessions#destroy", as: :admin_logout
   
   namespace :admin do
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       patch :toggle_publish, on: :member
     end
   end
-  
+
   get "blog", to: "blog#index", as: :blog
   get "blog/:slug", to: "blog#show", as: :blog_post
   get 'hidden_pages/termeni_si_conditii'

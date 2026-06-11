@@ -4,7 +4,7 @@ class BlogPost < ApplicationRecord
   before_validation :generate_slug, if: -> { title.present? && slug.blank? }
 
   validates :title, presence: true
-  validates :slug, presence: true, uniqueness: true
+  validates :slug, uniqueness: true, allow_blank: true
   validates :excerpt, presence: true
   validates :body, presence: true
 
