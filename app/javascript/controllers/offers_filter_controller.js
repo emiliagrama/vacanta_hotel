@@ -18,7 +18,6 @@ export default class extends Controller {
   toggle(e) {
     e.preventDefault()
 
-    // Your old logic was inverted.
     // isCollapsed = true means panel is closed and should open.
     const isCollapsed = this.panelTarget.classList.contains("is-collapsed")
     const willOpen = isCollapsed
@@ -34,23 +33,25 @@ export default class extends Controller {
 
     // ✅ re-enable everything when reset
     this.setFiltersDisabled(false)
-this.collapseAllDetails()
-    this.apply()
+    this.collapseAllDetails()
+        this.apply()
   }
-collapseAllDetails() {
-  const scope = this.hasResultsTarget ? this.resultsTarget : this.element
 
-  scope.querySelectorAll('[data-controller~="offer-details"]').forEach((el) => {
-    const details = el.querySelector('[data-offer-details-target="details"]')
-    const button = el.querySelector('[data-offer-details-target="button"]')
+  collapseAllDetails() {
+    const scope = this.hasResultsTarget ? this.resultsTarget : this.element
 
-    if (details) details.classList.add("is-collapsed")
-    if (button) {
-      button.setAttribute("aria-expanded", "false")
-      button.textContent = "Citește mai mult"
-    }
-  })
-}
+    scope.querySelectorAll('[data-controller~="offer-details"]').forEach((el) => {
+      const details = el.querySelector('[data-offer-details-target="details"]')
+      const button = el.querySelector('[data-offer-details-target="button"]')
+
+      if (details) details.classList.add("is-collapsed")
+      if (button) {
+        button.setAttribute("aria-expanded", "false")
+        button.textContent = "Citește mai mult"
+      }
+    })
+  }
+
   select(e) {
     const btn = e.currentTarget
     const group = btn.dataset.group
@@ -71,7 +72,7 @@ collapseAllDetails() {
 
     // ✅ if relaxare chosen, disable other groups + clear their state
     this.applyRelaxareLock()
-this.collapseAllDetails()
+    this.collapseAllDetails()
     this.apply()
   }
 
@@ -117,19 +118,20 @@ this.collapseAllDetails()
     cards.forEach((card) => {
       const isRelaxareSpecial = card.dataset.relaxareSpecial === "true"
 
-     const ok = isRelaxareSpecial
-  ? (this.state.vacanta === null || this.state.vacanta === "relaxare")
-  : (
-      this.match(card, "vacanta") &&
-      this.match(card, "people") &&
-      this.matchTratament(card) &&
-      this.match(card, "nights") &&
-      this.match(card, "meal")
-    )
+      const ok = isRelaxareSpecial
+        ? (this.state.vacanta === null || this.state.vacanta === "relaxare")
+        : (
+            this.match(card, "vacanta") &&
+            this.match(card, "people") &&
+            this.matchTratament(card) &&
+            this.match(card, "nights") &&
+            this.match(card, "meal")
+          )
 
       card.classList.toggle("is-filter-hidden", !ok)
       if (ok) visible++
     })
+
     // 6) Relaxare section visibility
     const relaxSection = scope.querySelector(".offers-relaxare-section")
 

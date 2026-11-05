@@ -36,16 +36,16 @@
     <%= f.label :package, "Tip Pachet" %>
     <%= f.select :package,
       [
-  "Vacanță balneară intensă",
-  "Vacanță balneară prelungită",
-  "Vacanța cu ozonoterapie intensă",
-  "Vacanța cu ozonoterapie prelungită",
-  "Vacanța balneară intensă cu ozon",
-  "Vacanța balneară cu ozon prelungită",
-  "Mini-Vacanță de weekend",
-  "Vacanța, așa cum vrei tu",
-  "Rezervă consultația"
-],
+        "Vacanță balneară intensă",
+        "Vacanță balneară prelungită",
+        "Vacanța cu ozonoterapie intensă",
+        "Vacanța cu ozonoterapie prelungită",
+        "Vacanța balneară intensă cu ozon",
+        "Vacanța balneară cu ozon prelungită",
+        "Mini-Vacanță de weekend",
+        "Vacanța, așa cum vrei tu",
+        "Rezervă consultația"
+      ],
       { prompt: "Alege un pachet" },
       { data: { action: "change->date-picker#updateDatePicker", date_picker_target: "package" }, autocomplete: "off" } %>
 
@@ -88,6 +88,7 @@
     <% end %>
   </ul>
 <% end %>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
   const contactForm = document.getElementById("contact-form");

@@ -66,31 +66,39 @@ export default class extends Controller {
       locale: { firstDayOfWeek: 1 },
     };
 
-    // 5 nights (Mon -> +5)
+    // 5 nights (Sun -> +5)
     if (value.includes("intens")) {
       this.checkInCalendar.set("enable", [sundayFilter]);
+
       this.checkInCalendar.set("onChange", ([checkIn]) => {
         if (!checkIn) return;
+
         const checkOut = new Date(checkIn);
         checkOut.setDate(checkOut.getDate() + 5);
+
         this.checkOutCalendar.setDate(checkOut, true);
       });
 
       // 12 nights (Sun -> +12)
       } else if (value.includes("prelungit")) {
         this.checkInCalendar.set("enable", [sundayFilter]);
+
         this.checkInCalendar.set("onChange", ([checkIn]) => {
           if (!checkIn) return;
+
           const checkOut = new Date(checkIn);
           checkOut.setDate(checkOut.getDate() + 12);
+
           this.checkOutCalendar.setDate(checkOut, true);
         });
 
     // Monday-only consultation (same-day checkout)
     } else if (value.includes("consult")) {
       this.checkInCalendar.set("enable", [mondayFilter]);
+
       this.checkInCalendar.set("onChange", ([checkIn]) => {
         if (!checkIn) return;
+
         // set to noon to avoid rare timezone day shifts
         const sameDay = new Date(
           checkIn.getFullYear(),
@@ -98,16 +106,20 @@ export default class extends Controller {
           checkIn.getDate(),
           12
         );
+
         this.checkOutCalendar.setDate(sameDay, true);
       });
 
     // Weekend (Fri/Sat start -> +2 nights)
     } else if (value.includes("weekend")) {
       this.checkInCalendar.set("enable", [weekendFilter]);
+
       this.checkInCalendar.set("onChange", ([checkIn]) => {
         if (!checkIn) return;
+
         const checkOut = new Date(checkIn);
         checkOut.setDate(checkOut.getDate() + 2);
+
         this.checkOutCalendar.setDate(checkOut, true);
       });
 

@@ -18,11 +18,11 @@ class OferteController < ApplicationController
 
     grouped = variants.group_by { |v| [v.duration_kind, v.nights, v.room_type] }
 
-    pairs = grouped.map do |key, vars|
+    pairs = grouped.map do |key, variants|
       {
         key: key,
-        demi: vars.find { |v| v.meal_plan == "demi" },
-        completa: vars.find { |v| v.meal_plan == "completa" }
+        demi: variants.find { |v| v.meal_plan == "demi" },
+        completa: variants.find { |v| v.meal_plan == "completa" }
       }
     end
 

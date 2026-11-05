@@ -65,7 +65,6 @@ ozon = OfferProgram.create!(
   position: 2,
   active: true,
   intro_text: "Planul de tratament cu ozon se stabilește în urma consultului medical, în fiecare zi de luni a săptămânii!",
-
   includes_bullets: [
     "Consultatie medicală de specialitate",
     "1 procedură de ozonoterapie/zi",

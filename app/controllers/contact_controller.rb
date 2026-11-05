@@ -8,14 +8,14 @@ class ContactController < ApplicationController
     if @contact.save
       # Optionally send an email to the hotel:
      begin
-  ContactMailer.with(
-    contact: @contact,
-    variant_id: params[:variant_id],
-    offer_hint: params[:offer_hint]
-  ).new_inquiry.deliver_now
-rescue => e
-  Rails.logger.error("[MAIL ERROR] #{e.class}: #{e.message}")
-end
+        ContactMailer.with(
+          contact: @contact,
+          variant_id: params[:variant_id],
+          offer_hint: params[:offer_hint]
+        ).new_inquiry.deliver_now
+      rescue => e
+        Rails.logger.error("[MAIL ERROR] #{e.class}: #{e.message}")
+      end
       # Set cookie if user opted for newsletter
       if @contact.newsletter
         cookies[:subscribed_to_newsletter] = { value: "true", path: "/", expires: 1.year.from_now }
